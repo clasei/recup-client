@@ -1,0 +1,18 @@
+.content-list {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.content-item {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}

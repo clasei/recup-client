@@ -1,11 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 // import { useState, useContext } from "react"; 
+import './App.css'
 
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import DashboardPage from "./pages/DashboardPage";
-import ContentListPage from "./pages/SearchAllPage"; // includes search !! + link to create rec
+import ContentListPage from "./pages/ContentListPage"; // includes search !! + link to create rec
 import ContentDetailPage from "./pages/ContentDetailPage"; // content + linked recs
 import CreateRecommendationPage from "./pages/CreateRecommendationPage"; // (form)
 import CreateNewContentPage from "./pages/CreateNewContentPage"; // create content + recommendation (form)
@@ -15,6 +18,7 @@ import UserProfilePage from "./pages/UserProfilePage"; // profile info + created
 import AdminDashboard from "./pages/AdminDashboard";
 import AboutPage from "./pages/AboutPage";
 import Error404 from "./pages/Error404";
+
 
 function App() {
 
