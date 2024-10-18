@@ -1,7 +1,9 @@
 import { Routes, Route } from "react-router-dom"
 import Private from "./components/auth/Private"
 // import { useState, useContext } from "react" 
-import './App.css'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './assets/styles/AllGeneral.css'
 
 import Navbar from "./components/Navbar" // CHANGES ?? isLoggedIn !!!
 import Footer from "./components/Footer" // PUBLIC

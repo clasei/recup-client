@@ -11,7 +11,7 @@ function ContentListPage() {
       try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/contents`)
         if (!response.ok) {
-          throw new Error('sth is not working fine, dont panic')
+          throw new Error('Error fetching conntents.')
         }
         const data = await response.json()
         setContents(data);
@@ -26,9 +26,11 @@ function ContentListPage() {
   return (
     <div className="content-list">
       <h1>do u see this?</h1>
-      {error && <p className="error-message">this is not working: {error}</p>}
+      {error && <p className="error-message">Error: {error}</p>}
       <ul>
         {contents.map(content => (
+
+          // ADD CONTENT CARD HERE ??
           <li key={content._id} className="content-item">
             {content.title} - {content.category} {<br></br>} {content.author}
           </li>
