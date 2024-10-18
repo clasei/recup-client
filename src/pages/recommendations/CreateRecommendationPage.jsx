@@ -1,6 +1,6 @@
-
 import RecommendationForm from "../../components/forms/RecommendationForm"
 import "../../assets/styles/RecContentForm.css"
+
 
 function CreateRecommendationPage() {
   return (

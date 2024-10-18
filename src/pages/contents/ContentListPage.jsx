@@ -1,90 +1,46 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import "../../assets/styles/RecContentForm.css";
-import service from "../../services/config";
+import { useEffect, useState } from 'react'
+import "../../assets/styles/ContentListDetail.css"
 
-function RecommendationForm() {
-  const { contentId } = useParams(); // Get contentId from URL params
-  const navigate = useNavigate(); // For redirect after successful form submission
-  const [recTitle, setRecTitle] = useState("");
-  const [tagline, setTagline] = useState("");
-  const [recText, setRecText] = useState("");
-  const [contentTitle, setContentTitle] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+function ContentListPage() {
+  const [contents, setContents] = useState([])
+  const [error, setError] = useState(null);
 
-  // Fetch content title
+
   useEffect(() => {
-    const fetchContentTitle = async () => {
+    const fetchData = async () => {
       try {
-        const response = await service.get(`/api/contents/${contentId}`);
-        setContentTitle(response.data.title); // Set the content title
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/contents`)
+        if (!response.ok) {
+          throw new Error('Error fetching conntents.')
+        }
+        const data = await response.json()
+        setContents(data);
       } catch (error) {
-        console.log("Error fetching content:", error);
-        setErrorMessage("Failed to fetch content details.");
+        setError(error.message)
       }
     };
 
-    fetchContentTitle(); // Fetch when component mounts
-  }, [contentId]);
-
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await service.post(`/api/recommendations/content/${contentId}`, {
-        recTitle,
-        tagline,
-        recText,
-      });
-      navigate(`/recommendations/detail/${response.data.newRec._id}`); // Redirect to the new recommendation's detail page
-    } catch (error) {
-      setErrorMessage(error.response?.data?.message || "Failed to create recommendation.");
-    }
-  };
+    fetchData()
+  }, []);
 
   return (
-    <div className="container my-5">
-      <div className="row justify-content-center">
-        <div className="col-md-10">
-          <h1>Create Your Recommendation for {contentTitle || "Loading..."}</h1>
-          {errorMessage && <p className="text-danger">{errorMessage}</p>}
-          <form onSubmit={handleSubmit}>
-            <div className="mb-2">
-              <label htmlFor="recTitle" className="form-label">Title:</label>
-              <input
-                type="text"
-                className="form-control"
-                id="recTitle"
-                value={recTitle}
-                onChange={(e) => setRecTitle(e.target.value)}
-              />
-            </div>
-            <div className="mb-2">
-              <label htmlFor="tagline" className="form-label">Tagline:</label>
-              <input
-                type="text"
-                className="form-control"
-                id="tagline"
-                value={tagline}
-                onChange={(e) => setTagline(e.target.value)}
-              />
-            </div>
-            <div className="mb-2">
-              <label htmlFor="recText" className="form-label">Recommendation Text:</label>
-              <textarea
-                className="form-control"
-                id="recText"
-                rows="5"
-                value={recText}
-                onChange={(e) => setRecText(e.target.value)}
-              ></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
+    <div className="content-list">
+      <h1>do u see this?</h1>
+      {error && <p className="error-message">Error: {error}</p>}
+      <ul>
+        {contents.map(content => (
+
+          // ADD CONTENT CARD HERE ??
+          <li key={content._id} className="content-item">
+            {content.title}
+             {/* - {content.category}  */}
+            {<br></br>} 
+            {content.author}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
-export default RecommendationForm;
+export default ContentListPage
