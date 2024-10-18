@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import '../assets/styles/ContentListDetail.css'
+import "../../assets/styles/ContentListDetail.css"
 
 function ContentListPage() {
   const [contents, setContents] = useState([])
@@ -9,7 +9,7 @@ function ContentListPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contents`)
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/contents`)
         if (!response.ok) {
           throw new Error('sth is not working fine, dont panic')
         }
@@ -30,7 +30,7 @@ function ContentListPage() {
       <ul>
         {contents.map(content => (
           <li key={content._id} className="content-item">
-            {content.title} - {content.category}
+            {content.title} - {content.category} {<br></br>} {content.author}
           </li>
         ))}
       </ul>
