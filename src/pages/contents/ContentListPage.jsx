@@ -32,7 +32,10 @@ function ContentListPage() {
 
           // ADD CONTENT CARD HERE ??
           <li key={content._id} className="content-item">
-            {content.title} - {content.category} {<br></br>} {content.author}
+            {content.title}
+             {/* - {content.category}  */}
+            {<br></br>} 
+            {content.author}
           </li>
         ))}
       </ul>
