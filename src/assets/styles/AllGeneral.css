@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+/* ==================== */
+/* Global Styles */
+/* ==================== */
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.5;
+  background-color: #202020;
+  font-family: "Play", "Roboto", sans-serif; /* Roboto ? */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding: 10px;
+  overflow: auto;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  max-height: 100%;
+  color: #3683e2 !important;
+  background-color: #202020;
+  padding-top: 25px;
+  height: 100%;
+}
