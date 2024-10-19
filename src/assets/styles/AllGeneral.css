@@ -35,3 +35,31 @@ html, body {
   padding-top: 25px;
   height: 100%;
 }
+
+
+/* TITLES -------------- */
+
+h1 {
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+  margin-top: 0;
+}
+h2 {
+  color: rgb(138, 179, 255);
+  padding: 1rem;
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.custom-hr {
+  border: none;
+  height: 2px;
+  width: 200px;
+  background-color: #6980ff;
+}
+
+.custom-emoji {
+  font-size: 2.5rem;
+  margin: 2rem;
+  margin-bottom: 0.5rem;
+}

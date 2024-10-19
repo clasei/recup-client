@@ -1,4 +1,112 @@
-.form-control {
-  width: 320px !important;
+/* .form-control {
+  min-width: 320px !important;
   max-width: none;
+} */
+
+form {
+  /* width: 400px !important; */
+  background-color: #1c1c1c14;
+  border-radius: 15px;
+  padding: 20px;
+  padding-top: 2rem;
+  max-width: 600px;
+  margin: 1rem auto;
+  box-shadow: 0 4px 12px rgba(136, 224, 254, 0.634);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form .mb-1 {
+  margin-bottom: 0.2rem !important;
+}
+
+
+.form-label {
+  width: 100%;
+  min-width: 350px;
+  padding: 10px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #3f3f3f;
+  color: #b4b4b4;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #d3d3d3;
+  color: #303030;
+}
+
+.form-text {
+  display: block;
+  margin-top: 0rem;
+  color: #6c757d;
+}
+
+/* THIS IS ALL REACT TAGS... */
+.ReactTags__tags {
+  /* width: 320px !important; */
+  padding: 0.1rem;
+  border-radius: 5px;
+  border: 1px solid #c4c4c4;
+}
+
+.ReactTags__tagInputField {
+  padding: 0.25rem 1rem;
+  margin-bottom: 0.2rem;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #898989;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.ReactTags__selected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 5px;
+}
+
+.ReactTags__tag {
+  color: rgb(41, 41, 41);
+  background-color: #c4c4c4;
+  border: none;
+  border-radius: 7px;
+  padding: 0.25rem 0.5rem;
+}
+
+.ReactTags__remove {
+  padding: 0rem 0.4rem;
+  padding-left: 0.55rem;
+  padding-bottom: 0.15rem;
+  margin-left: 0.75rem;
+  background-color: rgb(46, 46, 46);
+
+}
+
+.ReactTags__remove:hover {
+  background-color: rgb(255, 109, 109);
+}
+
+/* button ---------- */
+.btn {
+  /* width: 320px !important; */
+  width: 100%;
+  font-size: 21px;
+  min-width: 150px;
+  border: solid 2px white;
+  box-shadow: 4px 4px 15px rgba(254, 254, 254, 0.373);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  /* margin-top: 50px !important; */
+  margin: 1.5rem;
 }
