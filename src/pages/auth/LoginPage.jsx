@@ -28,24 +28,24 @@ function LoginPage() {
 
       navigate(`/dashboard`)
     } catch (error) {
-      setErrorMessage(error.response?.data?.message || "Login failed. Please try again.")
+      setErrorMessage(error.response?.data?.message || "sth went wrong, try again, you've got this")
     }
   }
 
   return (
     <form onSubmit={handleSubmit}>
 
-      <h1>Login to Your Account</h1>
+      <h1>log in to your recup</h1>
 
-      <label>Email:</label>
+      <label>email:</label>
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       
-      <label>Password:</label>
+      <label>password:</label>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
       {errorMessage && <p>{errorMessage}</p>}
 
-      <button type="submit">Log In</button>
+      <button type="submit">let's recup</button>
     </form>
   )
 }

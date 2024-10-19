@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import "../../assets/styles/RecContentForm.css"
 import service from "../../services/config"
+import "../../assets/styles/RecContentForm.css"
 
 function RecommendationForm() {
   const { contentId } = useParams() 
@@ -18,8 +18,8 @@ function RecommendationForm() {
         const response = await service.get(`/contents/${contentId}`)
         setContentTitle(response.data.title)
       } catch (error) {
-        console.log("Error fetching content:", error)
-        setErrorMessage("Failed to fetch content details.")
+        console.log("sth went wrong fetching content:", error)
+        setErrorMessage("unable to fetch content details")
       }
     }
 
@@ -37,7 +37,7 @@ function RecommendationForm() {
       })
       navigate(`/recommendations/detail/${response.data.newRec._id}`) 
     } catch (error) {
-      setErrorMessage(error.response?.data?.message || "Failed to create recommendation.")
+      setErrorMessage(error.response?.data?.message || "unable to create recommendation")
     }
   }
 
@@ -45,11 +45,13 @@ function RecommendationForm() {
     <div className="container my-10">
       <div className="row justify-content-center">
         <div className="col-md-9">
-          <h1>Create Your Recommendation for {contentTitle || "Loading..."}</h1>
+          <h1>recup your arguments to recommend {contentTitle || "Loading..."}</h1>
           {errorMessage && <p className="text-danger">{errorMessage}</p>}
+         
           <form onSubmit={handleSubmit}>
+            
             <div className="mb-1">
-              <label htmlFor="recTitle" className="form-label">Title:</label>
+              <label htmlFor="recTitle" className="form-label">set a title for your recommendation</label>
               <input
                 type="text"
                 className="form-control"
@@ -59,7 +61,7 @@ function RecommendationForm() {
               />
             </div>
             <div className="mb-1">
-              <label htmlFor="tagline" className="form-label">Tagline:</label>
+              <label htmlFor="tagline" className="form-label">write a tagline</label>
               <input
                 type="text"
                 className="form-control"
@@ -69,7 +71,7 @@ function RecommendationForm() {
               />
             </div>
             <div className="mb-1">
-              <label htmlFor="recText" className="form-label">Recommendation Text:</label>
+              <label htmlFor="recText" className="form-label">feel free to ramble and share your thoughts/feelings as much as you like</label>
               <textarea
                 className="form-control"
                 id="recText"
@@ -79,7 +81,8 @@ function RecommendationForm() {
                 maxLength="4900" 
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">let's do this</button>
+          
           </form>
         </div>
       </div>

@@ -14,7 +14,7 @@ function RecommendationDetailPage() {
         const response = await service.get(`/recommendations/${recommendationId}`)
         setRecommendation(response.data)
       } catch (error) {
-        setErrorMessage("Failed to fetch recommendation details.")
+        setErrorMessage("unable to fetch recommendation details")
       }
     };
 
@@ -22,7 +22,7 @@ function RecommendationDetailPage() {
   }, [recommendationId])
 
   if (!recommendation) {
-    return <p>Loading recommendation...</p>
+    return <p>loading...</p> // spinner here
   }
 
 
@@ -62,7 +62,8 @@ function RecommendationDetailPage() {
 
           <hr />
 
-          {/* IMAGE OR VIDEO FORMATS BELOW -- user should know... */}
+          {/* UPDATE THIS WHEN USING CLOUDINARY !!! */}
+          {/* ADD IMAGE OR VIDEO ALLOWED FORMATS INFO BELOW */}
           {recommendation.content.mediaUrl && (
             <div className="text-center mb-4">
               {recommendation.content.mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) ? (
@@ -74,11 +75,11 @@ function RecommendationDetailPage() {
               ) : recommendation.content.mediaUrl.match(/\.(mp4|webm|ogg)$/) ? (
                 <video controls className="img-fluid">
                   <source src={recommendation.content.mediaUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
+                  your browser is having issues to process this
                 </video>
               ) : (
                 <a href={recommendation.content.mediaUrl} target="_blank" rel="noopener noreferrer">
-                  View Media
+                  view media
                 </a>
               )}
             </div>

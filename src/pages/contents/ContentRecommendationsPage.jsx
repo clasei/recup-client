@@ -13,17 +13,16 @@ function ContentRecommendationsPage() {
   useEffect(() => {
     const fetchRecommendations = async () => {
       try {
-        // Fetch content details
+
         const contentResponse = await service.get(`/contents/${contentId}`);
         const { title, mediaUrl } = contentResponse.data;
         setContentTitle(title);
         setMediaUrl(mediaUrl);
 
-        // Fetch recommendations for the content
         const recommendationsResponse = await service.get(`/recommendations/content/${contentId}`);
         setRecommendations(recommendationsResponse.data);
       } catch (error) {
-        setErrorMessage("Failed to load content and recommendations.");
+        setErrorMessage("unable to load content and recommendations");
       }
     };
 
@@ -36,6 +35,8 @@ function ContentRecommendationsPage() {
 
     <h1>{contentTitle || "Loading..."}</h1>
 
+
+    {/* cloudinary goes here... */}
     {mediaUrl && (
       <div className="text-center mb-4">
         {mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) ? (
