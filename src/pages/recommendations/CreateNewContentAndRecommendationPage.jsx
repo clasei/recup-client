@@ -1,9 +1,13 @@
-import React from 'react'
+import NewContentRecForm from "../../components/forms/NewContentRecForm";
 
 function CreateNewContentAndRecommendationPage() {
   return (
-    <div>CreateNewContentAndRecommendationPage</div>
-  )
+    <div className="container">
+      <div className="row justify-content-center">
+        <NewContentRecForm />
+      </div>
+    </div>
+  );
 }
 
 export default CreateNewContentAndRecommendationPage

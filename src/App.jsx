@@ -17,7 +17,7 @@ import LoginPage from "./pages/auth/LoginPage" // PUBLIC
 import SignupPage from "./pages/auth/SignupPage" // PUBLIC
 
 import ContentListPage from "./pages/contents/ContentListPage" // USERS ONLY, includes search !! + link to create rec
-import ContentDetailPage from "./pages/contents/ContentDetailPage" // USERS ONLY, content + linked recs
+import ContentRecommendationsPage from "./pages/contents/ContentRecommendationsPage" // USERS ONLY, content + linked recs
 
 import CreateRecommendationPage from "./pages/recommendations/CreateRecommendationPage" // USERS ONLY, (form)
 import CreateNewContentPage from "./pages/recommendations/CreateNewContentAndRecommendationPage" // USERS ONLY, create content + recommendation (form)
@@ -55,7 +55,7 @@ function App() {
 
           {/* users-only */}
           <Route path="/contents" element={<Private><ContentListPage /></Private>} />
-          <Route path="/contents/:contentId" element={<Private><ContentDetailPage /></Private>} />
+          <Route path="/contents/recommendations/:contentId" element={<Private><ContentRecommendationsPage /></Private>} />
           <Route path="/recommendations/new/:contentId" element={<Private><CreateRecommendationPage /></Private>} />
           <Route path="/recommendations/new-content" element={<Private><CreateNewContentPage /></Private>} />
           <Route path="/recommendations/detail/:recommendationId" element={<Private><RecommendationDetailPage /></Private>} />

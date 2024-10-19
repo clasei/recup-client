@@ -28,27 +28,27 @@ function SignupPage() {
 
       navigate(`/dashboard`)
     } catch (error) {
-      setErrorMessage(error.response?.data?.message || "Signup failed. Please try again.")
+      setErrorMessage(error.response?.data?.message || "sth went wrong, try again, you've got this")
     }
   }
 
   return (
     <form onSubmit={handleSubmit}>
 
-      <h1>Create Your Account</h1>
+      <h1>create your recup account</h1>
 
-      <label>Username:</label>
+      <label>username:</label>
       <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
 
-      <label>Email:</label>
+      <label>email:</label>
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       
-      <label>Password:</label>
+      <label>password:</label>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
       {errorMessage && <p>{errorMessage}</p>}
       
-      <button type="submit">Sign Up</button>
+      <button type="submit">join the recup</button>
     </form>
   )
 }
