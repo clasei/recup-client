@@ -183,14 +183,14 @@ function NewContentRecForm() {
             </div>
 
 
-            <hr className="custom-hr" />
+            {/* <hr className="custom-hr" /> */}
             <p className="custom-emoji"> 🤓 </p>
 
 
             <h2>it's recup time</h2>
 
             <div className="mb-1">
-              <label htmlFor="recTitle" className="form-label">set a title for your recommendation</label>
+              <label htmlFor="recTitle" className="form-label">set a title for your recup</label>
               <input
                 type="text"
                 className="form-control"

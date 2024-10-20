@@ -36,7 +36,8 @@
 }
 
 .footer-svg {
-  width: 25px !important;
+  width: 24px !important;
+  height: 16px;
   margin: 0.25rem;
   transition: transform 0.3s ease-in-out;
 }

@@ -24,8 +24,8 @@ function Footer() {
       {/* <span className="footer-year">{currentYear} </span> */}
       <span className="footer-year d-flex align-items-center">
         {currentYear} 
-        {' '} (mit)
-        
+        {/* {' '} 
+        (mit)       */}
       </span>
     </footer>
   );

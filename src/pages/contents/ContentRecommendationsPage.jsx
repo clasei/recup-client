@@ -43,7 +43,7 @@ function ContentRecommendationsPage() {
   //       setContentTitle(content.title);
   //       setMediaUrl(content.mediaUrl);
   //       setRecommendations(shuffleArray(recommendations))
-  //     } catch (error) {
+  //     } catch (error)
   //       setErrorMessage("unable to load content and recommendations");
   //     }
   //   };
