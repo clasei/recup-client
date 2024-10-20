@@ -21,7 +21,7 @@ function RecommendationCard({ recommendation }) {
         <Link to={`/recommendations/detail/${recommendation._id}`} className="btn">
           check this recup
         </Link>
-        <p className="text-muted text-center" style={{ fontSize: '0.7rem' }}>
+        <p className="days-ago text-muted text-center" style={{ fontSize: '0.7rem' }}>
               {recommendation.createdAt
                 ? `added ${howManyDaysAgo(recommendation.createdAt)}`
                 : "date unknown"}

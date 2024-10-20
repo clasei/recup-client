@@ -157,9 +157,18 @@ img {
 }
 
 
+/* ------------------------- */
 
+.loader-container {
+  height: 75vh;
+  padding-top: 5rem;
+}
 
-/* ------------------------ */
+.days-ago {
+  color: grey !important;
+}
+
+/* ------------------------- */
 
 .custom-hr {
   border: none;

@@ -4,6 +4,8 @@ import RecommendationCard from '../../components/cards/RecommendationCard';
 import service from "../../services/config"; 
 import PreFooter from '../../components/PreFooter';
 import { shuffleArray } from "../../utils/shuffleArray"
+// import ScaleLoader from "react-spinners/ScaleLoader";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 
 
@@ -15,9 +17,11 @@ function ContentRecommendationsPage() {
   const [category, setCategory] = useState("");
   const [keywords, setKeywords] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchRecommendations = async () => {
+
       try {
 
         const contentResponse = await service.get(`/contents/${contentId}`);
@@ -31,13 +35,31 @@ function ContentRecommendationsPage() {
         // setRecommendations(recommendationsResponse.data);
         const shuffledRecommendations = shuffleArray(recommendationsResponse.data);
         setRecommendations(shuffledRecommendations);
+        // setLoading(false);
+
+
+        // MAKE SURE YOU WANT TO KEEP THIS BEFORE DEPLOYMENT !!!
+        // adding setTimeout to enjoy the spinner xd
+        setTimeout(() => {
+          setLoading(false)
+        }, 3000)
+        
       } catch (error) {
         setErrorMessage("unable to load content and recommendations");
+        setLoading(false);
       }
     };
 
     fetchRecommendations();
   }, [contentId]);
+
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <PropagateLoader height={50} color="grey" />
+      </div>
+    );
+  }
 
 
   return (
@@ -95,23 +117,6 @@ function ContentRecommendationsPage() {
         </div>
       ))}
     </div>
-
-    {/* <div className="d-flex justify-content-center">
-      <img 
-        className="mini-logo" 
-        src={recupMiniT} 
-        alt="recup" 
-      />
-    </div>
-
-    <div className="text-center mt-4">
-      <button
-        onClick={scrollToTop}
-        className="btn">
-        
-        top again.. ↑
-      </button>
-    </div> */}
 
     <PreFooter />
     
