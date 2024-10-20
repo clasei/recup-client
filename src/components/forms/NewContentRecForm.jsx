@@ -177,6 +177,9 @@ function NewContentRecForm() {
               <input type="file" className="form-control" id="media" onChange={handleFileUpload} disabled={isUploading} />
               {isUploading && <h3>... uploading image</h3>}
               {mediaUrl && <img src={mediaUrl} alt="Preview" width={200} />}
+              <small className="form-text">
+                allowed formats: .png, .jpg
+              </small>
             </div>
 
 

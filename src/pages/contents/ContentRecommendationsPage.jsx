@@ -45,16 +45,22 @@ function ContentRecommendationsPage() {
             alt="content media"
             className="img-fluid"
           />
-        ) : mediaUrl.match(/\.(mp4|webm|ogg)$/) ? (
-          <video controls className="img-fluid">
-            <source src={mediaUrl} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          <a href={mediaUrl} target="_blank" rel="noopener noreferrer">
-            View Media
-          </a>
-        )}
+        // UNCOMMENT THIS IF ADDING VIDEO !!!!!!!
+
+              // ) : recommendation.content.mediaUrl.match(/\.(mp4|webm|ogg)$/) ? (
+              //   <video controls className="img-fluid">
+              //     <source src={recommendation.content.mediaUrl} type="video/mp4" />
+              //     your browser is having issues to process this
+              //   </video>
+
+            ) : (
+
+              // <a href={recommendation.content.mediaUrl} target="_blank" rel="noopener noreferrer">
+              //   view media
+              // </a>
+
+              null // COMMENT THIS IF ADDING VIDEO !!!!!!!
+            )}
       </div>
     )}
 

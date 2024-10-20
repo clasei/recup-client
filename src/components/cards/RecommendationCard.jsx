@@ -16,7 +16,7 @@ function RecommendationCard({ recommendation }) {
         <p className="text-muted">By: {recommendation.creator.username}</p>
         <p>{getExcerpt(recommendation.recText)}</p>
         <Link to={`/recommendations/detail/${recommendation._id}`} className="btn btn-primary">
-          Are you ready for more?
+          check this recup
         </Link>
       </div>
     </div>
