@@ -8,6 +8,7 @@
   padding-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 12px #fce149;
 }
 
 label {

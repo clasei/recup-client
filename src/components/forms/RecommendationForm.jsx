@@ -42,14 +42,12 @@ function RecommendationForm() {
   }
 
   return (
-    <div className="container my-10">
+    <div className="rec-form container my-5">
       <div className="row justify-content-center">
         <div className="col-md-9">
-          <h1>here starts your {contentTitle || "Loading..."} recup</h1>
+          <h1>here comes your {contentTitle || "loading..."} recup</h1>
           {errorMessage && <p className="text-danger">{errorMessage}</p>}
-         
           <form onSubmit={handleSubmit}>
-            
             <div className="mb-1">
               <label htmlFor="recTitle" className="form-label">set a title for your recommendation</label>
               <input
@@ -78,16 +76,15 @@ function RecommendationForm() {
                 rows="7"
                 value={recText}
                 onChange={(e) => setRecText(e.target.value)}
-                maxLength="4900" 
               ></textarea>
             </div>
             <button type="submit" className="btn btn-primary">let's do this</button>
-          
           </form>
         </div>
       </div>
     </div>
-  )
+  );
 }
+
 
 export default RecommendationForm
