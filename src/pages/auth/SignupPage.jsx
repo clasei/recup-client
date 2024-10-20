@@ -33,7 +33,7 @@ function SignupPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="signup-login" onSubmit={handleSubmit}>
 
       <h1>create your recup account</h1>
 
@@ -48,7 +48,7 @@ function SignupPage() {
 
       {errorMessage && <p>{errorMessage}</p>}
       
-      <button type="submit">join the recup</button>
+      <button type="submit" className="btn btn-primary">join the recup</button>
     </form>
   )
 }

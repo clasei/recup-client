@@ -33,7 +33,7 @@ function LoginPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="signup-login" onSubmit={handleSubmit}>
 
       <h1>log in to your recup</h1>
 
@@ -45,7 +45,7 @@ function LoginPage() {
 
       {errorMessage && <p>{errorMessage}</p>}
 
-      <button type="submit">let's recup</button>
+      <button type="submit" className="btn btn-primary">let's recup</button>
     </form>
   )
 }

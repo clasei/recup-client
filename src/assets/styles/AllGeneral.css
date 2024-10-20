@@ -32,7 +32,8 @@
 
 html, body {
   max-height: 100%;
-  color: #dadada !important;
+  /* color: #dadada !important; */
+  color: #c0c0c0 !important;
   background-color: #202020;
   padding-top: 25px;
   /* height: 100%; */
@@ -49,17 +50,19 @@ h1 {
   padding: 1rem;
   margin-bottom: 1.5rem;
   margin-top: 0;
+  color: #dadada !important;
 }
 
 h2 {
-  /* color: rgb(138, 179, 255); */
   padding: 1rem;
   margin-top: 1.5rem;
   font-size: 1.5rem;
+  color: #e6e6e6 !important;
 }
 
 h3, h4, p {
-  color: #E6E6E6 !important;
+  color: #e6e6e6 !important;
+
 }
 
 .text-muted {
@@ -127,7 +130,7 @@ img {
   min-width: 75px;
   border: solid 1px #b0b0b0 !important;
   box-shadow: 4px 4px 15px rgba(254, 254, 254, 0.373);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, font-weight 0.3s ease-in-out !important;
   /* margin-top: 50px !important; */
   margin: 1.5rem;
   padding: 0.35rem;
@@ -138,6 +141,7 @@ img {
   /* background-color: #616161 !important; */
   box-shadow: 6px 6px 20px rgba(254, 254, 254, 0.6);
   border: solid 1px rgb(76, 177, 249) !important;
+  font-weight: bold;
 }
 
 
@@ -153,7 +157,6 @@ img {
 .btn-top-again:hover, .btn-back:hover {
   box-shadow: 3px 3px 10px rgba(254, 254, 254, 0.6);
   /* border: solid 1px rgb(49, 49, 49) !important; */
-
 }
 
 

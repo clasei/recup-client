@@ -78,7 +78,6 @@ function RecupList() {
     )}
 
 
-
     {/* cloudinary goes here... */}
     {mediaUrl && (
       <div className="image-container text-center mb-4">

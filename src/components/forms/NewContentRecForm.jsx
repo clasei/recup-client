@@ -173,7 +173,7 @@ function NewContentRecForm() {
 
             {/* here comes cloudinary */}
             <div className="mb-1">
-              <label htmlFor="media" className="form-label">drop here a good image for this content</label>
+              <label htmlFor="media" className="form-label">drop a good image for this content</label>
               <input type="file" className="form-control" id="media" onChange={handleFileUpload} disabled={isUploading} />
               {isUploading && <h3>... uploading image</h3>}
               {mediaUrl && <img src={mediaUrl} alt="Preview" width={200} />}
