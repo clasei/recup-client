@@ -36,100 +36,70 @@ function RecommendationDetailPage() {
 
   return (
 
-    <div className="container my-5">
+    <div className="container my-5 d-flex justify-content-center">
       {errorMessage && <p className="text-danger">{errorMessage}</p>}
-      <div className="row justify-content-center">
-        <div className="col-md-8">
-          <div className="card shadow-sm">
-            <div className="card-body">
+      
+       <div className="card shadow-sm">
 
+    <h2 className="card-title text-center" style={{ fontWeight: 'bold' }}>{recommendation.content.title}</h2>
+    
+    <p className="text-muted text-center">recup by {' '}
+      <span 
+        className="link-hover"
+        onClick={() => navigate(`/users/${recommendation.creator.username}`)}>
+        {recommendation.creator.username}
+      </span>
+    </p>
 
-              <h2 className="card-title text-center" style={{ fontWeight: 'bold' }}>{recommendation.content.title}</h2>
-              <p className="text-muted text-center">recup by {' '}
-                <span 
-                  className="link-hover"
-                  onClick={() => navigate(`/users/${recommendation.creator.username}`)}>
-                  {recommendation.creator.username}
-                </span>
-                
-              </p> 
-              
-              <p className="text-muted text-center" style={{ fontSize: '0.75rem' }}>
-              {recommendation.createdAt
-                ? `added ${howManyDaysAgo(recommendation.createdAt)}`
-                : "date unknown"}
-              </p>
-              {/* TEXT MUTED ?? */}
+    <p className="text-muted text-center" style={{ fontSize: '0.7rem' }}>
+      {recommendation.createdAt
+        ? `added ${howManyDaysAgo(recommendation.createdAt)}`
+        : "date unknown"}
+    </p>
 
-              
-
-          {/* UPDATE THIS WHEN USING CLOUDINARY !!! */}
-          {/* ADD IMAGE OR VIDEO ALLOWED FORMATS INFO BELOW */}
-          {recommendation.content.mediaUrl && (
-            <div className="text-center mb-4">
-              {recommendation.content.mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) ? (
-                <img
-                  src={recommendation.content.mediaUrl}
-                  alt="content media"
-                  className="img-fluid"
-                />
-
-              // UNCOMMENT THIS IF ADDING VIDEO !!!!!!!
-
-              // ) : recommendation.content.mediaUrl.match(/\.(mp4|webm|ogg)$/) ? (
-              //   <video controls className="img-fluid">
-              //     <source src={recommendation.content.mediaUrl} type="video/mp4" />
-              //     your browser is having issues to process this
-              //   </video>
-
-              ) : (
-
-                // <a href={recommendation.content.mediaUrl} target="_blank" rel="noopener noreferrer">
-                //   view media
-                // </a>
-
-                null // COMMENT THIS IF ADDING VIDEO !!!!!!!
-              )}
-            </div>
-          )}
-
-
-
-          <h4>{recommendation.recTitle}</h4>
-
-          
-          <p><em>{recommendation.tagline}</em></p>
-
-          <hr />
-
-          <p>{recommendation.recText}</p>
-          {/* <p className="text-muted"><em>{recommendation.recText}</em></p> */}
-          {/* <p>{recommendation.recText}</p> */}
-
-          <img src={recupMini} alt="recup" style={{ width: '75px' }} />
-
-          <p className="text-muted text-center" style={{ fontSize: '0.75rem' }}>
-            hungry? check other {' '}
-            <span 
-              className="link-hover"
-              onClick={() => navigate(`/contents/recommendations/${recommendation.content._id}`)}>
-              {recommendation.content.title}
-              {' '} recups
-            </span>
-          </p>
-
-          <div className="text-center mt-4">
-            <button
-              onClick={scrollToTop}
-              className="btn btn-secondary"
-              style={{ fontSize: '0.8rem', width: '250px' }}>
-              top again.. ↑
-            </button>
-          </div>
-
-          
-        </div>
+    {recommendation.content.mediaUrl && (
+      <div className="text-center mb-4">
+        {recommendation.content.mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) ? (
+          <img
+            src={recommendation.content.mediaUrl}
+            alt="content media"
+            className="img-fluid"
+          />
+        ) : null}
       </div>
+    )}
+
+    <h4>{recommendation.recTitle}</h4>
+    <p><em>{recommendation.tagline}</em></p>
+    <hr />
+    <p>{recommendation.recText}</p>
+
+    <div className="d-flex justify-content-center">
+      <img 
+        className="mini-logo" 
+        src={recupMini} 
+        alt="recup" 
+      />
+    </div>
+
+    <p className="text-muted text-center" 
+      style={{ fontSize: '0.75rem', marginTop: '1.5rem' }}
+    >
+      hungry? good, check other {' '}
+      <span 
+        className="link-hover"
+        onClick={() => navigate(`/contents/recommendations/${recommendation.content._id}`)}>
+        {recommendation.content.title}
+        {' '} recups
+      </span>
+    </p>
+
+    <div className="text-center mt-4">
+      <button
+        onClick={scrollToTop}
+        className="btn">
+        top again.. ↑
+      </button>
     </div>
   </div>
 </div>

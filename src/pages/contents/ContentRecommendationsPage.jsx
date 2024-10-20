@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom';
 import RecommendationCard from '../../components/cards/RecommendationCard';
 import service from "../../services/config"; 
 
+import { scrollToTop } from "../../utils/scrollToTop"
+import recupMini from '../../assets/images/recup-mini.png'
+
+
 function ContentRecommendationsPage() {
   const { contentId } = useParams();
   const [recommendations, setRecommendations] = useState([]);
@@ -28,6 +32,24 @@ function ContentRecommendationsPage() {
 
     fetchRecommendations();
   }, [contentId]);
+
+  // // simplify into one api call... -- not working xd
+  // useEffect(() => {
+  //   const fetchRecommendations = async () => {
+  //     try {
+  //       const response = await service.get(`/recommendations/content/${contentId}`);
+  //       const { content, recommendations } = response.data;
+  //       setContentTitle(content.title);
+  //       setMediaUrl(content.mediaUrl);
+  //       setRecommendations(shuffleArray(recommendations))
+  //     } catch (error) {
+  //       setErrorMessage("unable to load content and recommendations");
+  //     }
+  //   };
+  
+  //   fetchRecommendations();
+  // }, [contentId]);
+  
 
   return (
     <div className="container my-5">
@@ -65,12 +87,28 @@ function ContentRecommendationsPage() {
     )}
 
 
-    <div className="row">
+    <div className="row justify-content-center">
       {recommendations.map((recommendation) => (
-        <div className="col-md-6" key={recommendation._id}>
+        <div className="col-md-6 col-lg-4 d-flex justify-content-center" key={recommendation._id}>
           <RecommendationCard recommendation={recommendation} />
         </div>
       ))}
+    </div>
+
+    <div className="d-flex justify-content-center">
+      <img 
+        className="mini-logo" 
+        src={recupMini} 
+        alt="recup" 
+      />
+    </div>
+
+    <div className="text-center mt-4">
+      <button
+        onClick={scrollToTop}
+        className="btn">
+        top again.. ↑
+      </button>
     </div>
     
   </div>

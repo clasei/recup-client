@@ -98,15 +98,3 @@ input, textarea {
   background-color: rgb(255, 109, 109);
 }
 
-/* button ---------- */
-.btn {
-  /* width: 320px !important; */
-  width: 100%;
-  font-size: 21px;
-  min-width: 150px;
-  border: solid 2px white;
-  box-shadow: 4px 4px 15px rgba(254, 254, 254, 0.373);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  /* margin-top: 50px !important; */
-  margin: 1.5rem;
-}
