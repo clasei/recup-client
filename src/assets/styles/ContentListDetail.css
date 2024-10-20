@@ -16,3 +16,47 @@
   color: red;
   font-weight: bold;
 }
+
+/* recups by content ------------- */
+/* category and keywords ---------- */
+
+.content-category {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #a2a2a2 !important; 
+  margin-bottom: 1rem;
+}
+
+.content-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag-badge {
+  background-color: #494949;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+
+/* image ------------- */
+/* Ensuring that the container allows the image to scale properly */
+.image-container {
+  display: flex;
+  direction: row;
+  justify-content: center;
+
+}
+
+.img-fluid {
+  /* width: 90% !important; */
+  max-width: 490px !important;
+  height: auto;
+  /* display: block; */
+}

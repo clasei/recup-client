@@ -45,6 +45,7 @@ html, body {
 /* TITLES -------------- */
 
 h1 {
+  font-size: 2.2rem;
   padding: 1rem;
   margin-bottom: 1.5rem;
   margin-top: 0;
@@ -87,7 +88,7 @@ img {
   height: auto;
   max-width: 375px !important;
   /* min-width: 240px !important; */
-  margin: 0.5rem;
+  /* margin: 0.5rem; */
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }

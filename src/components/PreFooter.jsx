@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
 import { scrollToTop } from "../utils/scrollToTop"
-import recupMiniT from '../assets/images/recup-mini-transparent.png'
+// import recupMiniT from '../assets/images/recup-mini-transparent.png'
 
 // function PreFooter() {
 //   const navigate = useNavigate()

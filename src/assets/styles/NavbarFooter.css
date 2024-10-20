@@ -1,6 +1,6 @@
 .footer {
   background-color: #2B2B2B;
-  color: #E0E0E0;
+  color: #dadada;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,6 +49,8 @@
 
 .footer-year {
   font-size: 0.65rem;
+  font-style: italic;
+  color: grey;
   /* font-weight: 600; */
   margin-top: 0.25rem;
   margin-bottom: 0.75rem;

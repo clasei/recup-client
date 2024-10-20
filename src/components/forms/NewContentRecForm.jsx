@@ -111,7 +111,7 @@ function NewContentRecForm() {
                 <option value="">click & choose which one fits better</option>
                 <option value="book">book</option>
                 <option value="comic">comic</option>
-                <option value="film">film</option>
+                <option value="movie">movie</option>
                 <option value="podcast">podcast</option>
                 <option value="series">series</option>
                 <option value="song">song</option>

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import RecommendationCard from '../../components/cards/RecommendationCard';
 import service from "../../services/config"; 
-
-// import { scrollToTop } from "../../utils/scrollToTop"
-// import recupMiniT from '../../assets/images/recup-mini-transparent.png'
 import PreFooter from '../../components/PreFooter';
+import { shuffleArray } from "../../utils/shuffleArray"
+
 
 
 function ContentRecommendationsPage() {
@@ -13,6 +12,8 @@ function ContentRecommendationsPage() {
   const [recommendations, setRecommendations] = useState([]);
   const [contentTitle, setContentTitle] = useState("");
   const [mediaUrl, setMediaUrl] = useState("");
+  const [category, setCategory] = useState("");
+  const [keywords, setKeywords] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
@@ -20,12 +21,16 @@ function ContentRecommendationsPage() {
       try {
 
         const contentResponse = await service.get(`/contents/${contentId}`);
-        const { title, mediaUrl } = contentResponse.data;
+        const { title, mediaUrl, category, keywords } = contentResponse.data;
         setContentTitle(title);
         setMediaUrl(mediaUrl);
+        setCategory(category);
+        setKeywords(keywords);
 
         const recommendationsResponse = await service.get(`/recommendations/content/${contentId}`);
-        setRecommendations(recommendationsResponse.data);
+        // setRecommendations(recommendationsResponse.data);
+        const shuffledRecommendations = shuffleArray(recommendationsResponse.data);
+        setRecommendations(shuffledRecommendations);
       } catch (error) {
         setErrorMessage("unable to load content and recommendations");
       }
@@ -34,23 +39,6 @@ function ContentRecommendationsPage() {
     fetchRecommendations();
   }, [contentId]);
 
-  // // simplify into one api call... -- not working xd
-  // useEffect(() => {
-  //   const fetchRecommendations = async () => {
-  //     try {
-  //       const response = await service.get(`/recommendations/content/${contentId}`);
-  //       const { content, recommendations } = response.data;
-  //       setContentTitle(content.title);
-  //       setMediaUrl(content.mediaUrl);
-  //       setRecommendations(shuffleArray(recommendations))
-  //     } catch (error)
-  //       setErrorMessage("unable to load content and recommendations");
-  //     }
-  //   };
-  
-  //   fetchRecommendations();
-  // }, [contentId]);
-  
 
   return (
     <div className="container my-5">
@@ -58,11 +46,23 @@ function ContentRecommendationsPage() {
 
     <h1>{contentTitle || "Loading..."}</h1>
 
+    <p className="content-category text-center">{category}</p>
+
+    {keywords.length > 0 && (
+      <div className="content-tags text-center">
+        {keywords.map((keyword, index) => (
+          <span key={index} className="tag-badge">{keyword}</span>
+        ))}
+      </div>
+    )}
+
+
 
     {/* cloudinary goes here... */}
     {mediaUrl && (
-      <div className="text-center mb-4">
-        {mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) ? (
+      <div className="image-container text-center mb-4">
+        {/* {mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) ? ( */}
+        {mediaUrl.match(/\.(jpeg|jpg|png)$/) ? (
           <img
             src={mediaUrl}
             alt="content media"
