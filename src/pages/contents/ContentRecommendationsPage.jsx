@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import RecommendationCard from '../../components/cards/RecommendationCard';
 import service from "../../services/config"; 
 
-import { scrollToTop } from "../../utils/scrollToTop"
-import recupMini from '../../assets/images/recup-mini.png'
+// import { scrollToTop } from "../../utils/scrollToTop"
+// import recupMiniT from '../../assets/images/recup-mini-transparent.png'
+import PreFooter from '../../components/PreFooter';
 
 
 function ContentRecommendationsPage() {
@@ -95,10 +96,10 @@ function ContentRecommendationsPage() {
       ))}
     </div>
 
-    <div className="d-flex justify-content-center">
+    {/* <div className="d-flex justify-content-center">
       <img 
         className="mini-logo" 
-        src={recupMini} 
+        src={recupMiniT} 
         alt="recup" 
       />
     </div>
@@ -107,9 +108,12 @@ function ContentRecommendationsPage() {
       <button
         onClick={scrollToTop}
         className="btn">
+        
         top again.. ↑
       </button>
-    </div>
+    </div> */}
+
+    <PreFooter />
     
   </div>
 );

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
@@ -34,7 +35,10 @@ html, body {
   color: #dadada !important;
   background-color: #202020;
   padding-top: 25px;
-  height: 100%;
+  /* height: 100%; */
+  /* display: flex;
+  flex-direction: column; */
+  height: 100vh;
 }
 
 
@@ -91,8 +95,8 @@ img {
 .mini-logo {
   margin: 2.5rem;
   margin-bottom: 0rem;
-  width: 75px !important;
-  height: 75px !important;
+  width: 50px !important;
+  height: 50px !important;
 }
 
 
@@ -118,21 +122,58 @@ img {
   width: 200px;
   font-size: 0.8rem;
   color: #dadada !important;
-  background-color: #676767 !important;
+  background-color: #616161 !important;
   min-width: 75px;
   border: solid 1px #b0b0b0 !important;
   box-shadow: 4px 4px 15px rgba(254, 254, 254, 0.373);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important;
   /* margin-top: 50px !important; */
   margin: 1.5rem;
+  padding: 0.35rem;
 }
 
-.btn:hover {
+.btn:hover, .btn:active {
   transform: scale(1.05);
+  /* background-color: #616161 !important; */
   box-shadow: 6px 6px 20px rgba(254, 254, 254, 0.6);
   border: solid 1px rgb(76, 177, 249) !important;
-
 }
+
+
+/* 
+.btn-top-again {
+  background-color: #3b3b3b !important;
+  color: #dadada;
+  margin-right: 1rem;
+  border: solid 1px #b0b0b0;
+}
+
+.btn-back {
+  background-color: #31932f !important;
+  color: #dadada;
+  margin-left: 1rem;
+  border: solid 1px #b0b0b0;
+}
+
+.btn-top-again:hover, .btn-back:hover {
+  background-color: #676767;
+  border-color: rgb(76, 177, 249);
+} */
+
+/* ---------- top & back btns */
+
+.btn-top-again, .btn-back {
+  background-color: #3b3b3b !important; 
+  box-shadow: 2px 2px 7px rgba(254, 254, 254, 0.373);
+  border: solid 1px rgb(123, 123, 123) !important;
+  margin: 0.5rem;
+}
+
+.btn-top-again:hover, .btn-back:hover {
+  box-shadow: 3px 3px 10px rgba(254, 254, 254, 0.6);
+}
+
+
 
 
 /* ------------------------ */

@@ -1,0 +1,80 @@
+.footer {
+  background-color: #2B2B2B;
+  color: #E0E0E0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin-top: auto;
+}
+
+.footer-logo-img {
+  width: 27px !important;
+  height: auto;
+  cursor: pointer;
+  margin: 0.30rem !important;
+  margin-top: 0.75rem !important;
+  transition: 0.5s ease;
+}
+
+.footer-logo-img:hover, .footer-logo-img:active {
+  transform: scale(1.25);
+  /* box-shadow: 6px 6px 20px rgba(254, 254, 254, 0.6); */
+}
+
+.footer-recup {
+  font-family: "McLaren", sans-serif;
+  font-size: 1rem;
+  margin-top: 0 !important;
+  margin: 0.25rem;
+}
+
+.footer-text {
+  font-size: 0.65rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-svg {
+  width: 25px !important;
+  margin: 0.25rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-svg:hover, .footer-svg:active {
+  fill: rgb(76, 177, 249) !important;
+  transform: scale(1.05);
+}
+
+.footer-year {
+  font-size: 0.65rem;
+  /* font-weight: 600; */
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+
+
+
+/* ----- prefooter */
+
+.pre-footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.logo-container {
+  margin-bottom: 1rem;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; 
+}
+
+

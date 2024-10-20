@@ -4,7 +4,8 @@ import service from "../../services/config"
 
 import { howManyDaysAgo } from "../../utils/dateUtils"
 import { scrollToTop } from "../../utils/scrollToTop"
-import recupMini from '../../assets/images/recup-mini.png'
+import recupMiniT from '../../assets/images/recup-mini-transparent.png'
+import PreFooter from '../../components/PreFooter';
 
 
 function RecommendationDetailPage() {
@@ -77,7 +78,7 @@ function RecommendationDetailPage() {
     <div className="d-flex justify-content-center">
       <img 
         className="mini-logo" 
-        src={recupMini} 
+        src={recupMiniT} 
         alt="recup" 
       />
     </div>
@@ -101,7 +102,11 @@ function RecommendationDetailPage() {
         top again.. ↑
       </button>
     </div>
+
+{/* <PreFooter /> */}
   </div>
+
+  
 </div>
 
   );
