@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import RecommendationCard from '../../components/cards/RecommendationCard';
+import RecupCard from '../../components/recups/RecupCard';
 import service from "../../services/config"; 
 import PreFooter from '../../components/PreFooter';
 import { shuffleArray } from "../../utils/shuffleArray"
 // import ScaleLoader from "react-spinners/ScaleLoader";
 import PropagateLoader from "react-spinners/PropagateLoader";
-
 
 
 function ContentRecommendationsPage() {
@@ -113,7 +112,7 @@ function ContentRecommendationsPage() {
     <div className="row justify-content-center">
       {recommendations.map((recommendation) => (
         <div className="col-md-6 col-lg-4 d-flex justify-content-center" key={recommendation._id}>
-          <RecommendationCard recommendation={recommendation} />
+          <RecupCard recommendation={recommendation} />
         </div>
       ))}
     </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { howManyDaysAgo } from "../../utils/dateUtils"
 
-function RecommendationCard({ recommendation }) {
+function RecupCard({ recommendation }) {
 
   // limit textRec
   const getExcerpt = (text) => {
@@ -21,6 +21,7 @@ function RecommendationCard({ recommendation }) {
         <Link to={`/recommendations/detail/${recommendation._id}`} className="btn">
           check this recup
         </Link>
+  
         <p className="days-ago text-muted text-center" style={{ fontSize: '0.7rem' }}>
               {recommendation.createdAt
                 ? `added ${howManyDaysAgo(recommendation.createdAt)}`
@@ -31,4 +32,4 @@ function RecommendationCard({ recommendation }) {
   );
 }
 
-export default RecommendationCard;
+export default RecupCard;
