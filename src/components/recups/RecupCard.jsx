@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import service from "../../services/config"
 
@@ -10,6 +10,10 @@ function RecupCard({ recommendation }) {
   const token = localStorage.getItem("authToken")
   const currentUser = tokenPayload(token)._id
 
+  // let the user now if the recup is owned or saved haha
+  const [saveMessage, setSaveMessage] = useState("")
+  const [isSaved, setIsSaved] = useState(false)
+
   // limit textRec
   const getExcerpt = (text) => {
     return text.length > 120 ? text.substring(0, 120) + '...' : text
@@ -19,7 +23,10 @@ function RecupCard({ recommendation }) {
     const handleSaveRecup = async () => {
       try {
         const response = await service.put(`/users/${currentUser}/save/${recommendation._id}`)
-        console.log(response.data.message);
+        // console.log(response.data.message)
+        setSaveMessage(response.data.message); // here comes the success message
+        setIsSaved(true)
+
       } catch (error) {
         console.error("Error saving recup:", error.response?.data?.message || error.message)
       }
@@ -30,25 +37,46 @@ function RecupCard({ recommendation }) {
       <div className="card-body">
         <h4 className="card-title">{recommendation.recTitle}</h4>
         <p className="text-muted"><em>{recommendation.tagline}</em></p>
+        <p>{getExcerpt(recommendation.recText)}</p>
+
+        <hr></hr>
+
         <p className="text-muted" style={{ fontSize: '0.75rem', fontWeight: 'bold' }}>
           recup by {recommendation.creator.username}</p>
-        <p>{getExcerpt(recommendation.recText)}</p>
+        
+        <p className="days-ago text-muted text-center" style={{ fontSize: '0.7rem' }}>
+            {recommendation.createdAt
+              ? `[ added ${howManyDaysAgo(recommendation.createdAt)} ]`
+              : "date unknown"}
+        </p>
+       
         <Link to={`/recommendations/detail/${recommendation._id}`} className="btn">
           check this recup
         </Link>
 
-        {/* Check if the logged-in user is not the creator of this recup */}
-        {currentUser !== recommendation.creator._id && (
+        {/* check if the user is the owner or saved this before */}
+        {/* {currentUser !== recommendation.creator._id && (
           <button className="btn btn-save mt-2" onClick={handleSaveRecup}>
             Save Recup
           </button>
+        )} */}
+
+        {currentUser !== recommendation.creator._id && (
+          <div className="save-icon" onClick={handleSaveRecup} style={{ cursor: 'pointer' }}>
+            {/* Toggle bookmark icon based on saved state */}
+            {isSaved ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="blue" className="bi bi-bookmark-fill" viewBox="0 0 16 16">
+                <path d="M2 2v12l6-3 6 3V2z"/>
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="grey" className="bi bi-bookmark" viewBox="0 0 16 16">
+                <path d="M2 2v12l6-3 6 3V2z"/>
+              </svg>
+            )}
+          </div>
         )}
   
-        <p className="days-ago text-muted text-center" style={{ fontSize: '0.7rem' }}>
-              {recommendation.createdAt
-                ? `added ${howManyDaysAgo(recommendation.createdAt)}`
-                : "date unknown"}
-              </p>
+        
       </div>
     </div>
   );
