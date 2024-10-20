@@ -45,7 +45,7 @@ function RecommendationForm() {
     <div className="container my-10">
       <div className="row justify-content-center">
         <div className="col-md-9">
-          <h1>recup your arguments to recommend {contentTitle || "Loading..."}</h1>
+          <h1>here starts your {contentTitle || "Loading..."} recup</h1>
           {errorMessage && <p className="text-danger">{errorMessage}</p>}
          
           <form onSubmit={handleSubmit}>

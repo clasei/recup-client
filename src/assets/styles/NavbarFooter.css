@@ -43,7 +43,7 @@
 }
 
 .footer-svg:hover, .footer-svg:active {
-  fill: rgb(76, 177, 249) !important;
+  fill: #4CB1F9 !important;
   transform: scale(1.05);
 }
 

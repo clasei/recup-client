@@ -48,8 +48,8 @@ html, body {
 h1 {
   font-size: 2.2rem;
   padding: 1rem;
-  margin-bottom: 1.5rem;
-  margin-top: 0;
+  margin: 1.5rem;
+  margin-bottom: 2rem;
   color: #dadada !important;
 }
 
@@ -62,7 +62,7 @@ h2 {
 
 h3, h4, p {
   color: #e6e6e6 !important;
-
+  margin-bottom: 0.75rem;
 }
 
 .text-muted {
@@ -115,7 +115,7 @@ img {
 
 .link-hover:hover, .link-hover:active {
   border-bottom-color: rgba(0, 0, 0, 0.6);
-  color: rgb(76, 177, 249) !important;
+  color: #4CB1F9 !important;
 }
 
 
@@ -130,7 +130,8 @@ img {
   min-width: 75px;
   border: solid 1px #b0b0b0 !important;
   box-shadow: 4px 4px 15px rgba(254, 254, 254, 0.373);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, font-weight 0.3s ease-in-out !important;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, 
+    font-weight 0.3s ease-in-out !important;
   /* margin-top: 50px !important; */
   margin: 1.5rem;
   padding: 0.35rem;
@@ -140,7 +141,7 @@ img {
   transform: scale(1.05);
   /* background-color: #616161 !important; */
   box-shadow: 6px 6px 20px rgba(254, 254, 254, 0.6);
-  border: solid 1px rgb(76, 177, 249) !important;
+  border: solid 1px #4CB1F9 !important;
   font-weight: bold;
 }
 
@@ -149,7 +150,7 @@ img {
 
 .btn-top-again, .btn-back {
   background-color: #3b3b3b !important; 
-  box-shadow: 2px 2px 7px rgba(254, 254, 254, 0.373);
+  box-shadow: 2px 2px 5px rgba(254, 254, 254, 0.373);
   border: solid 1px rgb(123, 123, 123) !important;
   margin: 0.5rem;
 }
@@ -159,6 +160,12 @@ img {
   /* border: solid 1px rgb(49, 49, 49) !important; */
 }
 
+/* ------------------------- */
+
+.save-recup-on:hover, .save-recup-off:hover  {
+  transform: scale(1.10);
+  transition: 0.5s ease-in-out;
+}
 
 /* ------------------------- */
 

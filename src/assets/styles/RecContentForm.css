@@ -11,7 +11,7 @@ form {
   padding-top: 2rem;
   max-width: 600px;
   margin: 1rem auto;
-  box-shadow: 0 4px 12px rgb(76, 177, 249);
+  box-shadow: 0 4px 12px #4CB1F9;
   display: flex;
   flex-direction: column;
   align-items: center;

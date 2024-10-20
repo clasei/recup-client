@@ -37,11 +37,11 @@ function RecupList() {
         // setLoading(false);
 
 
-        // MAKE SURE YOU WANT TO KEEP THIS BEFORE DEPLOYMENT !!!
+        // MAKE SURE YOU WANT TO KEEP THIS BEFORE DEPLOYMENT !!! ADAPT TIME IF NEEDED !!!
         // adding setTimeout to enjoy the spinner xd
         setTimeout(() => {
           setLoading(false)
-        }, 3000)
+        }, 1000)
         
       } catch (error) {
         setErrorMessage("unable to load content and recommendations");
