@@ -140,26 +140,6 @@ img {
 }
 
 
-/* 
-.btn-top-again {
-  background-color: #3b3b3b !important;
-  color: #dadada;
-  margin-right: 1rem;
-  border: solid 1px #b0b0b0;
-}
-
-.btn-back {
-  background-color: #31932f !important;
-  color: #dadada;
-  margin-left: 1rem;
-  border: solid 1px #b0b0b0;
-}
-
-.btn-top-again:hover, .btn-back:hover {
-  background-color: #676767;
-  border-color: rgb(76, 177, 249);
-} */
-
 /* ---------- top & back btns */
 
 .btn-top-again, .btn-back {
@@ -171,6 +151,8 @@ img {
 
 .btn-top-again:hover, .btn-back:hover {
   box-shadow: 3px 3px 10px rgba(254, 254, 254, 0.6);
+  border: solid 1px rgb(49, 49, 49) !important;
+
 }
 
 
