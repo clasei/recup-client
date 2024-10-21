@@ -35,7 +35,7 @@ function LoginPage() {
   return (
     <form className="signup-login" onSubmit={handleSubmit}>
 
-      <h1>log in to your recup</h1>
+      <h1>sign in to recup</h1>
 
       <label>email:</label>
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
