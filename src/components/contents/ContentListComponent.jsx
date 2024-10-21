@@ -1,28 +1,55 @@
 import { useEffect, useState } from 'react'
+import { shuffleArray } from "../../utils/shuffleArray"
 import service from "../../services/config"
 import ContentCard from './ContentCard';
+import PreFooter from '../../components/PreFooter';
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 function ContentListComponent() {
 
 
-  const [contents, setContents] = useState([]);
-  const [error, setError] = useState(null);
+  const [contents, setContents] = useState([])
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await service.get(`/contents`)
+        const contentsResponse = await service.get(`/contents`)
         // if (!response.ok) {
         //   throw new Error('error fetching contents')
         // }
-        setContents(response.data)
+
+        // setContents(response.data)
+
+        const shuffledContents= shuffleArray(contentsResponse.data);
+        setContents(shuffledContents);
+
+
+        // setLoading(false);
+
+        // MAKE SURE YOU WANT TO KEEP THIS BEFORE DEPLOYMENT !!! ADAPT TIME IF NEEDED !!!
+        // adding setTimeout to enjoy the spinner xd
+        setTimeout(() => {
+          setLoading(false)
+        }, 1000)
+
       } catch (error) {
         setError(error.message)
+        setLoading(false);
       }
     }
 
     fetchData()
-  }, []);
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <PropagateLoader height={50} color="grey" />
+      </div>
+    );
+  }
 
 
   return (

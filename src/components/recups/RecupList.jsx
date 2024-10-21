@@ -16,6 +16,7 @@ function RecupList() {
   const [category, setCategory] = useState("");
   const [keywords, setKeywords] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  
   const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
@@ -34,8 +35,9 @@ function RecupList() {
         // setRecommendations(recommendationsResponse.data);
         const shuffledRecommendations = shuffleArray(recommendationsResponse.data);
         setRecommendations(shuffledRecommendations);
-        // setLoading(false);
 
+
+        // setLoading(false);
 
         // MAKE SURE YOU WANT TO KEEP THIS BEFORE DEPLOYMENT !!! ADAPT TIME IF NEEDED !!!
         // adding setTimeout to enjoy the spinner xd
