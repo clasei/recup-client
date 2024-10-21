@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import recupMiniT from '../assets/images/recup-mini-transparent.png';
+import { Link } from "react-router-dom"
+import recupMiniT from '../assets/images/recup-mini-transparent.png'
 import "../assets/styles/NavbarFooter.css"
 
 function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="footer d-flex flex-column align-items-center py-1">
@@ -30,7 +30,7 @@ function Footer() {
         (mit)       */}
       </span>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer
