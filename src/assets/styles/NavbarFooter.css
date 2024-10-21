@@ -90,10 +90,11 @@
   align-items: center;
   justify-content: center;
   margin-top: 2.5rem;
+  margin-bottom: 0rem;
 }
 
 .logo-container {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .buttons-container {
