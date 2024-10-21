@@ -35,16 +35,39 @@
   margin-bottom: 0.5rem;
 }
 
+.footer-links {
+  font-size: 0.65rem;
+  color: grey !important;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-links a {
+  color: grey !important;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-links a:hover, .footer-links a:active{
+  transform: scale(1.05);
+  color: #4CB1F9 !important;
+}
+
+.footer-links a:hover .footer-svg {
+  fill: #4CB1F9 !important; 
+}
+
 .footer-svg {
   width: 24px !important;
   height: 16px;
   margin: 0.25rem;
-  transition: transform 0.3s ease-in-out;
+  margin-right: 0 !important;
+  /* transition: transform 0.3s ease-in-out; */
 }
 
 .footer-svg:hover, .footer-svg:active {
   fill: #4CB1F9 !important;
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
 }
 
 .footer-year {

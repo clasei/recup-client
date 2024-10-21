@@ -111,11 +111,13 @@ img {
   border-bottom: 1px solid rgba(254, 254, 254, 0.373);
   text-decoration: none;
   transition: border-bottom-color 0.3s ease;
+  /* transition: transform 0.3s ease-in-out; */
 }
 
 .link-hover:hover, .link-hover:active {
   border-bottom-color: rgba(0, 0, 0, 0.6);
   color: #4CB1F9 !important;
+  /* transition: transform 0.3s ease-in-out; */
 }
 
 
