@@ -33,6 +33,18 @@ function ContentCard({ content }) {
           </div>
         )}
 
+        {content.mediaUrl && (
+          <div className="text-center mb-4">
+            {content.mediaUrl.match(/\.(jpeg|jpg|png)$/) && (
+              <img
+                src={content.mediaUrl}
+                alt="content media"
+                className="img-fluid"
+              />
+            )}
+          </div>
+        )}
+
         {/* users to do sth else than this? */}
         {isContentOwner && (
           // <button className="btn btn-warning">
