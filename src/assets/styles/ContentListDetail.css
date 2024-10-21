@@ -66,39 +66,36 @@
 
 .content-card {
   min-height: 240px;
-  /* min-width: 240px !important; */
+  width: 100%;
+  padding: 0.25rem;
+  /* margin: 0.25rem; */
 }
+
 .request-edit {
-  font-size: 0.65rem;
   font-size: 0.65rem;
   color: grey !important;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px; 
+  transition: fill 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.request-edit a {
-  color: grey !important;
-  text-decoration: none !important;
-  transition: transform 0.3s ease-in-out;
-}
-
-/* .request-edit a:hover, .request-edit a:active{
-  transform: scale(1.05);
+.request-edit:hover {
   color: #4CB1F9 !important;
-} */
-
-.request-edit:hover, .request-edit:active {
-  fill: #4CB1F9 !important; 
   transform: scale(1.05);
-  color: #4CB1F9 !important;
 }
 
-.request-edit {
-  width: 24px !important;
-  height: 16px;
-  margin: 0.25rem;
-  margin-right: 0 !important;
-  /* transition: transform 0.3s ease-in-out; */
+.request-edit:hover .edit-svg {
+  fill: #4CB1F9 !important;
+  transform: scale(1.05);
 }
+
+.edit-svg {
+  transition: fill 0.3s ease-in-out, transform 0.3s ease-in-out;
+  height: 24px !important;
+}
+
 
