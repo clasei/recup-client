@@ -1,11 +1,13 @@
 import { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../context/auth.context"
 import "../../assets/styles/ContentListDetail.css"
 
 function ContentCard({ content }) {
 
   const { loggedUserId } = useContext(AuthContext)
-  console.log(loggedUserId)
+  // console.log(loggedUserId)
+  const navigate = useNavigate()
 
   // if (!loggedUserId) {
   //   return <p>Loading...</p>
@@ -13,10 +15,18 @@ function ContentCard({ content }) {
 
   const isContentOwner = loggedUserId === content.firstRecommendationCreator._id
 
+  const handleAddRecup = () => {
+    navigate(`/recommendations/new/${content._id}`)
+  }
+
   return (
     <div className="content-card card mb-4">
       <div className="card-body">
-        <h3 className="card-title">{content.title}</h3>
+        <h3 className="card-title">
+          <Link to={`/contents/recommendations/${content._id}`}>
+            {content.title}
+          </Link>
+        </h3>
         <p className="text-muted">{content.category}</p> {/* // use tags better? */}
         {/* <p className="text-muted"><strong>added by:</strong> {content.creator.username}</p> // check if this makes sense */}
 
@@ -34,7 +44,7 @@ function ContentCard({ content }) {
         )}
 
         {content.mediaUrl && (
-          <div className="text-center mb-4">
+          <div className="content-img text-center mb-4">
             {content.mediaUrl.match(/\.(jpeg|jpg|png)$/) && (
               <img
                 src={content.mediaUrl}
@@ -44,6 +54,12 @@ function ContentCard({ content }) {
             )}
           </div>
         )}
+
+        <div className="text-center">
+          <button className="content-btn btn btn-primary" onClick={handleAddRecup}>
+            do your recup
+          </button>
+        </div>
 
         {/* users to do sth else than this? */}
         {isContentOwner && (
