@@ -72,7 +72,7 @@
   min-height: 240px;
   width: 100%;
   padding: 0.25rem;
-  padding-top: 0.5rem;
+  padding-top: 0.25rem;
   /* margin: 0.25rem; */
 }
 
@@ -87,7 +87,6 @@
 
 .request-edit {
   font-size: 0.65rem;
-  color: grey !important;
   color: grey !important;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;

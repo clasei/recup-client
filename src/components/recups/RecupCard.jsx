@@ -6,7 +6,7 @@ import { howManyDaysAgo } from "../../utils/dateUtils"
 // import { tokenPayload } from '../../utils/token'
 import { AuthContext } from "../../context/auth.context" 
 
-function RecupCard({ recommendation }) {
+function RecupCard({ recommendation, isDetailPage = false }) {
 
   // const token = localStorage.getItem("authToken")
   // const currentUser = tokenPayload(token)._id
@@ -62,64 +62,85 @@ function RecupCard({ recommendation }) {
     <div className="card mb-3 shadow-sm">
       <div className="card-body">
         <h3 className="card-title">{recommendation.recTitle}</h3>
-        <p className="text-muted"><em>{recommendation.tagline}</em></p>
-        <p>{getExcerpt(recommendation.recText)}</p>
-
-        <hr></hr>
-
-        <p className="text-muted" style={{ fontSize: '0.75rem', fontWeight: 'bold' }}>
-          recup by {' '}
-          {recommendation.creator.username}
-          </p>
-        
-        <p className="days-ago text-muted text-center" style={{ fontSize: '0.7rem' }}>
-            {recommendation.createdAt
-              ? `[ added ${howManyDaysAgo(recommendation.createdAt)} ]`
-              : "date unknown"}
+        <p className="text-muted">
+          <em>{recommendation.tagline}</em>
         </p>
-       
-        <Link to={`/recommendations/detail/${recommendation._id}`} className="btn">
-          check this recup
-        </Link>
 
-        {/* check if the user is the owner or saved this before */}
+        {!isDetailPage && (
+          <>
+            <p>{getExcerpt(recommendation.recText)}</p>
+            <hr />
+
+            <p
+              className="text-muted"
+              style={{ fontSize: "0.75rem", fontWeight: "bold" }}
+            >
+              recup by {recommendation.creator.username}
+            </p>
+
+            <p
+              className="days-ago text-muted text-center"
+              style={{ fontSize: "0.7rem" }}
+            >
+              {recommendation.createdAt
+                ? `[ added ${howManyDaysAgo(recommendation.createdAt)} ]`
+                : "date unknown"}
+            </p>
+
+            <Link to={`/recommendations/detail/${recommendation._id}`} className="btn">
+              check this recup
+            </Link>
+
+            {/* check if the user is the owner or saved this before */}
         {/* {currentUser !== recommendation.creator._id && (
           <button className="btn btn-save mt-2" onClick={handleSaveRecup}>
             Save Recup
           </button>
         )} */}
-
-        {/* lets add some bookmarks !!! */}
-        {loggedUserId !== recommendation.creator._id && (
-          // <div className="save-icon" onClick={handleSaveRecup} style={{ cursor: 'pointer' }}>
-          <div className="save-icon" onClick={isSaved ? handleUnsaveRecup : handleSaveRecup} style={{ cursor: 'pointer' }}>
-            {isSaved ? (
-              <svg className="save-recup-on" xmlns="http://www.w3.org/2000/svg" width="30" height="30" 
-                fill="#fce149" 
-                viewBox="0 0 16 16">
-                <path d="M2 2v12l6-3 6 3V2z" />
-              </svg>
-            ) : (
-              <svg className="save-recup-off" xmlns="http://www.w3.org/2000/svg" width="30" height="30" 
-                fill="grey" 
-                viewBox="0 0 16 16">
-                <path d="M2 2v12l6-3 6 3V2z" />
-              </svg>
-            )}
-
-            {/* shows if its done or it has failed... check this later !!! */}
-            {/* option 1: change server message, option 2: manage error properly in the front */}
-            {/* {saveRecupMessage && <p className="save-message">{saveRecupMessage}</p>} */}
-
-          </div>
-
-          
+          </>
         )}
-  
+          <>
+            {loggedUserId !== recommendation.creator._id && (
+              <div
+                className="save-icon"
+                onClick={isSaved ? handleUnsaveRecup : handleSaveRecup}
+                style={{ cursor: "pointer" }}
+              >
+                {isSaved ? (
+                  <svg
+                    className="save-recup-on"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    fill="#fce149"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M2 2v12l6-3 6 3V2z" />
+                  </svg>
+                ) : (
+                  <svg
+                    className="save-recup-off"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    fill="grey"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M2 2v12l6-3 6 3V2z" />
+                  </svg>
+                )}
+
+                {/* shows if its done or it has failed... check this later !!! */}
+                {/* option 1: change server message, option 2: manage error properly in the front */}
+                {/* {saveRecupMessage && <p className="save-message">{saveRecupMessage}</p>} */}
+
+              </div>
+            )}
+          </>
         
       </div>
     </div>
   );
 }
 
-export default RecupCard;
+export default RecupCard
