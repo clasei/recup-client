@@ -169,6 +169,7 @@ img {
   transition: 0.5s ease-in-out;
 }
 
+
 /* FORMS ------------------------- */
 
 form {
@@ -225,6 +226,11 @@ textarea:focus {
   color: #ff7171;
 }
 
+/* images ------------------------- */
+
+.rounded-img {
+  border-radius: 25px !important;
+}
 
 /* ERRORS ------------------------- */
 

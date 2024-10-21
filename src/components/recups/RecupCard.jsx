@@ -109,7 +109,7 @@ function RecupCard({ recommendation }) {
 
             {/* shows if its done or it has failed... check this later !!! */}
             {/* option 1: change server message, option 2: manage error properly in the front */}
-            {saveRecupMessage && <p className="save-message">{saveRecupMessage}</p>}
+            {/* {saveRecupMessage && <p className="save-message">{saveRecupMessage}</p>} */}
 
           </div>
 

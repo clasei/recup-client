@@ -86,7 +86,7 @@ function RecupList() {
           <img
             src={mediaUrl}
             alt="content media"
-            className="img-fluid"
+            className="img-fluid rounded-img"
           />
         // UNCOMMENT THIS IF ADDING VIDEO !!!!!!!
 
