@@ -94,13 +94,13 @@ function RecupCard({ recommendation }) {
           // <div className="save-icon" onClick={handleSaveRecup} style={{ cursor: 'pointer' }}>
           <div className="save-icon" onClick={isSaved ? handleUnsaveRecup : handleSaveRecup} style={{ cursor: 'pointer' }}>
             {isSaved ? (
-              <svg className="save-recup-on" xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
-                fill="#4CB1F9" 
+              <svg className="save-recup-on" xmlns="http://www.w3.org/2000/svg" width="30" height="30" 
+                fill="#fce149" 
                 viewBox="0 0 16 16">
                 <path d="M2 2v12l6-3 6 3V2z" />
               </svg>
             ) : (
-              <svg className="save-recup-off" xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+              <svg className="save-recup-off" xmlns="http://www.w3.org/2000/svg" width="30" height="30" 
                 fill="grey" 
                 viewBox="0 0 16 16">
                 <path d="M2 2v12l6-3 6 3V2z" />

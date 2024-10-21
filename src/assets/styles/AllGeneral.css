@@ -165,6 +165,10 @@ img {
 
 /* ------------------------- */
 
+.save-icon {
+  padding: 0.5rem;
+}
+
 .save-recup-on:hover, .save-recup-off:hover  {
   transform: scale(1.10);
   transition: 0.5s ease-in-out;

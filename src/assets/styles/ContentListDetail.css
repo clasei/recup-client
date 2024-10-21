@@ -32,12 +32,12 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .tag-badge {
   background-color: #494949;
-  padding: 0.4rem 0.8rem;
+  padding: 0.3rem 0.7rem;
   border-radius: 15px;
   font-size: 0.85rem;
   font-weight: 500;
@@ -88,6 +88,7 @@
 .request-edit {
   font-size: 0.65rem;
   color: grey !important;
+  color: grey !important;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   text-decoration: none !important;
@@ -112,13 +113,16 @@
   height: 24px !important;
 }
 
+.card-title {
+  margin: 0.75rem;
+}
 
 .card-title a {
   cursor: pointer;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   text-decoration: none;
   transition: border-bottom-color 0.3s ease, color 0.3s ease;
-  color: #dbdbdb !important; /* El color base del enlace */
+  color: #dbdbdb !important;
 }
 
 .card-title a:hover, .card-title a:active {
