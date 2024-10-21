@@ -1,17 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import service from "../../services/config"
 
 import { howManyDaysAgo } from "../../utils/dateUtils"
-import { tokenPayload } from '../../utils/token'
+// import { tokenPayload } from '../../utils/token'
+import { AuthContext } from "../../context/auth.context" 
 
 function RecupCard({ recommendation }) {
 
-  const token = localStorage.getItem("authToken")
-  const currentUser = tokenPayload(token)._id
+  // const token = localStorage.getItem("authToken")
+  // const currentUser = tokenPayload(token)._id
+
+  const { loggedUserId } = useContext(AuthContext)
 
   // let the user now if the recup is owned or saved haha
-  const [saveMessage, setSaveMessage] = useState("")
+  const [saveRecupMessage, setSaveRecupMessage] = useState("")
   const [isSaved, setIsSaved] = useState(false)
 
   // limit textRec
@@ -19,42 +22,41 @@ function RecupCard({ recommendation }) {
     return text.length > 120 ? text.substring(0, 120) + '...' : text
   }
 
+
   useEffect(() => {
     const checkIfSaved = async () => {
       try {
-        const response = await service.get(`/users/${currentUser}/saved-recommendations`);
-        setIsSaved(response.data.savedRecs.includes(recommendation._id));
+        const response = await service.get(`/users/${loggedUserId}/saved-recommendations`)
+        setIsSaved(response.data.savedRecs.includes(recommendation._id))
       } catch (error) {
-        console.error("Error checking saved recup:", error);
+        console.error("error checking saved recup:", error)
       }
-    };
-    checkIfSaved();
-  }, [currentUser, recommendation._id]);
+    }
+    checkIfSaved()
+  }, [loggedUserId, recommendation._id])
 
 
   // save the recup
   const handleSaveRecup = async () => {
     try {
-      const response = await service.put(`/users/${currentUser}/save/${recommendation._id}`)
-      // console.log(response.data.message)
-      setSaveMessage(response.data.message); // here comes the success message
+      const response = await service.put(`/users/${loggedUserId}/save/${recommendation._id}`)
+      setSaveRecupMessage(response.data.message)
       setIsSaved(true)
-
     } catch (error) {
-      console.error("Error saving recup:", error.response?.data?.message || error.message)
+      setSaveRecupMessage(error.response?.data?.message || "unable to save recup")
     }
   }
 
    // unsave the recup
-   const handleUnsaveRecup = async () => {
+  const handleUnsaveRecup = async () => {
     try {
-      const response = await service.put(`/users/${currentUser}/unsave/${recommendation._id}`)
-      setSaveMessage(response.data.message)
+      const response = await service.put(`/users/${loggedUserId}/unsave/${recommendation._id}`)
+      setSaveRecupMessage(response.data.message)
       setIsSaved(false)
     } catch (error) {
-      console.error("Error unsaving recup:", error.response?.data?.message || error.message)
+      setSaveRecupMessage(error.response?.data?.message || "couldn't unsave recup")
     }
-  } 
+  }
 
   return (
     <div className="card mb-3 shadow-sm">
@@ -88,7 +90,7 @@ function RecupCard({ recommendation }) {
         )} */}
 
         {/* lets add some bookmarks !!! */}
-        {currentUser !== recommendation.creator._id && (
+        {loggedUserId !== recommendation.creator._id && (
           // <div className="save-icon" onClick={handleSaveRecup} style={{ cursor: 'pointer' }}>
           <div className="save-icon" onClick={isSaved ? handleUnsaveRecup : handleSaveRecup} style={{ cursor: 'pointer' }}>
             {isSaved ? (
@@ -104,7 +106,14 @@ function RecupCard({ recommendation }) {
                 <path d="M2 2v12l6-3 6 3V2z" />
               </svg>
             )}
+
+            {/* shows if its done or it has failed... check this later !!! */}
+            {/* option 1: change server message, option 2: manage error properly in the front */}
+            {saveRecupMessage && <p className="save-message">{saveRecupMessage}</p>}
+
           </div>
+
+          
         )}
   
         

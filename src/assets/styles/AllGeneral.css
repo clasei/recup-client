@@ -203,9 +203,9 @@ input, textarea {
   color: #303030;
 }
 
-textarea {
+/* textarea {
   resize: vertical;
-}
+} */
 
 .form-text {
   display: block;

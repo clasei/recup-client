@@ -283,6 +283,7 @@ function NewContentRecForm() {
                 id="recText"
                 rows="7"
                 value={recText}
+                onChange={(e) => setRecText(e.target.value)} 
                 required
                 maxLength="4900"
               ></textarea>
