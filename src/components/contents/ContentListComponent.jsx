@@ -67,8 +67,11 @@ function ContentListComponent() {
       </ul> */}
       <div className="row justify-content-center">
         {contents.map((content) => (
-          <div key={content._id} className="col-md-4 d-flex justify-content-center">
-            <ContentCard content={content} />
+          <div key={content._id} className="col-md-6 col-12 d-flex justify-content-center mb-4">
+            <ContentCard 
+              content={content} 
+              style={{ width: '100%' }}
+            />
           </div>
         ))}
       </div>

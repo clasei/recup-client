@@ -71,7 +71,8 @@ h3, h4, p {
 
 .card {
   max-width: 350px;
-  min-width: 95% !important;
+  width: 100%;
+  min-width: 200px !important;
   /* min-height: 350px; */
   height: auto;
   border-radius: 25px !important;
@@ -87,7 +88,7 @@ h3, h4, p {
 }
 
 img {
-  width: 95% !important; 
+  width: 100% !important; 
   height: auto;
   max-width: 375px !important;
   /* min-width: 240px !important; */
@@ -199,7 +200,7 @@ form {
 
 
 input, textarea {
-  width: 90%;
+  width: 100%;
   min-width: 290px;
   padding: 0.42rem;
   margin-bottom: 0.25rem;
@@ -279,3 +280,13 @@ textarea:focus {
   margin-bottom: 0.5rem;
 }
 
+
+
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+}

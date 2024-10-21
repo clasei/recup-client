@@ -92,11 +92,11 @@ function RecupCard({ recommendation, isDetailPage = false }) {
             </Link>
 
             {/* check if the user is the owner or saved this before */}
-        {/* {currentUser !== recommendation.creator._id && (
-          <button className="btn btn-save mt-2" onClick={handleSaveRecup}>
-            Save Recup
-          </button>
-        )} */}
+            {/* {currentUser !== recommendation.creator._id && (
+              <button className="btn btn-save mt-2" onClick={handleSaveRecup}>
+                Save Recup
+              </button>
+            )} */}
           </>
         )}
           <>

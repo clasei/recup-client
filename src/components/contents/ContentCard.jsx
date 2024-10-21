@@ -50,6 +50,7 @@ function ContentCard({ content }) {
                 src={content.mediaUrl}
                 alt="content media"
                 className="img-fluid"
+                // style={{ width: '100%' }} 
               />
             )}
           </div>
@@ -97,7 +98,7 @@ function ContentCard({ content }) {
 
       </div>
     </div>
-  );
+  )
 }
 
 export default ContentCard

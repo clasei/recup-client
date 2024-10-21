@@ -55,8 +55,8 @@
 }
 
 .img-fluid {
-  /* width: 90% !important; */
-  max-width: 490px !important;
+  width: 75% !important;
+  max-width: 450px !important;
   height: auto;
   /* display: block; */
 }
