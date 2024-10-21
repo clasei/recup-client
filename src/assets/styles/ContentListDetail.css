@@ -64,6 +64,10 @@
 
 /* CARDS ------------- */
 
+.content-list {
+  width: 100% !important;
+}
+
 .content-card {
   min-height: 240px;
   width: 100%;

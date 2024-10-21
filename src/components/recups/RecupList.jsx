@@ -16,7 +16,7 @@ function RecupList() {
   const [category, setCategory] = useState("");
   const [keywords, setKeywords] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-  
+
   const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function RecupList() {
         }, 1000)
         
       } catch (error) {
-        setErrorMessage("unable to load content and recommendations");
+        setErrorMessage("unable to load content and recommendations")
         setLoading(false);
       }
     };

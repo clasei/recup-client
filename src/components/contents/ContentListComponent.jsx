@@ -35,7 +35,7 @@ function ContentListComponent() {
         }, 1000)
 
       } catch (error) {
-        setError(error.message)
+        setErrorMessage("unable to load recommendations by content")
         setLoading(false);
       }
     }
@@ -53,7 +53,7 @@ function ContentListComponent() {
 
 
   return (
-    <div className="content-list">
+    <div className="content-list container">
       <h1>find your next recup-worthy content</h1>
       {error && <p className="error-message">error: {error}</p>}
       {/* <ul>
@@ -65,9 +65,9 @@ function ContentListComponent() {
           </li>
         ))}
       </ul> */}
-      <div className="row">
+      <div className="row justify-content-center">
         {contents.map((content) => (
-          <div key={content._id} className="col-md-4">
+          <div key={content._id} className="col-md-4 d-flex justify-content-center">
             <ContentCard content={content} />
           </div>
         ))}
