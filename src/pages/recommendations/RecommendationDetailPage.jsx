@@ -39,35 +39,36 @@ function RecommendationDetailPage() {
     <div className="bigger-container">
 
       <div className="container my-5 d-flex justify-content-center">
-        {errorMessage && <p className="text-danger">{errorMessage}</p>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         
         <div className="card shadow-sm">
 
-      <h2 className="card-title text-center" style={{ fontWeight: 'bold' }}>{recommendation.content.title}</h2>
-      
-      <p className="text-muted text-center">recup by {' '}
-        <span 
-          className="link-hover"
-          onClick={() => navigate(`/users/${recommendation.creator.username}`)}>
-          {recommendation.creator.username}
-        </span>
-      </p>
+          <h2 className="card-title text-center" style={{ fontWeight: 'bold' }}>{recommendation.content.title}</h2>
+          
+          <p className="text-muted text-center">recup by {' '}
+            <span 
+              className="link-hover"
+              onClick={() => navigate(`/users/${recommendation.creator.username}`)}>
+              {recommendation.creator.username}
+            </span>
+          </p>
 
-      <p className="text-muted text-center" style={{ fontSize: '0.7rem' }}>
-        {recommendation.createdAt
-          ? `added ${howManyDaysAgo(recommendation.createdAt)}`
-          : "date unknown"}
-      </p>
+          <p className="text-muted text-center" style={{ fontSize: '0.7rem' }}>
+            {recommendation.createdAt
+              ? `added ${howManyDaysAgo(recommendation.createdAt)}`
+              : "date unknown"}
+          </p>
 
-      {recommendation.content.mediaUrl && (
-        <div className="text-center mb-4">
-          {recommendation.content.mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) ? (
-            <img
-              src={recommendation.content.mediaUrl}
-              alt="content media"
-              className="img-fluid"
-            />
-          ) : null}
+          {recommendation.content.mediaUrl && (
+            <div className="text-center mb-4">
+              {/* {recommendation.content.mediaUrl.match(/\.(jpeg|jpg|gif|png)$/) ? ( */}
+              {recommendation.content.mediaUrl.match(/\.(jpeg|jpg|png)$/) ? (
+                <img
+                  src={recommendation.content.mediaUrl}
+                  alt="content media"
+                  className="img-fluid"
+                />
+              ) : null}
         </div>
       )}
 

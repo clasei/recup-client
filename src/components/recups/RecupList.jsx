@@ -63,7 +63,7 @@ function RecupList() {
 
   return (
     <div className="container my-5">
-    {errorMessage && <p className="text-danger">{errorMessage}</p>}
+    {errorMessage && <p className="error-message">{errorMessage}</p>}
 
     <h1>{contentTitle || "Loading..."}</h1>
 

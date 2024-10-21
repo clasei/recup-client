@@ -47,8 +47,7 @@ function LoginPage() {
       <label>password:</label>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-      {errorMessage && <p>{errorMessage}</p>}
-
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <button type="submit" className="btn btn-primary">let's recup</button>
     </form>
   )
