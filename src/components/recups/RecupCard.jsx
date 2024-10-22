@@ -87,7 +87,7 @@ function RecupCard({ recommendation, isDetailPage = false }) {
                 : "date unknown"}
             </p>
 
-            <Link to={`/recommendations/detail/${recommendation._id}`} className="btn">
+            <Link to={`/detail/${recommendation._id}`} className="btn">
               check this recup
             </Link>
 

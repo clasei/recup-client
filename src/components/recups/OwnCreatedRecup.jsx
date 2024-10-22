@@ -28,7 +28,7 @@ function OwnCreatedRecup({ recommendation }) {
             : "date unknown"}
         </p>
         
-        <Link to={`/recommendations/edit/${recommendation._id}`} className="btn btn-primary">
+        <Link to={`/edit/${recommendation._id}`} className="btn btn-primary">
           update
         </Link>
       </div>

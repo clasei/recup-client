@@ -60,21 +60,21 @@ function App() {
 
           {/* users-only */}
           <Route path="/contents" element={<Private><ContentListPage /></Private>} />
-          <Route path="/contents/recommendations/:contentId" element={<Private><ContentRecommendationsPage /></Private>} />
+          <Route path="/contents/recups/:contentId" element={<Private><ContentRecommendationsPage /></Private>} />
 
-          <Route path="/recommendations/new/:contentId" element={<Private><CreateRecommendationPage /></Private>} />
-          <Route path="/recommendations/new-content" element={<Private><CreateNewContentPage /></Private>} />
-          <Route path="/recommendations/new-recup" element={<Private><NewRecupPage /></Private>} />
+          <Route path="/add/new/:contentId" element={<Private><CreateRecommendationPage /></Private>} />
+          <Route path="/add/new-content" element={<Private><CreateNewContentPage /></Private>} />
+          <Route path="/new-recup" element={<Private><NewRecupPage /></Private>} />
 
 
-          <Route path="/recommendations/detail/:recommendationId" element={<Private><RecommendationDetailPage /></Private>} />
+          <Route path="/detail/:recommendationId" element={<Private><RecommendationDetailPage /></Private>} />
           <Route path="/users/:username" element={<Private><UserProfilePage /></Private>} />
 
           {/* owner-only */}
           <Route path="/dashboard" element={<Private ownerOnly={true}><DashboardPage /></Private>} />
 
-          <Route path="/recommendations/created" element={<Private ownerOnly={true}><CreatedRecupsPage /></Private>} />
-          <Route path="/recommendations/edit/:recommendationId" element={<Private ownerOnly={true}><EditRecupPage /></Private>} />
+          <Route path="/created" element={<Private ownerOnly={true}><CreatedRecupsPage /></Private>} />
+          <Route path="/edit/:recommendationId" element={<Private ownerOnly={true}><EditRecupPage /></Private>} />
           
           <Route path="/settings" element={<Private ownerOnly={true}><UserSettingsPage /></Private>} />
 

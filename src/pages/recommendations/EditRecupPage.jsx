@@ -21,7 +21,7 @@ function EditRecupPage() {
         setRecup(response.data)
 
         console.log(response.data)
-        // navigate(`/recommendations/detail/${recommendationId}`)
+        // navigate(`/detail/${recommendationId}`)
       } catch (error) {
         console.error("Error fetching recup", error)
       }
@@ -35,7 +35,7 @@ function EditRecupPage() {
     event.preventDefault()
     try {
       await service.put(`/recommendations/${recommendationId}`, recup)  
-      navigate(`/recommendations/detail/${recommendationId}`)
+      navigate(`/detail/${recommendationId}`)
     } catch (error) {
       console.error("Error updating recup", error)
     }

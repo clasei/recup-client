@@ -112,7 +112,7 @@ function RecommendationDetailPage() {
               className="link-hover"
               onClick={() =>
                 navigate(
-                  `/contents/recommendations/${recommendation.content._id}`
+                  `/contents/recups/${recommendation.content._id}`
                 )
               }
             >

@@ -79,7 +79,7 @@ function NewContentRecForm() {
         recText,
       })
   
-      navigate(`/recommendations/detail/${response.data.newRec._id}`)
+      navigate(`/detail/${response.data.newRec._id}`)
     } catch (error) {
       setErrorMessage(error.response?.data?.message || "unable to create content and recommendation")
     }
