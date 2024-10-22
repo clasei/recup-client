@@ -18,7 +18,7 @@ function RecommendationForm() {
         const response = await service.get(`/contents/${contentId}`)
         setContentTitle(response.data.title)
       } catch (error) {
-        console.log("sth went wrong fetching content:", error)
+        // console.log("sth went wrong fetching content:", error)
         setErrorMessage("unable to fetch content details")
       }
     }
@@ -42,14 +42,12 @@ function RecommendationForm() {
   }
 
   return (
-    <div className="container my-10">
+    <div className="rec-form container my-5">
       <div className="row justify-content-center">
         <div className="col-md-9">
-          <h1>recup your arguments to recommend {contentTitle || "Loading..."}</h1>
-          {errorMessage && <p className="text-danger">{errorMessage}</p>}
-         
+          <h1>here comes your {contentTitle || "loading..."} recup</h1>
+          
           <form onSubmit={handleSubmit}>
-            
             <div className="mb-1">
               <label htmlFor="recTitle" className="form-label">set a title for your recommendation</label>
               <input
@@ -78,16 +76,15 @@ function RecommendationForm() {
                 rows="7"
                 value={recText}
                 onChange={(e) => setRecText(e.target.value)}
-                maxLength="4900" 
               ></textarea>
             </div>
             <button type="submit" className="btn btn-primary">let's do this</button>
-          
           </form>
         </div>
       </div>
     </div>
-  )
+  );
 }
+
 
 export default RecommendationForm

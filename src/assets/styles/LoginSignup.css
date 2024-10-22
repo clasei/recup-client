@@ -1,38 +1,30 @@
 /* SIGNUP ----------------------------- */
 
-form {
+.signup-login {
   max-width: 400px;
-  margin: 0 auto;
+  width: 90%;
+  margin: 2.5rem auto;
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 12px #fce149;
 }
 
 label {
-  margin: 10px 0 5px;
+  margin: 0.5rem;
+  margin-top: 1rem;
   font-weight: bold;
 }
 
 input {
-  padding: 8px;
-  margin-bottom: 15px;
+  padding: 0.5rem !important;
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
-button {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
-button:hover {
-  background-color: #0056b3;
-}
-
-p {
-  color: red;
-  font-size: 0.9em;
+.btn-primary {
+  margin-top: 2.5rem;
 }
