@@ -55,7 +55,7 @@ function NewRecupPage() {
         <div className="content-found ">
           <h2 className="text-center">is this what you are looking for?</h2>
           <div className="container-list w-100 d-flex justify-content-center mt-4">
-          <ul className="list-unstyled text-center ">
+          <ul className="list-unstyled text-center" style={{ marginBottom: '0'}}>
             {filteredContent.map((content) => (
               <li key={content._id} className="mb-4" style={{ marginTop: '3rem', backgroundColor: '#242526', width: '300px', padding: '1rem', borderRadius: '15px' }}>
                 <h3>{content.title}</h3>
@@ -73,9 +73,9 @@ function NewRecupPage() {
 
           {selectedContent && (
             <div className="selected-content mt-4">
-              <h3 className="text-center">
+              {/* <h3 className="text-center">
                 add your awesome recup for {selectedContent.title}
-              </h3>
+              </h3> */}
               <RecommendationForm contentId={selectedContent._id} />
             </div>
           )}
