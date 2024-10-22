@@ -16,14 +16,14 @@ function ContentCard({ content }) {
   const isContentOwner = loggedUserId === content.firstRecommendationCreator._id
 
   const handleAddRecup = () => {
-    navigate(`/recommendations/new/${content._id}`)
+    navigate(`/add/new/${content._id}`)
   }
 
   return (
     <div className="content-card card mb-4">
       <div className="card-body">
         <h3 className="card-title">
-          <Link to={`/contents/recommendations/${content._id}`}>
+          <Link to={`/contents/recups/${content._id}`}>
             {content.title}
           </Link>
         </h3>
