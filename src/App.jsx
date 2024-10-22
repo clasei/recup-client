@@ -27,7 +27,9 @@ import DashboardPage from "./pages/user/DashboardPage" // PRIVATE, access to sav
 import SavedRecommendationsPage from "./pages/user/SavedRecommendationsPage" // PRIVATE, only owned saved access
 import UserSettingsPage from "./pages/user/UserSettingsPage" // PRIVATE 
 import UserProfilePage from "./pages/user/UserProfilePage" // USERS ONLY, profile info + created recs
-import RecommendationChangePage from "./pages/user/RecommendationChangePage" // PRIVATE
+
+import CreatedRecupsPage from "./pages/recommendations/CreatedRecupsPage"
+import EditRecupPage from "./pages/recommendations/EditRecupPage"
 
 import AdminDashboard from "./pages/admin/AdminDashboard" // ADMIN
 import ContentsManagement from "./pages/admin/ContentsManagement" // ADMIN
@@ -64,7 +66,10 @@ function App() {
           {/* owner-only */}
           <Route path="/dashboard" element={<Private ownerOnly={true}><DashboardPage /></Private>} />
           <Route path="/recommendations/saved" element={<Private ownerOnly={true}><SavedRecommendationsPage /></Private>} />
-          <Route path="/recommendations/change/:recommendationId" element={<Private ownerOnly={true}><RecommendationChangePage /></Private>} />
+
+          <Route path="/recommendations/created" element={<Private ownerOnly={true}><CreatedRecupsPage /></Private>} />
+          <Route path="/recommendations/edit/:recommendationId" element={<Private ownerOnly={true}><EditRecupPage /></Private>} />
+          
           <Route path="/settings" element={<Private ownerOnly={true}><UserSettingsPage /></Private>} />
 
           {/* admin */}
