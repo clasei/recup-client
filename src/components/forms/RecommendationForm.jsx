@@ -45,7 +45,7 @@ function RecommendationForm() {
     <div className="rec-form container my-5">
       <div className="row justify-content-center">
         <div className="col-md-9">
-          <h1>here comes your {contentTitle || "loading..."} recup</h1>
+          <h1>here comes your {contentTitle || "...hey,"} recup</h1>
           
           <form onSubmit={handleSubmit}>
             <div className="mb-1">

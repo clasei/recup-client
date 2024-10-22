@@ -96,7 +96,7 @@ function NewContentRecForm() {
           </h1>
 
           <form className="new-content-form d-flex justify-content-center" onSubmit={handleSubmit}>
-            <h2>let's add some brand new stuff</h2>
+            <h3>add some brand new stuff</h3>
 
             {/* <small className="form-text text-muted" style={{ fontSize: '0.70rem' }}>{'[ '}marked with 
               <span className="required-field">{' * '}</span> means required{' ]'}</small> */}
@@ -112,7 +112,7 @@ function NewContentRecForm() {
 
             <div className="mb-1">
               <label htmlFor="category" className="form-label">
-                select content type
+                select recup content type
               </label>
               <select
                 className="form-control"

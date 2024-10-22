@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { AuthContext } from "../../context/auth.context"
 import service from "../../services/config"
 import OwnCreatedRecup from "../../components/recups/OwnCreatedRecup"
+import PreFooter from "../../components/PreFooter"
 
 function CreatedRecupsPage() {
   const { loggedUserId } = useContext(AuthContext)
@@ -22,26 +23,33 @@ function CreatedRecupsPage() {
   }, [loggedUserId])
 
   return (
-    <div className="created-recups container">
-      <h1>enjoy yourself</h1>
-      
-      {createdRecups.length > 0 ? (
-        <div className="row justify-content-center">
-          {createdRecups.map(recup => (
-            <div key={recup._id} className="col-md-6 col-12 d-flex justify-content-center mb-4">
-              <OwnCreatedRecup recommendation={recup} style={{ width: '100%' }} />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p>no recups created.. yet</p>
 
-        // add cta + redirect to new recup here !!!
+    <>
+      <div className="created-recups container">
+        <h1>enjoy yourself</h1>
+        
+        {createdRecups.length > 0 ? (
+          <div className="row justify-content-center">
+            {createdRecups.map(recup => (
+              <div key={recup._id} className="col-md-6 col-12 d-flex justify-content-center mb-4">
+                <OwnCreatedRecup recommendation={recup} style={{ width: '100%' }} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>no recups created.. yet</p>
 
-      )}
-      
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-    </div>
+          // add cta + redirect to new recup here !!!
+
+        )}
+        
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </div>
+
+      <div className="w-100 d-flex justify-content-center mt-4">
+      < PreFooter />
+      </div>
+    </>
   )
 }
 

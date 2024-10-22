@@ -19,17 +19,20 @@ import SignupPage from "./pages/auth/SignupPage" // PUBLIC
 import ContentListPage from "./pages/contents/ContentListPage" // USERS ONLY, includes search !! + link to create rec
 import ContentRecommendationsPage from "./pages/contents/ContentRecommendationsPage" // USERS ONLY, content + linked recs
 
+import NewRecupPage from "./pages/recommendations/NewRecupPage" // USERS ONLY, direct access to new recup + search
 import CreateRecommendationPage from "./pages/recommendations/CreateRecommendationPage" // USERS ONLY, (form)
 import CreateNewContentPage from "./pages/recommendations/CreateNewContentAndRecommendationPage" // USERS ONLY, create content + recommendation (form)
 import RecommendationDetailPage from "./pages/recommendations/RecommendationDetailPage" // USERS ONLY
 
-import DashboardPage from "./pages/user/DashboardPage" // PRIVATE, access to saved recs, settings and sth else, e.g. 3 last recs created + saved ? 
-import SavedRecommendationsPage from "./pages/user/SavedRecommendationsPage" // PRIVATE, only owned saved access
-import UserSettingsPage from "./pages/user/UserSettingsPage" // PRIVATE 
+
+import DashboardPage from "./pages/user/DashboardPage" // PRIVATE, access to saved recs, settings and sth else, e.g. 3 last recs created + saved 
+
 import UserProfilePage from "./pages/user/UserProfilePage" // USERS ONLY, profile info + created recs
 
 import CreatedRecupsPage from "./pages/recommendations/CreatedRecupsPage"
 import EditRecupPage from "./pages/recommendations/EditRecupPage"
+
+import UserSettingsPage from "./pages/user/UserSettingsPage" // PRIVATE 
 
 import AdminDashboard from "./pages/admin/AdminDashboard" // ADMIN
 import ContentsManagement from "./pages/admin/ContentsManagement" // ADMIN
@@ -58,14 +61,17 @@ function App() {
           {/* users-only */}
           <Route path="/contents" element={<Private><ContentListPage /></Private>} />
           <Route path="/contents/recommendations/:contentId" element={<Private><ContentRecommendationsPage /></Private>} />
+
           <Route path="/recommendations/new/:contentId" element={<Private><CreateRecommendationPage /></Private>} />
           <Route path="/recommendations/new-content" element={<Private><CreateNewContentPage /></Private>} />
+          <Route path="/recommendations/new-recup" element={<Private><NewRecupPage /></Private>} />
+
+
           <Route path="/recommendations/detail/:recommendationId" element={<Private><RecommendationDetailPage /></Private>} />
           <Route path="/users/:username" element={<Private><UserProfilePage /></Private>} />
 
           {/* owner-only */}
           <Route path="/dashboard" element={<Private ownerOnly={true}><DashboardPage /></Private>} />
-          <Route path="/recommendations/saved" element={<Private ownerOnly={true}><SavedRecommendationsPage /></Private>} />
 
           <Route path="/recommendations/created" element={<Private ownerOnly={true}><CreatedRecupsPage /></Private>} />
           <Route path="/recommendations/edit/:recommendationId" element={<Private ownerOnly={true}><EditRecupPage /></Private>} />
