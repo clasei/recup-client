@@ -90,10 +90,10 @@ function NewContentRecForm() {
     <div className="container my-10">
       <div className="row justify-content-center">
         <div className="container-form">
-          <h1>
+          {/* <h1>
             feeling brave? <br></br>
             you are in the right place
-          </h1>
+          </h1> */}
 
           <form className="new-content-form d-flex justify-content-center" onSubmit={handleSubmit}>
             <h3>add some brand new stuff</h3>

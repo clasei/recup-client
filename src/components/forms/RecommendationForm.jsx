@@ -48,7 +48,9 @@ function RecommendationForm({ contentId }) {
     <div className="rec-form container my-5">
       <div className="row justify-content-center">
         <div className="col-md-9">
-          <h1>here comes your {contentTitle || "...hey,"} recup</h1>
+          {/* <h1>here comes your {contentTitle || "...hey,"} recup</h1> */}
+          <h4>so, you like {contentTitle || "...this,"} right?</h4>
+          
 
           <form onSubmit={handleSubmit}>
             <div className="mb-1">

@@ -48,8 +48,8 @@ html, body {
 h1 {
   font-size: 2.7rem !important;
   padding: 1rem;
-  margin: 1.5rem;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
   color: #dadada !important;
 }
 
@@ -62,8 +62,8 @@ h2 {
 
 h3, h4, p {
   color: #dbdbdb !important;
-  margin-bottom: 0.75rem;
-  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
 }
 
 .text-muted {
