@@ -1,5 +1,5 @@
 import { useState, useContext } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, NavLink } from "react-router-dom"
 
 import service from "../../services/config"
 // import jwt_decode from "jwt-decode"
@@ -49,6 +49,12 @@ function LoginPage() {
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <button type="submit" className="btn btn-primary">let's recup</button>
+
+      <div className="footer-links d-flex align-items-center justify-content-center mt-3" style={{ gap: '5px' }}>
+        <span>not in yet?</span>
+        <NavLink to="/signup">join the recup</NavLink>
+      </div>
+
     </form>
   )
 }
