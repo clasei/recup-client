@@ -90,28 +90,41 @@ function NewContentRecForm() {
     <div className="container my-10">
       <div className="row justify-content-center">
         <div className="container-form">
-          <h1>feeling brave? <br></br> 
-          you are in the right place</h1>
-          {errorMessage && <p className="text-danger">{errorMessage}</p>}
-          <form onSubmit={handleSubmit}>
+          <h1>
+            feeling brave? <br></br>
+            you are in the right place
+          </h1>
 
-
-          <p className="custom-emoji"> 🎈 </p>
-
-
+          <form className="new-content-form" onSubmit={handleSubmit}>
             <h2>let's add some brand new stuff</h2>
+
+            {/* <small className="form-text text-muted" style={{ fontSize: '0.70rem' }}>{'[ '}marked with 
+              <span className="required-field">{' * '}</span> means required{' ]'}</small> */}
+
+            <small
+              className="form-text text-muted"
+              style={{ fontSize: "0.70rem", marginTop: '1rem' }}
+            >
+              {"[ "}all fields are required
+              <span className="required-field">{" *"}</span>
+              {" ]"}
+            </small>
+
             <div className="mb-1">
-              <label htmlFor="category" className="form-label">content type</label>
+              <label htmlFor="category" className="form-label">
+                select content type
+              </label>
               <select
                 className="form-control"
                 id="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
+                required
               >
                 <option value="">click & choose which one fits better</option>
                 <option value="book">book</option>
                 <option value="comic">comic</option>
-                <option value="film">film</option>
+                <option value="movie">movie</option>
                 <option value="podcast">podcast</option>
                 <option value="series">series</option>
                 <option value="song">song</option>
@@ -120,46 +133,85 @@ function NewContentRecForm() {
             </div>
 
             <div className="mb-1">
-              <label htmlFor="title" className="form-label">write the content title</label>
+              <label htmlFor="title" className="form-label">
+                write the content title
+              </label>
               <input
                 type="text"
                 className="form-control"
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                required
               />
             </div>
 
             <div className="mb-1">
-              <label htmlFor="authors" className="form-label">add the content creator or creators</label>
-               <ReactTags
-                 tags={authorTags}
-                 handleDelete={handleAuthorDelete}
-                 handleAddition={handleAuthorAddition}
-                 inputFieldPosition="inline"
-                 placeholder="creator/s"
-               />
-               <small className="form-text">
-                type a name and <span style={{ color: 'pink', fontWeight: 'bold' }}>press enter</span> to add more creators
+              <label htmlFor="authors" className="form-label">
+                add the content creator or creators
+              </label>
+              <div 
+                className="form-control" 
+                style={{ background: '#202020', 
+                  border: 'none',
+                  paddingBottom: '0',
+                  marginBottom: '0'
+                }}
+              >
+
+                <ReactTags
+                  tags={authorTags}
+                  handleDelete={handleAuthorDelete}
+                  handleAddition={handleAuthorAddition}
+                  inputFieldPosition="inline"
+                  placeholder="creator/s"
+                  required
+                />
+
+              </div>
+              <small className="form-text">
+                type a name and{" "}
+                <span style={{ color: "pink", fontWeight: "bold" }}>
+                  press enter
+                </span>{" "}
+                to add more creators
               </small>
             </div>
 
-              <div>
-                <label htmlFor="authors" className="form-label">add relevant keywords, choose carefully</label>
+            <div>
+              <label htmlFor="authors" className="form-label">
+                add relevant keywords, choose carefully
+              </label>
+
+              <div 
+                className="form-control" 
+                style={{ background: '#202020', 
+                  border: 'none',
+                  paddingBottom: '0', 
+                  marginBottom: '0'
+                }}
+              >
+
                 <ReactTags
-                  
                   tags={keywordsTags}
                   handleDelete={handleKeywordDelete}
                   handleAddition={handleKeywordAddition}
                   inputFieldPosition="inline"
                   placeholder="add a keyword"
+                  required
                 />
 
-                <small className="form-text">
-                  type a keyword and <span style={{ color: 'pink', fontWeight: 'bold' }}>press enter</span> to add another
-              </small>
               </div>
-              
+
+              <small className="form-text">
+                type a keyword and{" "}
+                <span style={{ color: "pink", fontWeight: "bold" }}>
+                  press enter
+                </span>{" "}
+                to add another
+              </small>
+            </div>
+
             {/* <div className="mb-1">
               <label htmlFor="mediaUrl" className="form-label">Media URL:</label>
               <input
@@ -173,63 +225,94 @@ function NewContentRecForm() {
 
             {/* here comes cloudinary */}
             <div className="mb-1">
-              <label htmlFor="media" className="form-label">drop here a good image for this content</label>
-              <input type="file" className="form-control" id="media" onChange={handleFileUpload} disabled={isUploading} />
+              <label htmlFor="media" className="form-label">
+                drop a good image for this content
+              </label>
+              <input
+                type="file"
+                className="form-control"
+                id="media"
+                onChange={handleFileUpload}
+                disabled={isUploading}
+                required
+              />
               {isUploading && <h3>... uploading image</h3>}
               {mediaUrl && <img src={mediaUrl} alt="Preview" width={200} />}
+              <small className="form-text" style={{ marginTop: '0.5rem' }} >
+                allowed formats: .png, .jpg
+              </small>
             </div>
 
-
-            <hr className="custom-hr" />
+            {/* <hr className="custom-hr" /> */}
             <p className="custom-emoji"> 🤓 </p>
 
-
-            <h2>it's recup time</h2>
+            <h2>now it's recup time</h2>
 
             <div className="mb-1">
-              <label htmlFor="recTitle" className="form-label">set a title for your recommendation</label>
+              <label htmlFor="recTitle" className="form-label">
+                set a title for your recup
+              </label>
               <input
                 type="text"
                 className="form-control"
                 id="recTitle"
                 value={recTitle}
                 onChange={(e) => setRecTitle(e.target.value)}
+                required
               />
             </div>
             <div className="mb-1">
-              <label htmlFor="tagline" className="form-label">write a catchy tagline</label>
+              <label htmlFor="tagline" className="form-label">
+                write a catchy tagline
+              </label>
               <input
                 type="text"
                 className="form-control"
                 id="tagline"
                 value={tagline}
                 onChange={(e) => setTagline(e.target.value)}
+                required
               />
             </div>
             <div className="mb-1">
               <label htmlFor="recText" className="form-label">
                 why do you choose to make this 1st recup?
-                </label>
+              </label>
               <textarea
                 className="form-control"
                 id="recText"
                 rows="7"
                 value={recText}
-                onChange={(e) => setRecText(e.target.value)}
-                maxLength="4900" 
+                onChange={(e) => setRecText(e.target.value)} 
+                required
+                maxLength="4900"
               ></textarea>
-              <small className="form-text">
-                feel free to ramble and share your thoughts/feelings 
-                and arguments to go all in for this content
+              <small className="form-text" style={{ marginTop: '0.5rem' }}>
+                feel free to ramble and share your thoughts/feelings and
+                arguments to go all in for this content and your recup
               </small>
             </div>
-            <button type="submit" className="btn btn-primary">let's do this</button>
-          
+
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+            <small
+              className="form-text text-muted"
+              style={{ fontSize: "0.70rem", marginTop: '1rem' }}
+            >
+              {"[ "}hey, remember that all data is required
+              <span className="required-field">{" * "}</span>
+              to add new content
+              {" ]"}
+            </small>
+
+            <button type="submit" className="btn btn-primary">
+              let's do this
+            </button>
           </form>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default NewContentRecForm

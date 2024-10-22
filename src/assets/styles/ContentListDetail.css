@@ -16,3 +16,115 @@
   color: red;
   font-weight: bold;
 }
+
+/* recups by content ------------- */
+/* category and keywords ---------- */
+
+.content-category {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #a2a2a2 !important; 
+  margin-bottom: 1rem;
+}
+
+.content-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag-badge {
+  background-color: #494949;
+  padding: 0.3rem 0.7rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+
+/* image ------------- */
+/* Ensuring that the container allows the image to scale properly */
+.image-container {
+  display: flex;
+  direction: row;
+  justify-content: center;
+
+}
+
+.img-fluid {
+  width: 75% !important;
+  max-width: 450px !important;
+  height: auto;
+  /* display: block; */
+}
+
+
+/* CARDS ------------- */
+
+.content-list {
+  width: 100% !important;
+}
+
+.content-card {
+  min-height: 240px;
+  width: 100%;
+  padding: 0.25rem;
+  padding-top: 0.25rem;
+  /* margin: 0.25rem; */
+}
+
+.content-img {
+  max-width: 250px;
+  height: auto;
+}
+
+.content-btn {
+  margin-top: 0.5rem !important;
+}
+
+.request-edit {
+  font-size: 0.65rem;
+  color: grey !important;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px; 
+  transition: fill 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.request-edit:hover {
+  color: #4CB1F9 !important;
+  transform: scale(1.05);
+}
+
+.request-edit:hover .edit-svg {
+  fill: #4CB1F9 !important;
+  transform: scale(1.05);
+}
+
+.edit-svg {
+  transition: fill 0.3s ease-in-out, transform 0.3s ease-in-out;
+  height: 24px !important;
+}
+
+.card-title {
+  margin: 0.75rem;
+}
+
+.card-title a {
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  transition: border-bottom-color 0.3s ease, color 0.3s ease;
+  color: #dbdbdb !important;
+}
+
+.card-title a:hover, .card-title a:active {
+  border-bottom-color: rgba(0, 0, 0, 0.6);
+  color: #4CB1F9 !important;
+}
