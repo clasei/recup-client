@@ -90,13 +90,13 @@ function NewContentRecForm() {
     <div className="container my-10">
       <div className="row justify-content-center">
         <div className="container-form">
-          <h1>
+          {/* <h1>
             feeling brave? <br></br>
             you are in the right place
-          </h1>
+          </h1> */}
 
           <form className="new-content-form d-flex justify-content-center" onSubmit={handleSubmit}>
-            <h2>let's add some brand new stuff</h2>
+            <h3>add some brand new stuff</h3>
 
             {/* <small className="form-text text-muted" style={{ fontSize: '0.70rem' }}>{'[ '}marked with 
               <span className="required-field">{' * '}</span> means required{' ]'}</small> */}
@@ -112,7 +112,7 @@ function NewContentRecForm() {
 
             <div className="mb-1">
               <label htmlFor="category" className="form-label">
-                select content type
+                select recup content type
               </label>
               <select
                 className="form-control"
@@ -146,7 +146,7 @@ function NewContentRecForm() {
               />
             </div>
 
-            <div className="mb-1">
+            <div className="tags-container mb-1">
               <label htmlFor="authors" className="form-label">
                 add the content creator or creators
               </label>
@@ -180,7 +180,7 @@ function NewContentRecForm() {
             </div>
 
 
-            <div className="mb-1">
+            <div className="tags-container mb-1">
               <label htmlFor="authors" className="form-label">
                 add some keywords, choose carefully
               </label>

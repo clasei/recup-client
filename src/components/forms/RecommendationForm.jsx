@@ -1,55 +1,62 @@
-import { useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
-import service from "../../services/config"
-import "../../assets/styles/RecContentForm.css"
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import service from "../../services/config";
+import "../../assets/styles/RecContentForm.css";
 
-function RecommendationForm() {
-  const { contentId } = useParams() 
-  const navigate = useNavigate() 
-  const [recTitle, setRecTitle] = useState("")
-  const [tagline, setTagline] = useState("")
-  const [recText, setRecText] = useState("")
-  const [contentTitle, setContentTitle] = useState("")
-  const [errorMessage, setErrorMessage] = useState("")
+function RecommendationForm({ contentId }) {
+  const { contentId: paramContentId } = useParams(); // Obtenemos desde params si es necesario
+  const finalContentId = contentId || paramContentId; // Prioriza el prop contentId si existe
+  const navigate = useNavigate();
+  const [recTitle, setRecTitle] = useState("");
+  const [tagline, setTagline] = useState("");
+  const [recText, setRecText] = useState("");
+  const [contentTitle, setContentTitle] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  console.log("contentId passed to form:", finalContentId);
 
   useEffect(() => {
     const fetchContentTitle = async () => {
       try {
-        const response = await service.get(`/contents/${contentId}`)
-        setContentTitle(response.data.title)
+        const response = await service.get(`/contents/${finalContentId}`);
+        setContentTitle(response.data.title);
       } catch (error) {
-        // console.log("sth went wrong fetching content:", error)
-        setErrorMessage("unable to fetch content details")
+        setErrorMessage("unable to fetch content details");
       }
+    };
+
+    if (finalContentId) {
+      fetchContentTitle();
     }
-
-    fetchContentTitle()
-  }, [contentId]) // run effect if contentId changes
-
+  }, [finalContentId]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const response = await service.post(`/recommendations/content/${contentId}`, {
+      const response = await service.post(`/recommendations/content/${finalContentId}`, {
         recTitle,
         tagline,
         recText,
-      })
-      navigate(`/recommendations/detail/${response.data.newRec._id}`) 
+      });
+      navigate(`/recommendations/detail/${response.data.newRec._id}`);
     } catch (error) {
-      setErrorMessage(error.response?.data?.message || "unable to create recommendation")
+      setErrorMessage(error.response?.data?.message || "unable to create recommendation");
     }
-  }
+  };
 
   return (
     <div className="rec-form container my-5">
       <div className="row justify-content-center">
         <div className="col-md-9">
-          <h1>here comes your {contentTitle || "loading..."} recup</h1>
+          {/* <h1>here comes your {contentTitle || "...hey,"} recup</h1> */}
+          <h4>so, you like {contentTitle || "...this,"} right?</h4>
           
+
           <form onSubmit={handleSubmit}>
             <div className="mb-1">
-              <label htmlFor="recTitle" className="form-label">set a title for your recommendation</label>
+              <label htmlFor="recTitle" className="form-label">
+                set a title for your recommendation
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -59,7 +66,9 @@ function RecommendationForm() {
               />
             </div>
             <div className="mb-1">
-              <label htmlFor="tagline" className="form-label">write a tagline</label>
+              <label htmlFor="tagline" className="form-label">
+                write a tagline
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -69,7 +78,9 @@ function RecommendationForm() {
               />
             </div>
             <div className="mb-1">
-              <label htmlFor="recText" className="form-label">feel free to ramble and share your thoughts/feelings as much as you like</label>
+              <label htmlFor="recText" className="form-label">
+                feel free to ramble and share your thoughts/feelings as much as you like
+              </label>
               <textarea
                 className="form-control"
                 id="recText"
@@ -80,11 +91,11 @@ function RecommendationForm() {
             </div>
             <button type="submit" className="btn btn-primary">let's do this</button>
           </form>
+          {errorMessage && <p className="text-danger">{errorMessage}</p>}
         </div>
       </div>
     </div>
   );
 }
 
-
-export default RecommendationForm
+export default RecommendationForm;

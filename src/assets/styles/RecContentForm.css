@@ -32,7 +32,7 @@
   margin-bottom: 0.5rem;
   color: #b4b4b4;
 
-  /* this makes no sense but aparently works */
+  /* this makes no sense but apparently works */
   padding-right: 24px !important;
 }
 
@@ -137,16 +137,17 @@
 }
 
 @media (max-width: 768px) {
+
+
+  .new-content-form {
+    max-width: 390px !important;
+    width: 100%;
+    
+  }
   
   .new-content-form input, 
   .new-content-form textarea, .react-tags-input {
     max-width: 290px !important;
-  }
-
-  .new-content-form {
-    max-width: 400px !important;
-    width: 100%;
-    
   }
 
   .form-control {
@@ -163,4 +164,20 @@
   .form-text {
     font-size: 0.75rem;
   }
+
+  .ReactTags__tags, 
+  .ReactTags__tagInputField {
+    /* max-width: 290px !important; */
+    /* width: 100% !important; */
+    box-sizing: border-box;
+  }
+
+  /* .tags-container {
+    width: 290px !important;
+  } */
+
+  #react-tags-id {
+    width: 290px !important;
+  }
+
 }
