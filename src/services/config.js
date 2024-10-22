@@ -1,8 +1,8 @@
 import axios from "axios"
 
 const service = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5005/api",
-  // baseURL: import.meta.env.VITE_API_URL,
+  baseURL: import.meta.env.VITE_SERVER_URL || "http://localhost:5005/api",
+  // baseURL: import.meta.env.VITE_SERVER_URL,
 })
 
 // add the token to every request
