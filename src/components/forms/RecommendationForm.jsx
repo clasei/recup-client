@@ -3,8 +3,10 @@ import { useParams, useNavigate } from "react-router-dom"
 import service from "../../services/config"
 import "../../assets/styles/RecContentForm.css"
 
-function RecommendationForm() {
-  const { contentId } = useParams() 
+function RecommendationForm({ contentId }) {
+  // const { contentId } = useParams() 
+  const { contentId: paramContentId } = useParams()
+
   const navigate = useNavigate() 
   const [recTitle, setRecTitle] = useState("")
   const [tagline, setTagline] = useState("")
@@ -12,10 +14,13 @@ function RecommendationForm() {
   const [contentTitle, setContentTitle] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
 
+  const finalContentId = contentId || paramContentId
+
+
   useEffect(() => {
     const fetchContentTitle = async () => {
       try {
-        const response = await service.get(`/contents/${contentId}`)
+        const response = await service.get(`/contents/${paramContentId}`)
         setContentTitle(response.data.title)
       } catch (error) {
         // console.log("sth went wrong fetching content:", error)
@@ -24,13 +29,14 @@ function RecommendationForm() {
     }
 
     fetchContentTitle()
-  }, [contentId]) // run effect if contentId changes
+  // }, [contentId]) // run effect if contentId changes
+  }, [finalContentId]) // run effect if contentId changes
 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await service.post(`/recommendations/content/${contentId}`, {
+      const response = await service.post(`/recommendations/content/${paramContentId}`, {
         recTitle,
         tagline,
         recText,
