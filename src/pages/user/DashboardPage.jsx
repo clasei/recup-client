@@ -33,7 +33,7 @@ function DashboardPage() {
   
       {isLoggedIn ? (
         <>
-          <h2>life is hard, <br />enjoy your saved recups <br />and Paco sleeping</h2>
+          <h2>life is rara, <br />enjoy your saved recups <br />and Paco sleeping</h2>
   
           {savedRecups.length > 0 ? (
             <div className="row justify-content-center">
