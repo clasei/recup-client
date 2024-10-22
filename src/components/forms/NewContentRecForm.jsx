@@ -150,6 +150,7 @@ function NewContentRecForm() {
               <label htmlFor="authors" className="form-label">
                 add the content creator or creators
               </label>
+
               <div 
                 className="form-control" 
                 style={{ background: '#202020', 
@@ -158,7 +159,6 @@ function NewContentRecForm() {
                   marginBottom: '0'
                 }}
               >
-
                 <ReactTags
                   tags={authorTags}
                   handleDelete={handleAuthorDelete}
@@ -167,9 +167,8 @@ function NewContentRecForm() {
                   placeholder="creator/s"
                   required
                   className="react-tags-input" 
-                  style={{ width: '290px'}}
+                  id="react-tags-id"
                 />
-
               </div>
               <small className="form-text">
                 type a name and{" "}
@@ -180,9 +179,10 @@ function NewContentRecForm() {
               </small>
             </div>
 
-            <div>
+
+            <div className="mb-1">
               <label htmlFor="authors" className="form-label">
-                add relevant keywords, choose carefully
+                add some keywords, choose carefully
               </label>
 
               <div 
@@ -202,6 +202,7 @@ function NewContentRecForm() {
                   placeholder="add a keyword"
                   required
                   className="react-tags-input" 
+                  id="react-tags-id"
                 />
 
               </div>
