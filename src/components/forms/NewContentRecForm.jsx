@@ -95,7 +95,7 @@ function NewContentRecForm() {
             you are in the right place
           </h1>
 
-          <form className="new-content-form" onSubmit={handleSubmit}>
+          <form className="new-content-form d-flex justify-content-center" onSubmit={handleSubmit}>
             <h2>let's add some brand new stuff</h2>
 
             {/* <small className="form-text text-muted" style={{ fontSize: '0.70rem' }}>{'[ '}marked with 
@@ -166,6 +166,8 @@ function NewContentRecForm() {
                   inputFieldPosition="inline"
                   placeholder="creator/s"
                   required
+                  className="react-tags-input" 
+                  style={{ width: '290px'}}
                 />
 
               </div>
@@ -199,6 +201,7 @@ function NewContentRecForm() {
                   inputFieldPosition="inline"
                   placeholder="add a keyword"
                   required
+                  className="react-tags-input" 
                 />
 
               </div>
