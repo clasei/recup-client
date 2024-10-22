@@ -95,7 +95,7 @@ function NewContentRecForm() {
             you are in the right place
           </h1>
 
-          <form className="new-content-form" onSubmit={handleSubmit}>
+          <form className="new-content-form d-flex justify-content-center" onSubmit={handleSubmit}>
             <h2>let's add some brand new stuff</h2>
 
             {/* <small className="form-text text-muted" style={{ fontSize: '0.70rem' }}>{'[ '}marked with 
@@ -150,6 +150,7 @@ function NewContentRecForm() {
               <label htmlFor="authors" className="form-label">
                 add the content creator or creators
               </label>
+
               <div 
                 className="form-control" 
                 style={{ background: '#202020', 
@@ -158,7 +159,6 @@ function NewContentRecForm() {
                   marginBottom: '0'
                 }}
               >
-
                 <ReactTags
                   tags={authorTags}
                   handleDelete={handleAuthorDelete}
@@ -166,8 +166,9 @@ function NewContentRecForm() {
                   inputFieldPosition="inline"
                   placeholder="creator/s"
                   required
+                  className="react-tags-input" 
+                  id="react-tags-id"
                 />
-
               </div>
               <small className="form-text">
                 type a name and{" "}
@@ -178,9 +179,10 @@ function NewContentRecForm() {
               </small>
             </div>
 
-            <div>
+
+            <div className="mb-1">
               <label htmlFor="authors" className="form-label">
-                add relevant keywords, choose carefully
+                add some keywords, choose carefully
               </label>
 
               <div 
@@ -199,6 +201,8 @@ function NewContentRecForm() {
                   inputFieldPosition="inline"
                   placeholder="add a keyword"
                   required
+                  className="react-tags-input" 
+                  id="react-tags-id"
                 />
 
               </div>

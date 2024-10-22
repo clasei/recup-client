@@ -26,12 +26,15 @@
   width: 100%;
 }
 
-/* .form-label {
+.form-label {
   width: 100%;
   padding: 10px;
   margin-bottom: 0.5rem;
   color: #b4b4b4;
-} */
+
+  /* this makes no sense but aparently works */
+  padding-right: 24px !important;
+}
 
 .new-content-form label.form-label {
   margin-top: 2rem;
@@ -123,16 +126,41 @@
   background-color: rgb(255, 109, 109);
 }
 
+#react-tags-id {
+  max-width: 300px !important;
+  width: 100% !important;
+}
+
+#media {
+  max-width: 300px !important;
+  width: 100%;
+}
 
 @media (max-width: 768px) {
   
   .new-content-form input, 
-  .new-content-form textarea {
-    max-width: 200px !important;
+  .new-content-form textarea, .react-tags-input {
+    max-width: 290px !important;
+  }
+
+  .new-content-form {
+    max-width: 400px !important;
+    width: 100%;
+    
   }
 
   .form-control {
-    min-width: 200px !important;
-    padding: 0,5rem;
+    min-width: 300px !important;
+    /* padding: 0.5rem; */
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+    width: 100%;
+    /* align-items: center; -- check THIS */
+  }
+
+  .form-text {
+    font-size: 0.75rem;
   }
 }
