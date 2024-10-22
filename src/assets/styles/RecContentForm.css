@@ -142,6 +142,7 @@
   .new-content-form {
     max-width: 390px !important;
     width: 100%;
+    
   }
   
   .new-content-form input, 
@@ -163,4 +164,20 @@
   .form-text {
     font-size: 0.75rem;
   }
+
+  .ReactTags__tags, 
+  .ReactTags__tagInputField {
+    /* max-width: 290px !important; */
+    /* width: 100% !important; */
+    box-sizing: border-box;
+  }
+
+  /* .tags-container {
+    width: 290px !important;
+  } */
+
+  #react-tags-id {
+    width: 290px !important;
+  }
+
 }

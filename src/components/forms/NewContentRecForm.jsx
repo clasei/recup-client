@@ -146,7 +146,7 @@ function NewContentRecForm() {
               />
             </div>
 
-            <div className="mb-1">
+            <div className="tags-container mb-1">
               <label htmlFor="authors" className="form-label">
                 add the content creator or creators
               </label>
@@ -180,7 +180,7 @@ function NewContentRecForm() {
             </div>
 
 
-            <div className="mb-1">
+            <div className="tags-container mb-1">
               <label htmlFor="authors" className="form-label">
                 add some keywords, choose carefully
               </label>
