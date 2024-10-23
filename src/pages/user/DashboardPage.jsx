@@ -29,21 +29,26 @@ function DashboardPage() {
   return (
     <div className="dashboard-container" style={{ width: '100%', padding: '0.5rem' }}>
       <h1>you are finally here, {username}</h1>
-      <img src={PacoIsSleeping} alt="Paco" className="paco-image" />
+      <img src={PacoIsSleeping} alt="Paco" className="paco-image img-fluid" />
   
       {isLoggedIn ? (
         <>
           <h2>life is rara, <br />enjoy your saved recups <br />and Paco sleeping</h2>
   
           {savedRecups.length > 0 ? (
-            <div className="row justify-content-center">
+            <div className="row justify-content-center mt-4" style={{ maxWidth: '1200px', margin: '0 auto' }}>
               {savedRecups
                 .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
                 .map((recommendation) => (
-                  <div key={recommendation._id} className="col-md-6 col-12 d-flex justify-content-center mb-4">
+
+                  <div key={recommendation._id} 
+                    // className="col-md-6 col-12 d-flex justify-content-center mb-4"
+                    className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-4"
+                    style={{ maxWidth: '600px', minWidth: '300px' }}
+                  >
                     <RecupCard 
                       recommendation={recommendation} 
-                      style={{ width: '100%' }}
+                      style={{ width: '100%', minWidth: '300px' }}
                     />
                   </div>
                 ))}

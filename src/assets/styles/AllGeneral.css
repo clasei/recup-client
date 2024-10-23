@@ -109,7 +109,7 @@ img {
 
 /* LINKS ------------------ */ 
 
-.link-hover {
+.link-hover, .NavLink {
   cursor: pointer;
   border-bottom: 1px solid rgba(254, 254, 254, 0.373);
   text-decoration: none;
@@ -289,7 +289,14 @@ textarea:focus {
 
   h1 {
     font-size: 1.5rem;
-    padding: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h1, h2, h3, h4 {
+    padding: 0.25rem;
   }
 
 }
