@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from 'react'
-import { shuffleArray } from "../../utils/shuffleArray"
+import { useNavigate } from "react-router-dom"
 import service from "../../services/config"
+import { shuffleArray } from "../../utils/shuffleArray"
 import ContentCard from './ContentCard';
-import PreFooter from '../../components/PreFooter';
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { AuthContext } from "../../context/auth.context" 
 
@@ -10,11 +10,14 @@ import { AuthContext } from "../../context/auth.context"
 function ContentListComponent({ setSavedRecs, savedRecs }) {
 
   const { loggedUserId } = useContext(AuthContext)
+  const navigate = useNavigate()
   
 
   const [contents, setContents] = useState([])
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(true); 
+  // const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredContents, setFilteredContents] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +31,6 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
 
         const shuffledContents= shuffleArray(contentsResponse.data);
         setContents(shuffledContents);
-
 
         // setLoading(false);
 
@@ -47,6 +49,20 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
     fetchData()
   }, [])
 
+
+  useEffect(() => {
+    if (searchTerm.length >= 3) {
+      setFilteredContents(
+        contents.filter((content) =>
+          content.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredContents(contents)
+    }
+  }, [searchTerm, contents])
+
+
   if (loading) {
     return (
       <div className="loader-container">
@@ -58,11 +74,20 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
 
   return (
     <div className="content-list container">
+
       <h1>find your next recup-worthy content</h1>
-      {error && <p className="error-message">error: {error}</p>}
+      <input
+        className="form-control mb-4"
+        type="text"
+        placeholder="looking for a special title?"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{ marginBottom: "20px", maxWidth: '500px', margin: '0 auto' }}
+      />
+
       <div className="row justify-content-center">
-        {contents.map((content) => (
-          <div key={content._id} className="col-md-6 col-12 d-flex justify-content-center mb-4">
+        {filteredContents.map((content) => (
+          <div key={content._id} className="col-md-6 col-12 d-flex justify-content-center mt-4 mb-4">
             <ContentCard 
               loggedUserId={loggedUserId}
               setSavedRecs={setSavedRecs}
@@ -73,6 +98,17 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
           </div>
         ))}
       </div>
+      <div className="pre-footer-container">
+
+      <div className="new-content">
+
+        <button onClick={() => navigate('/add/new-content')} className="btn btn-primary">
+          recup new content
+        </button>
+
+        
+      </div>
+    </div>
 
     </div>
   );

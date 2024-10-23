@@ -311,6 +311,7 @@ textarea:focus {
 
   h1 {
     font-size: 2.2rem !important;
+    margin-bottom: 2rem;
   }
 
   h2 {
