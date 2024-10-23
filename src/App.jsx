@@ -1,6 +1,9 @@
 import { Routes, Route } from "react-router-dom"
 import Private from "./components/auth/Private"
-// import { useState, useContext } from "react" 
+import { useState, useEffect, useContext } from 'react'
+import { AuthContext } from "./context/auth.context" 
+import service from "./services/config"
+
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/styles/AllGeneral.css'
@@ -45,6 +48,24 @@ import Error404 from "./pages/errors/Error404"
 
 function App() {
 
+  const { isLoggedIn, loggedUserId } = useContext(AuthContext)
+  const [savedRecs, setSavedRecs] = useState([])
+
+  useEffect(() => {
+    if (isLoggedIn && loggedUserId) {
+      const fetchSavedRecups = async () => {
+        try {
+          const response = await service.get(`/users/${loggedUserId}/saved-recommendations`)
+          setSavedRecs(response.data.savedRecs)
+        } catch (error) {
+          console.error("error fetching saved recups:", error)
+        }
+      }
+      fetchSavedRecups()
+    }
+  }, [isLoggedIn, loggedUserId])
+
+
   return (
     <div className="app-page">
       <Navbar />
@@ -59,19 +80,20 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
 
           {/* users-only */}
-          <Route path="/contents" element={<Private><ContentListPage /></Private>} />
-          <Route path="/contents/recups/:contentId" element={<Private><ContentRecommendationsPage /></Private>} />
+          <Route path="/contents" element={<Private><ContentListPage setSavedRecs={setSavedRecs} savedRecs={savedRecs} /></Private>} />
+          <Route path="/contents/recups/:contentId" element={<Private><ContentRecommendationsPage setSavedRecs={setSavedRecs} savedRecs={savedRecs} /></Private>} />
 
           <Route path="/add/new/:contentId" element={<Private><CreateRecommendationPage /></Private>} />
           <Route path="/add/new-content" element={<Private><CreateNewContentPage /></Private>} />
           <Route path="/new-recup" element={<Private><NewRecupPage /></Private>} />
 
 
-          <Route path="/detail/:recommendationId" element={<Private><RecommendationDetailPage /></Private>} />
-          <Route path="/users/:username" element={<Private><UserProfilePage /></Private>} />
+          <Route path="/detail/:recommendationId" element={<Private><RecommendationDetailPage setSavedRecs={setSavedRecs} savedRecs={savedRecs} /></Private>} />
+          <Route path="/users/:username" element={<Private><UserProfilePage setSavedRecs={setSavedRecs} savedRecs={savedRecs} /></Private>} />
 
           {/* owner-only */}
-          <Route path="/dashboard" element={<Private ownerOnly={true}><DashboardPage /></Private>} />
+          <Route path="/dashboard" element={<Private ownerOnly={true}><DashboardPage setSavedRecs={setSavedRecs} savedRecs={savedRecs} /></Private>} />
+          {/* <Route path="/dashboard" element={<Private ownerOnly={true}><DashboardPage /></Private>} /> */}
 
           <Route path="/created" element={<Private ownerOnly={true}><CreatedRecupsPage /></Private>} />
           <Route path="/edit/:recommendationId" element={<Private ownerOnly={true}><EditRecupPage /></Private>} />

@@ -11,7 +11,9 @@ function Footer() {
       <NavLink to="/" className="footer-logo">
         <img src={recupMiniT} alt="Recup logo" className="footer-logo-img" />
       </NavLink>
-      <span className="footer-recup mt-2">recup</span>
+      <span className="footer-recup mt-2">
+        <NavLink className="mx-2" to="/">recup</NavLink> 
+      </span>
       <span className="footer-text">where the good stuff lives</span>
 
       {/* <span className="footer-contact align-items-center">
@@ -23,13 +25,16 @@ function Footer() {
       </span> */}
 
     <span className="footer-links d-flex align-items-center">
-      <NavLink className="mx-2" to="/about">about</NavLink> 
+      <NavLink className="mx-2" to="/">home</NavLink>
       |
       <NavLink className="mx-2" to="/help">help</NavLink>
       |
+      <NavLink className="mx-2" to="/about">about</NavLink> 
+      |
+      
       <div className="contact-pack">
-        <a href="mailto:recup@dobeesdream.com" className="mx-2 d-flex align-items-center">
-          contact
+        <a href="mailto:recup@dobeesdream.com" className="d-flex align-items-center">
+          {/* contact */}
           <svg className="footer-svg mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="grey">
             <path d="M20 4H4C2.89 4 2.01 4.89 2.01 6L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
           </svg>

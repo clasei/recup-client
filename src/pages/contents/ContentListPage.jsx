@@ -1,11 +1,11 @@
 import ContentListComponent from "../../components/contents/ContentListComponent";
 import PreFooter from "../../components/PreFooter";
 
-function ContentListPage() {
+function ContentListPage({ setSavedRecs, savedRecs }) {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <ContentListComponent />
+        <ContentListComponent setSavedRecs={setSavedRecs} savedRecs={savedRecs} />
         <PreFooter />
       </div>
     </div>
