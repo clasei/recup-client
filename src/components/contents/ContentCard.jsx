@@ -45,6 +45,7 @@ function ContentCard({ content }) {
 
         {content.mediaUrl && (
           <div className="content-img text-center mb-4">
+            <Link to={`/contents/recups/${content._id}`}>
             {content.mediaUrl.match(/\.(jpeg|jpg|png)$/) && (
               <img
                 src={content.mediaUrl}
@@ -53,6 +54,7 @@ function ContentCard({ content }) {
                 // style={{ width: '100%' }} 
               />
             )}
+            </Link>
           </div>
         )}
 

@@ -23,7 +23,7 @@ function RecupCard({ loggedUserId, recommendation, setSavedRecs, savedRecs, isDe
     } else {
       setIsSaved(false)
     }
-  }, [savedRecs, recommendation._id])
+  }, [])
   
   
 
