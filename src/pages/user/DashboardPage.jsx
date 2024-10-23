@@ -4,7 +4,7 @@ import service from "../../services/config"
 import PacoIsSleeping from '../../assets/images/PacoIsSleeping.png'
 import RecupCard from "../../components/recups/RecupCard"
 
-function DashboardPage() {
+function DashboardPage({ setSavedRecs, savedRecs }) {
   const { loggedUserId, isLoggedIn } = useContext(AuthContext)
   const [savedRecups, setSavedRecups] = useState([])
   const [username, setUsername] = useState("")
@@ -29,8 +29,9 @@ function DashboardPage() {
   return (
     <div className="dashboard-container" style={{ width: '100%', padding: '0.5rem' }}>
       <h1>you are finally here, {username}</h1>
-      <img src={PacoIsSleeping} alt="Paco" className="paco-image img-fluid" />
-  
+      <div className="paco-div">
+        <img src={PacoIsSleeping} alt="Paco" className="paco-image img-fluid" />
+      </div>
       {isLoggedIn ? (
         <>
           <h2>life is rara, <br />enjoy your saved recups <br />and Paco sleeping</h2>
@@ -47,7 +48,10 @@ function DashboardPage() {
                     style={{ maxWidth: '600px', minWidth: '300px' }}
                   >
                     <RecupCard 
+                      loggedUserId={loggedUserId}
                       recommendation={recommendation} 
+                      setSavedRecs={setSavedRecs}
+                      savedRecs={savedRecs} 
                       style={{ width: '100%', minWidth: '300px' }}
                     />
                   </div>

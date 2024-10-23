@@ -1,40 +1,43 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import service from "../../services/config"
-
 import { howManyDaysAgo } from "../../utils/dateUtils"
-// import { tokenPayload } from '../../utils/token'
-import { AuthContext } from "../../context/auth.context" 
 
-function RecupCard({ recommendation, username, isDetailPage = false, isProfilePage }) {
 
-  // const token = localStorage.getItem("authToken")
-  // const currentUser = tokenPayload(token)._id
+function RecupCard({ loggedUserId, recommendation, setSavedRecs, savedRecs, isDetailPage = false, isProfilePage }) {
 
-  const { loggedUserId } = useContext(AuthContext)
-
-  // let the user now if the recup is owned or saved haha
   const [saveRecupMessage, setSaveRecupMessage] = useState("")
   const [isSaved, setIsSaved] = useState(false)
 
-  // limit textRec
+  // const [savedRecs, setSavedRecs] = useState([])
+
+  // limit textRec --- dont remove !!!
   const getExcerpt = (text) => {
     return text.length > 120 ? text.substring(0, 120) + '...' : text
   }
 
+  // // moved to app
+  // useEffect(() => {
+  //   const checkIfSaved = async () => {
+  //     try {
+  //       const response = await service.get(`/users/${loggedUserId}/saved-recommendations`)
+  //       setIsSaved(response.data.savedRecs.includes(recommendation._id))
+  //     } catch (error) {
+  //       console.error("error checking saved recup:", error)
+  //     }
+  //   }
+  //   checkIfSaved()
+  // }, [loggedUserId, recommendation._id])
 
   useEffect(() => {
-    const checkIfSaved = async () => {
-      try {
-        const response = await service.get(`/users/${loggedUserId}/saved-recommendations`)
-        setIsSaved(response.data.savedRecs.includes(recommendation._id))
-      } catch (error) {
-        console.error("error checking saved recup:", error)
-      }
+    if (savedRecs.includes(recommendation._id)) {
+      setIsSaved(true);
+      
+    } else {
+      setIsSaved(false);
     }
-    checkIfSaved()
-  }, [loggedUserId, recommendation._id])
-
+  }, [savedRecs, recommendation._id])
+  
 
   // save the recup
   const handleSaveRecup = async () => {
@@ -42,6 +45,8 @@ function RecupCard({ recommendation, username, isDetailPage = false, isProfilePa
       const response = await service.put(`/users/${loggedUserId}/save/${recommendation._id}`)
       setSaveRecupMessage(response.data.message)
       setIsSaved(true)
+
+      setSavedRecs(prev => [...prev, recommendation._id])
     } catch (error) {
       setSaveRecupMessage(error.response?.data?.message || "unable to save recup")
     }
@@ -53,6 +58,8 @@ function RecupCard({ recommendation, username, isDetailPage = false, isProfilePa
       const response = await service.put(`/users/${loggedUserId}/unsave/${recommendation._id}`)
       setSaveRecupMessage(response.data.message)
       setIsSaved(false)
+
+      setSavedRecs(prev => prev.filter(id => id !== recommendation._id))
     } catch (error) {
       setSaveRecupMessage(error.response?.data?.message || "couldn't unsave recup")
     }
@@ -65,7 +72,6 @@ function RecupCard({ recommendation, username, isDetailPage = false, isProfilePa
         <p className="text-muted">
           <em>{recommendation.tagline}</em>
         </p>
-
 
         {!isDetailPage && (
           <>
@@ -83,18 +89,6 @@ function RecupCard({ recommendation, username, isDetailPage = false, isProfilePa
               )}
             </p>
 
-
-            {/* <p
-              className="username-link text-muted"
-              style={{ fontWeight: "bold" }}
-            >
-
-              recup by  {'  '}
-              <NavLink to={`/users/${recommendation.creator.username}`}>
-                {recommendation.creator.username}
-              </NavLink>
-            </p> */}
-
             <p
               className="days-ago text-muted text-center"
               style={{ fontSize: "0.7rem" }}
@@ -107,13 +101,6 @@ function RecupCard({ recommendation, username, isDetailPage = false, isProfilePa
             <NavLink to={`/detail/${recommendation._id}`} className="btn">
               check this recup
             </NavLink>
-
-            {/* check if the user is the owner or saved this before */}
-            {/* {currentUser !== recommendation.creator._id && (
-              <button className="btn btn-save mt-2" onClick={handleSaveRecup}>
-                Save Recup
-              </button>
-            )} */}
           </>
         )}
           <>
@@ -146,10 +133,6 @@ function RecupCard({ recommendation, username, isDetailPage = false, isProfilePa
                     <path d="M2 2v12l6-3 6 3V2z" />
                   </svg>
                 )}
-
-                {/* shows if its done or it has failed... check this later !!! */}
-                {/* option 1: change server message, option 2: manage error properly in the front */}
-                {/* {saveRecupMessage && <p className="save-message">{saveRecupMessage}</p>} */}
 
               </div>
             )}

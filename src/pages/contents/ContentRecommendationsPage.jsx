@@ -3,12 +3,12 @@ import PreFooter from '../../components/PreFooter';
 import RecupList from '../../components/recups/RecupList';
 
 
-function ContentRecommendationsPage() {
+function ContentRecommendationsPage({ setSavedRecs, savedRecs }) {
 
   return (
     <div className="container my-5">
 
-    <RecupList />
+    <RecupList setSavedRecs={setSavedRecs} savedRecs={savedRecs} />
     <PreFooter />
     
   </div>

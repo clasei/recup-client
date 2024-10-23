@@ -11,7 +11,7 @@ import { AuthContext } from "../../context/auth.context"
 
 
 
-function RecommendationDetailPage() {
+function RecommendationDetailPage({ setSavedRecs, savedRecs }) {
 
   const { loggedUserId } = useContext(AuthContext)
 
@@ -50,8 +50,10 @@ function RecommendationDetailPage() {
         <div className="recup-card-container d-flex justify-content-center mb-4">
           <div className="recup-card-wrapper" style={{ width: "100%" }}>
             <RecupCard
-              recommendation={recommendation}
               loggedUserId={loggedUserId}
+              recommendation={recommendation}
+              setSavedRecs={setSavedRecs}
+              savedRecs={savedRecs} 
               isDetailPage={true}
             />
           </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import service from "../../services/config"
 import RecupCard from "../recups/RecupCard"
 
-function UserProfile({ username }) {
+function UserProfile({ username, setSavedRecs, savedRecs }) {
   const [userRecups, setUserRecups] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -31,12 +31,19 @@ function UserProfile({ username }) {
       <div className="row">
         {userRecups.map((recommendation) => (
           <div key={recommendation._id} className="col-12 col-sm-6 col-md-4">
-            <RecupCard recommendation={recommendation} username={username} isProfilePage={true} />
+            <RecupCard
+              loggedUserId={loggedUserId}
+              recommendation={recommendation}
+              // username={username} 
+              setSavedRecs={setSavedRecs}
+              savedRecs={savedRecs}
+              isProfilePage={true}
+            />
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default UserProfile
