@@ -9,34 +9,22 @@ function RecupCard({ loggedUserId, recommendation, setSavedRecs, savedRecs, isDe
   const [saveRecupMessage, setSaveRecupMessage] = useState("")
   const [isSaved, setIsSaved] = useState(false)
 
-  // const [savedRecs, setSavedRecs] = useState([])
 
   // limit textRec --- dont remove !!!
   const getExcerpt = (text) => {
     return text.length > 120 ? text.substring(0, 120) + '...' : text
   }
 
-  // // moved to app
-  // useEffect(() => {
-  //   const checkIfSaved = async () => {
-  //     try {
-  //       const response = await service.get(`/users/${loggedUserId}/saved-recommendations`)
-  //       setIsSaved(response.data.savedRecs.includes(recommendation._id))
-  //     } catch (error) {
-  //       console.error("error checking saved recup:", error)
-  //     }
-  //   }
-  //   checkIfSaved()
-  // }, [loggedUserId, recommendation._id])
 
   useEffect(() => {
-    if (savedRecs.includes(recommendation._id)) {
-      setIsSaved(true);
-      
+    console.log('double check if they match:', savedRecs, recommendation._id)
+    if (savedRecs.some(savedRec => savedRec._id === recommendation._id)) {
+      setIsSaved(true)
     } else {
-      setIsSaved(false);
+      setIsSaved(false)
     }
   }, [savedRecs, recommendation._id])
+  
   
 
   // save the recup
@@ -140,7 +128,7 @@ function RecupCard({ loggedUserId, recommendation, setSavedRecs, savedRecs, isDe
         
       </div>
     </div>
-  );
+  )
 }
 
 export default RecupCard

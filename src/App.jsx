@@ -93,6 +93,7 @@ function App() {
 
           {/* owner-only */}
           <Route path="/dashboard" element={<Private ownerOnly={true}><DashboardPage setSavedRecs={setSavedRecs} savedRecs={savedRecs} /></Private>} />
+          {/* <Route path="/dashboard" element={<Private ownerOnly={true}><DashboardPage /></Private>} /> */}
 
           <Route path="/created" element={<Private ownerOnly={true}><CreatedRecupsPage /></Private>} />
           <Route path="/edit/:recommendationId" element={<Private ownerOnly={true}><EditRecupPage /></Private>} />
