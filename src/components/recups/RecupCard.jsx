@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import service from "../../services/config"
 
 import { howManyDaysAgo } from "../../utils/dateUtils"
 // import { tokenPayload } from '../../utils/token'
 import { AuthContext } from "../../context/auth.context" 
 
-function RecupCard({ recommendation, isDetailPage = false }) {
+function RecupCard({ recommendation, username, isDetailPage = false, isProfilePage }) {
 
   // const token = localStorage.getItem("authToken")
   // const currentUser = tokenPayload(token)._id
@@ -66,17 +66,34 @@ function RecupCard({ recommendation, isDetailPage = false }) {
           <em>{recommendation.tagline}</em>
         </p>
 
+
         {!isDetailPage && (
           <>
             <p>{getExcerpt(recommendation.recText)}</p>
-            <hr />
 
-            <p
-              className="text-muted"
-              style={{ fontSize: "0.75rem", fontWeight: "bold" }}
-            >
-              recup by {recommendation.creator.username}
+            <p className="username-link text-muted" style={{ fontWeight: "bold" }}>
+              recup by {' '}
+
+              {isProfilePage ? (
+                recommendation.creator.username
+              ) : (
+                <NavLink to={`/users/${recommendation.creator.username}`}>
+                  {recommendation.creator.username}
+                </NavLink>
+              )}
             </p>
+
+
+            {/* <p
+              className="username-link text-muted"
+              style={{ fontWeight: "bold" }}
+            >
+
+              recup by  {'  '}
+              <NavLink to={`/users/${recommendation.creator.username}`}>
+                {recommendation.creator.username}
+              </NavLink>
+            </p> */}
 
             <p
               className="days-ago text-muted text-center"
@@ -87,9 +104,9 @@ function RecupCard({ recommendation, isDetailPage = false }) {
                 : "date unknown"}
             </p>
 
-            <Link to={`/detail/${recommendation._id}`} className="btn">
+            <NavLink to={`/detail/${recommendation._id}`} className="btn">
               check this recup
-            </Link>
+            </NavLink>
 
             {/* check if the user is the owner or saved this before */}
             {/* {currentUser !== recommendation.creator._id && (

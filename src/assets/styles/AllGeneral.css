@@ -57,6 +57,7 @@ h2 {
   font-size: 2.2rem;
   padding: 1rem;
   margin-top: 1.5rem;
+  margin-bottom: 1rem;
   color: #dbdbdb !important;
 }
 
@@ -111,16 +112,37 @@ img {
 
 .link-hover, .NavLink {
   cursor: pointer;
-  border-bottom: 1px solid rgba(254, 254, 254, 0.373);
+  border-bottom: 1px solid #c0c0c07f;
   text-decoration: none;
   transition: border-bottom-color 0.3s ease;
   /* transition: transform 0.3s ease-in-out; */
 }
 
 .link-hover:hover, .link-hover:active {
-  border-bottom-color: rgba(0, 0, 0, 0.6);
+  border-bottom-color:  #5656567f;;
   color: #4CB1F9 !important;
   /* transition: transform 0.3s ease-in-out; */
+}
+
+.username-link {
+  font-size: 0.75rem;
+}
+
+.username-link a {
+  color: #c0c0c0 !important;
+  text-decoration: none;
+  border-bottom: 1px solid #c0c0c07f;
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+  transition: border-bottom-color 0.3s ease;
+}
+
+.username-link a:hover, .username-link a:active {
+  color: #dbdbdb !important;
+  border-bottom-color: #5656567f;
+  text-decoration: none;
+  /* display: inline-block; */
+  transform: scale(1.05);
 }
 
 
@@ -288,11 +310,12 @@ textarea:focus {
 @media (max-width: 768px) {
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 2.2rem !important;
   }
 
   h2 {
     font-size: 1.8rem;
+    /* margin-bottom: 1.5rem; */
   }
 
   h1, h2, h3, h4 {
