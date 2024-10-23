@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { scrollToTop } from "../utils/scrollToTop"
 
 function PreFooter() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <div className="pre-footer-container">
@@ -18,7 +18,7 @@ function PreFooter() {
         
       </div>
     </div>
-  );
+  )
 }
 
-export default PreFooter;
+export default PreFooter

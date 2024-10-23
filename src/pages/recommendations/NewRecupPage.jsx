@@ -7,6 +7,7 @@ import PreFooter from "../../components/PreFooter"
 function NewRecupPage() {
   const [allContent, setAllContent] = useState([])
   const [searchTerm, setSearchTerm] = useState("") 
+  const [filteredContent, setFilteredContent] = useState([])
   const [selectedContent, setSelectedContent] = useState(null) 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -26,11 +27,24 @@ function NewRecupPage() {
     fetchAllContent()
   }, [])
 
-  const filteredContent = searchTerm.length >= 3 
-    ? allContent.filter((content) =>
-        content.title.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    : []
+
+  useEffect(() => {
+    if (searchTerm.length >= 3) {
+      setFilteredContent(
+        allContent.filter((content) =>
+          content.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredContent([]);
+    }
+  }, [searchTerm, allContent]);
+
+  // const filteredContent = searchTerm.length >= 3 
+  //   ? allContent.filter((content) =>
+  //       content.title.toLowerCase().includes(searchTerm.toLowerCase())
+  //     )
+  //   : []
 
   return (
     <div className="new-rec-form container my-5">
@@ -39,7 +53,7 @@ function NewRecupPage() {
       <input
         className="form-control mb-4"
         type="text"
-        placeholder="write your content title here"
+        placeholder="start writing the title"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         style={{ marginBottom: "20px" }}
