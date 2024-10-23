@@ -44,14 +44,15 @@ function ContentCard({ content }) {
         )}
 
         {content.mediaUrl && (
-          <div className="content-img text-center mb-4">
+          // <div className="content-img text-center mb-4">
+          <div className="content-img text-center mb-4 d-flex justify-content-center align-items-center">
             <Link to={`/contents/recups/${content._id}`}>
             {content.mediaUrl.match(/\.(jpeg|jpg|png)$/) && (
               <img
                 src={content.mediaUrl}
                 alt="content media"
                 className="img-fluid"
-                // style={{ width: '100%' }} 
+                style={{ width: '100%' }} 
               />
             )}
             </Link>

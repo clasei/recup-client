@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from 'react'
 import { shuffleArray } from "../../utils/shuffleArray"
 import service from "../../services/config"
 import ContentCard from './ContentCard';
-import PreFooter from '../../components/PreFooter';
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { AuthContext } from "../../context/auth.context" 
 
@@ -28,7 +27,6 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
 
         const shuffledContents= shuffleArray(contentsResponse.data);
         setContents(shuffledContents);
-
 
         // setLoading(false);
 
