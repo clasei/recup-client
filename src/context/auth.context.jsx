@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import service from "../services/config"
+import PropagateLoader from "react-spinners/PropagateLoader"
 
 const AuthContext = createContext();
 
@@ -7,7 +8,8 @@ function AuthWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [loggedUserId, setLoggedUserId] = useState(null)
   const [isAdmin, setIsAdmin] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
+  const [loading, setLoading] = useState(true)
+
 
   // avoid authentication if there's no token to allow access to public pages
   useEffect(() => {
@@ -15,7 +17,7 @@ function AuthWrapper(props) {
     if (token) {
       authenticateUser()
     } else {
-      setIsLoading(false)
+      setLoading(false)
     }
   }, [])
 
@@ -32,7 +34,7 @@ function AuthWrapper(props) {
 
       // stops loading after verification / validation 
     } finally {
-      setIsLoading(false)
+      setLoading(false)
     }
   }
 
@@ -43,7 +45,13 @@ function AuthWrapper(props) {
     authenticateUser,
   }
 
-  if (isLoading) return <h3>loading aka waiting for a spinner</h3>
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <PropagateLoader height={50} color="grey" />
+      </div>
+    )
+  }
 
   return <AuthContext.Provider value={passedContext}>{props.children}</AuthContext.Provider>
 }

@@ -2,8 +2,8 @@ import { useEffect, useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom"
 import service from "../../services/config"
 import { shuffleArray } from "../../utils/shuffleArray"
-import ContentCard from './ContentCard';
-import PropagateLoader from "react-spinners/PropagateLoader";
+import ContentCard from './ContentCard'
+import PropagateLoader from "react-spinners/PropagateLoader"
 import { AuthContext } from "../../context/auth.context" 
 
 
@@ -16,7 +16,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
   const [contents, setContents] = useState([])
   // const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("")
   const [filteredContents, setFilteredContents] = useState([])
 
   useEffect(() => {
@@ -29,10 +29,10 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
 
         // setContents(response.data)
 
-        const shuffledContents= shuffleArray(contentsResponse.data);
-        setContents(shuffledContents);
+        const shuffledContents= shuffleArray(contentsResponse.data)
+        setContents(shuffledContents)
 
-        // setLoading(false);
+        // setLoading(false)
 
         // MAKE SURE YOU WANT TO KEEP THIS BEFORE DEPLOYMENT !!! ADAPT TIME IF NEEDED !!!
         // adding setTimeout to enjoy the spinner xd
@@ -42,7 +42,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
 
       } catch (error) {
         setErrorMessage("unable to load recommendations by content")
-        setLoading(false);
+        setLoading(false)
       }
     }
 
@@ -56,7 +56,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
         contents.filter((content) =>
           content.title.toLowerCase().includes(searchTerm.toLowerCase())
         )
-      );
+      )
     } else {
       setFilteredContents(contents)
     }
@@ -68,7 +68,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
       <div className="loader-container">
         <PropagateLoader height={50} color="grey" />
       </div>
-    );
+    )
   }
 
 
@@ -111,7 +111,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
     </div>
 
     </div>
-  );
+  )
 }
 
 export default ContentListComponent

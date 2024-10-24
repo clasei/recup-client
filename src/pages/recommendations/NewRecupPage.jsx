@@ -3,6 +3,8 @@ import service from "../../services/config"
 import RecommendationForm from "../../components/forms/RecommendationForm"
 import NewContentRecForm from "../../components/forms/NewContentRecForm"
 import PreFooter from "../../components/PreFooter"
+import PropagateLoader from "react-spinners/PropagateLoader"
+
 
 function NewRecupPage() {
   const [allContent, setAllContent] = useState([])
@@ -45,6 +47,14 @@ function NewRecupPage() {
   //       content.title.toLowerCase().includes(searchTerm.toLowerCase())
   //     )
   //   : []
+
+    if (isLoading) {
+    return (
+      <div className="loader-container">
+        <PropagateLoader height={50} color="grey" />
+      </div>
+    )
+  }
 
   return (
     <div className="new-rec-form container my-5">

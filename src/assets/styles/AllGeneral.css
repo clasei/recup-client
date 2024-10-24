@@ -193,6 +193,11 @@ img {
   padding: 0.5rem;
 }
 
+.save-recup-on, .save-recup-off {
+  width: 40px;
+  height: 40px;
+}
+
 .save-recup-on:hover, .save-recup-off:hover  {
   transform: scale(1.10);
   transition: 0.5s ease-in-out;
@@ -279,10 +284,15 @@ textarea:focus {
 
 
 /* SPINNER ------------------------- */
-
-.loader-container {
+/* .loader-container {
   height: 75vh;
   padding-top: 5rem;
+} */
+.loader-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .days-ago {

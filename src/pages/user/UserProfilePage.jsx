@@ -1,7 +1,6 @@
 import UserProfile from "../../components/users/UserProfile"
 
 function UserProfilePage({ savedRecs }) {
-  
 
   return (
     <div className="user-profile container">

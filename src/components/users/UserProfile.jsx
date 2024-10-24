@@ -2,11 +2,13 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import service from "../../services/config"
 import RecupCard from "../recups/RecupCard"
+import PropagateLoader from "react-spinners/PropagateLoader"
+
 
 function UserProfile({ setSavedRecs, savedRecs }) {
   const { username } = useParams()
   const [userRecups, setUserRecups] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchUserRecups = async () => {
@@ -16,15 +18,19 @@ function UserProfile({ setSavedRecs, savedRecs }) {
       } catch (error) {
         console.error("Error fetching user recups:", error)
       } finally {
-        setIsLoading(false)
+        setLoading(false)
       }
     }
 
     fetchUserRecups()
   }, [username])
 
-  if (isLoading) {
-    return <p>Loading...</p>
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <PropagateLoader height={50} color="grey" />
+      </div>
+    )
   }
 
   return (
