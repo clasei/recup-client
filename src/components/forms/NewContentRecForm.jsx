@@ -316,7 +316,7 @@ function NewContentRecForm() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default NewContentRecForm

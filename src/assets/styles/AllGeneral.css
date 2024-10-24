@@ -35,7 +35,7 @@ html, body {
   /* color: #dadada !important; */
   color: #c0c0c0 !important;
   background-color: #202020;
-  padding-top: 25px;
+  padding-top: 2rem;
   /* height: 100%; */
   /* display: flex;
   flex-direction: column; */
@@ -55,6 +55,10 @@ h1 {
 
 .dashboard-container h1 {
   margin-bottom: 3rem;
+}
+
+.find-content {
+  margin-bottom: 3rem !important;
 }
 
 h2 {
@@ -411,8 +415,8 @@ textarea:focus {
 @media (max-width: 768px) {
 
   h1 {
-    font-size: 2.2rem !important;
-    margin-bottom: 2rem;
+    font-size: 2.3rem !important;
+    margin-bottom: 2.4rem;
   }
 
   h2 {

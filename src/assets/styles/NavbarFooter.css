@@ -1,6 +1,7 @@
 .footer {
   /* background-color: #2B2B2B; */
-  background-color: #272727;
+  /* background-color: #272727; */
+  background-color: #222528;
   color: #dadada;
   display: flex;
   justify-content: center;
@@ -120,4 +121,57 @@
   width: 100%; 
 }
 
+/* ----- navbar */
 
+.navbar-brand {
+  font-family: "McLaren", sans-serif;
+  font-size: 1.3rem;
+  margin-top: 0 !important;
+  margin-left: 0.5rem;
+  transition: 0.5s ease-in-out;
+}
+
+.navbar-brand:hover, .navbar-brand:active {
+  transform: scale(1.05);
+  text-shadow: #dbdbdb 0.5px 0 0.5px;
+}
+
+.navbar-toggler {
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+  border: none; 
+}
+
+/* .navbar-toggler:hover, .navbar-toggler:active {
+  transition: 0.3s ease-in-out;
+} */
+
+.navbar-toggler:hover, .navbar-toggler:active {
+  transform: scale(0.90);
+  background-color: #2B2B2B;
+  border: none; 
+}
+
+.navbar-toggler.active {
+  border: none; 
+}
+
+.nav-item {
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+
+.navbar-brand, .nav-link {
+  transition: color 0.3s ease, background-color 0.3s ease;
+  /* transition: 0.3s ease-in-out; */
+}
+
+.nav-link:hover, .nav-link:active {
+  color: #dbdbdb !important;
+  background-color: #2B2B2B;
+}
+
+.nav-link.active {
+  color: #dbdbdb !important;
+  background-color: #2B2B2B !important;
+  font-weight: 600 !important;
+}

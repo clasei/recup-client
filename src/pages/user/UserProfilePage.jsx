@@ -8,7 +8,7 @@ function UserProfilePage({ savedRecs }) {
         <UserProfile savedRecs={savedRecs} /> 
       </div>
     </div>
-  );
+  )
 }
 
-export default UserProfilePage;
+export default UserProfilePage

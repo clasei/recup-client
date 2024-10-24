@@ -4,7 +4,7 @@ import service from "../../services/config"
 
 import { howManyDaysAgo } from "../../utils/dateUtils"
 import recupMiniT from '../../assets/images/recup-mini-transparent.png'
-import PreFooter from '../../components/PreFooter';
+import PreFooter from '../../components/PreFooter'
 
 import RecupCard from "../../components/recups/RecupCard"
 import { AuthContext } from "../../context/auth.context" 
@@ -32,7 +32,7 @@ function RecommendationDetailPage({ setSavedRecs, savedRecs }) {
       } catch (error) {
         setErrorMessage("unable to fetch recommendation details")
       }
-    };
+    }
 
     fetchRecommendationDetails()
   }, [recommendationId])
@@ -128,11 +128,11 @@ function RecommendationDetailPage({ setSavedRecs, savedRecs }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 
 
-export default RecommendationDetailPage;
+export default RecommendationDetailPage
 
 

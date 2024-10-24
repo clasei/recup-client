@@ -33,7 +33,7 @@ function OwnCreatedRecup({ recommendation }) {
         </Link>
       </div>
     </div>
-  );
+  )
 }
 
-export default OwnCreatedRecup;
+export default OwnCreatedRecup

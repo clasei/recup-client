@@ -1,5 +1,5 @@
-import NewContentRecForm from "../../components/forms/NewContentRecForm";
-import PreFooter from "../../components/PreFooter";
+import NewContentRecForm from "../../components/forms/NewContentRecForm"
+import PreFooter from "../../components/PreFooter"
 
 function CreateNewContentAndRecommendationPage() {
   return (
@@ -13,7 +13,7 @@ function CreateNewContentAndRecommendationPage() {
         <PreFooter />
       </div>
     </div>
-  );
+  )
 }
 
 export default CreateNewContentAndRecommendationPage

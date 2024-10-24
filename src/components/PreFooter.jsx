@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { scrollToTop } from "../utils/scrollToTop"
+import "../assets/styles/NavbarFooter.css"
+
 
 function PreFooter() {
   const navigate = useNavigate()
