@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import service from "../../services/config"
 // import PacoIsSleeping from '../../assets/images/PacoIsSleeping.png'
+import recupMiniT from '../../assets/images/recup-mini-transparent.png'
 import RecupCard from "../../components/recups/RecupCard"
 
 function DashboardPage({ savedRecs, setSavedRecs }) {
@@ -47,11 +48,17 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
         <img src={PacoIsSleeping} alt="Paco" className="paco-image img-fluid" />
       </div> */}
 
-      <h3 className="user-profile-name mb-1">
-        {userData.name || userData.lastName ? (
-          <h3>{userData.name} {userData.lastName}</h3>
-        ) : null}
-      </h3>
+    <div className="dash-logo-div d-flex justify-content-center align-items-center">
+      <img src={recupMiniT} alt="recup" className="dash-logo img-fluid" />
+    </div>
+
+
+    <h3 className="user-profile-name mb-3">
+      {userData.name || userData.lastName ? (
+        `welcome to ${userData.name} ${userData.lastName} recup safe place`
+      ) : null}
+    </h3>
+
 
       {userData.socialLink && (
         <p className="social-link text-center">
@@ -78,7 +85,7 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
         </button>
         </div>
 
-        <h2>life is rara, <br />enjoy your saved recups</h2>
+        <h3 className="life-is-rara text-muted">life is rara, <br />enjoy your saved recups</h3>
 
 
           {savedRecs.length > 0 ? (

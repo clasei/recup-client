@@ -76,6 +76,13 @@ h3, h4, p {
   margin-top: 1rem;
 }
 
+.life-is-rara {
+  margin-top: 4.2rem;
+  margin-bottom: 2.7rem;
+  /* text-emphasis: 'x'; */
+  text-shadow: #dbdbdb 1px 0 1px;
+}
+
 .text-muted {
   color: #B3B3B3 !important;
 }
@@ -115,6 +122,20 @@ img {
   width: 30px !important;
   height: 30px !important;
 }
+
+.dash-logo {
+  margin: 0;
+}
+
+.dash-logo-div {
+  width: 125px !important;
+  height: 125px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
 
 
 /* LINKS ------------------ */ 
@@ -197,7 +218,7 @@ img {
 
 .edit-btn {
   margin-top: 1rem !important;
-  margin-bottom: 2rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .dash-btns-container {
@@ -205,6 +226,8 @@ img {
   flex-direction: column;
   align-items: center;
   width: 100%; 
+  margin-top: 3rem;
+  /* margin-bottom: 3rem !important; */
 }
 
 
