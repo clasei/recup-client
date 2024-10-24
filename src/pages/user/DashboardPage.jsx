@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import service from "../../services/config"
-import PacoIsSleeping from '../../assets/images/PacoIsSleeping.png'
+// import PacoIsSleeping from '../../assets/images/PacoIsSleeping.png'
 import RecupCard from "../../components/recups/RecupCard"
 
 function DashboardPage({ savedRecs, setSavedRecs }) {
@@ -68,9 +68,15 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
       {isLoggedIn ? (
         <>
 
+        <div className="dash-btns-container">
         <button onClick={handleEditProfileClick} className="edit-btn btn btn-primary">
           edit your info
         </button>
+
+        <button onClick={() => navigate('/contents')} className="edit-btn btn btn-primary">
+          find content to recup
+        </button>
+        </div>
 
         <h2>life is rara, <br />enjoy your saved recups</h2>
 

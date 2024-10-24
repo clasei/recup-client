@@ -22,8 +22,8 @@ function ContentCard({ content, isCreated }) {
 
   const handleAddRecup = () => {
     if (isCreated) {
-      alert("you want to update your previous recup? let's go to your dashboard")
-      navigate(`/dashboard`)
+      alert("you want to update your previous recup? let's do that")
+      navigate(`/created`)
     } else {
       navigate(`/add/new/${content._id}`)
     }
@@ -87,7 +87,7 @@ function ContentCard({ content, isCreated }) {
         <div className="text-center">
         <Link to={`/contents/recups/${content._id}`}>
           <button className="content-btn btn btn-primary">
-            check more recups
+            see recups
           </button>
          </Link>
         </div>

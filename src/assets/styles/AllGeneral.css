@@ -53,6 +53,10 @@ h1 {
   color: #dadada !important;
 }
 
+.dashboard-container h1 {
+  margin-bottom: 3rem;
+}
+
 h2 {
   font-size: 2.2rem;
   padding: 1rem;
@@ -63,6 +67,7 @@ h2 {
 
 .dashboard-container h2 {
   margin-bottom: 2.5rem;
+  margin-top: 3rem;
 }
 
 h3, h4, p {
@@ -192,8 +197,16 @@ img {
 
 .edit-btn {
   margin-top: 1rem !important;
-  margin-bottom: 4rem !important;
+  margin-bottom: 2rem !important;
 }
+
+.dash-btns-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; 
+}
+
 
 /* ------------------------- */
 
