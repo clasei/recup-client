@@ -78,6 +78,7 @@
 
 .content-img {
   max-width: 250px;
+  width: 100%;
   height: auto;
 }
 
@@ -127,4 +128,12 @@
 .card-title a:hover, .card-title a:active {
   border-bottom-color: rgba(0, 0, 0, 0.6);
   color: #4CB1F9 !important;
+}
+
+@media (max-width: 576px) {
+  .content-img {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+  }
 }
