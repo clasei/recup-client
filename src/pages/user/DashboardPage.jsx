@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import service from "../../services/config"
 import PacoIsSleeping from '../../assets/images/PacoIsSleeping.png'
@@ -6,6 +7,7 @@ import RecupCard from "../../components/recups/RecupCard"
 
 function DashboardPage({ savedRecs, setSavedRecs }) {
   const { loggedUserId, isLoggedIn } = useContext(AuthContext)
+  const navigate = useNavigate();
 
   const [userData, setUserData] = useState(null)
   const [errorMessage, setErrorMessage] = useState("")
@@ -29,6 +31,10 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
     fetchUserData()
   }, [loggedUserId, isLoggedIn])
 
+  const handleEditProfileClick = () => {
+    navigate("/settings");
+  }
+
   if (!userData) {
     return <p>Loading...</p>
   }
@@ -42,7 +48,13 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
       
       {isLoggedIn ? (
         <>
-          <h2>life is rara, <br />enjoy your saved recups <br />and Paco sleeping</h2>
+
+        <button onClick={handleEditProfileClick} className="btn btn-primary mt-3">
+          edit your info
+        </button>
+
+        <h2>life is rara, <br />enjoy your saved recups</h2>
+
 
           {savedRecs.length > 0 ? (
             <div className="row justify-content-center mt-4" style={{ maxWidth: '1200px', margin: '0 auto' }}>

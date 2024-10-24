@@ -124,11 +124,11 @@ img {
   /* transition: transform 0.3s ease-in-out; */
 }
 
-.username-link {
+.username-link, .social-link {
   font-size: 0.75rem;
 }
 
-.username-link a {
+.username-link a, .social-link a {
   color: #c0c0c0 !important;
   text-decoration: none;
   border-bottom: 1px solid #c0c0c07f;
@@ -314,6 +314,23 @@ textarea:focus {
   margin: 2rem;
   margin-bottom: 0.5rem;
 }
+
+
+/* ------------------------- USER DATA */
+
+.user-profile-name {
+  /* margin-top: 2rem !important; */
+  margin-bottom: 0.5rem;
+}
+
+.social-link {
+  margin-top: 0 !important;
+}
+
+.total-created {
+  margin-top: 2rem;
+}
+
 
 
 

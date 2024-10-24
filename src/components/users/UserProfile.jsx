@@ -9,6 +9,10 @@ import { AuthContext } from "../../context/auth.context"
 function UserProfile({ setSavedRecs, savedRecs }) {
   const { username } = useParams()
   const [userRecups, setUserRecups] = useState([])
+  const [userProfileName, setUserProfileName] = useState('')
+  const [userProfileLastName, setUserProfileLastName] = useState('')
+  const [userProfileSocialLink, setUserProfileSocialLink] = useState('')
+
 
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
@@ -59,6 +63,10 @@ function UserProfile({ setSavedRecs, savedRecs }) {
         try {
           const response = await service.get(`/users/created/${username}`);
           setUserRecups(response.data.createdRecs)
+          setUserProfileName(response.data.name)
+          setUserProfileLastName(response.data.lastName)
+          setUserProfileSocialLink(response.data.socialLink)
+          console.log(response.data.socialLink)
           // console.log(response.data.createdRecs)
           // setUserProfileData({
           //   name: response.data.name,
@@ -95,7 +103,29 @@ function UserProfile({ setSavedRecs, savedRecs }) {
           : ''}
       </h3> */}
 
-      <p className="text-center">
+      <h3 className="user-profile-name mb-1">
+        {userProfileName || userProfileLastName
+          ? `${userProfileName} ${userProfileLastName }`
+          : ''}
+      </h3>
+
+      {/* <p>{`${userProfileSocialLink}`}</p> */}
+      
+
+      {userProfileSocialLink && (
+        <p className="social-link text-center">
+          <a 
+            // trick to use properly and add http..
+            href={userProfileSocialLink.startsWith("http") ? userProfileSocialLink : `https://${userProfileSocialLink}`}
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            {`${userProfileSocialLink}`}
+          </a>
+        </p>
+      )}
+
+      <p className="total-created text-center">
         {userRecups.length} created recups
       </p>
       

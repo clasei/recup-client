@@ -65,7 +65,7 @@ function UserSettingsPage() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lastName">last Name</label>
+          <label htmlFor="lastName">last name</label>
           <input
             type="text"
             id="lastName"
@@ -75,7 +75,10 @@ function UserSettingsPage() {
             className="form-control"
           />
         </div>
-        <div className="form-group">
+
+        {/* // email peding */}
+
+        {/* <div className="form-group">
           <label htmlFor="email">email</label>
           <input
             type="email"
@@ -84,9 +87,10 @@ function UserSettingsPage() {
             value={userData.email}
             onChange={handleInputChange}
             className="form-control"
-            // disabled // check later !!!
+            disabled // check later !!!
           />
-        </div>
+        </div> */}
+
         <div className="form-group">
           <label htmlFor="socialLink">add preferred social link</label>
           <input
@@ -99,7 +103,7 @@ function UserSettingsPage() {
           />
         </div>
         <button type="submit" className="btn btn-primary mt-3">
-          Save Changes
+          save
         </button>
         {message && <p className="mt-3">{message}</p>}
       </form>
