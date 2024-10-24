@@ -27,6 +27,14 @@ function ContentCard({ content }) {
             {content.title}
           </Link>
         </h3>
+
+        {content.author.length > 0 && (
+          <p className="text-muted" style={{ fontWeight: 'bold'}}>
+            {content.author.join(", ")}
+          </p>
+        )}
+
+
         <p className="text-muted">{content.category}</p> {/* // use tags better? */}
         {/* <p className="text-muted"><strong>added by:</strong> {content.creator.username}</p> // check if this makes sense */}
 
@@ -64,6 +72,16 @@ function ContentCard({ content }) {
             do your recup
           </button>
         </div>
+
+        <div className="text-center">
+        <Link to={`/contents/recups/${content._id}`}>
+          <button className="content-btn btn btn-primary">
+            check more recups
+          </button>
+         </Link>
+        </div>
+
+        
 
         {/* users to do sth else than this? */}
         {isContentOwner && (
