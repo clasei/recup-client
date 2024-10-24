@@ -91,6 +91,12 @@ h3, h4, p {
   color: #B3B3B3 !important;
 }
 
+.limit-container {
+  max-width: 800px !important;
+  margin: 0 auto;
+  line-height: 1.7rem;
+}
+
 .card {
   max-width: 350px;
   width: 100%;

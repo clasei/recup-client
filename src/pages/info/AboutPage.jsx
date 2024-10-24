@@ -2,7 +2,7 @@ import recupLogo from '../../assets/images/recup-logo.png'
 
 function AboutPage() {
   return (
-    <div className="container">
+    <div className="limit-container container">
       <div className="row justify-content-center">
         <div className="col-md-8">
           
@@ -27,7 +27,7 @@ function AboutPage() {
             So be brave and go for it, <br></br>join the  <span className="recup-word">recup</span>
           </p>
 
-          <div className="dash-btns-container">
+          <div className="dash-btns-container d-flex flex-column align-items-center">
             <button onClick={() => navigate('/')} className="edit-btn btn btn-primary">
               i'm in, take me home
             </button>
