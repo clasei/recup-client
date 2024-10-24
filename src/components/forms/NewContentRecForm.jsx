@@ -89,7 +89,7 @@ function NewContentRecForm() {
   return (
     <div className="container my-10">
       <div className="row justify-content-center">
-        <div className="container-form">
+        <div className="container-form" style={{ maxWidth: '430px'}}>
           {/* <h1>
             feeling brave? <br></br>
             you are in the right place
