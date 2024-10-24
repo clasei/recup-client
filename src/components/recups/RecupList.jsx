@@ -1,46 +1,46 @@
-import { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import RecupCard from '../../components/recups/RecupCard';
-import service from "../../services/config"; 
+import { useEffect, useState, useContext } from 'react'
+import { useParams } from 'react-router-dom'
+import RecupCard from '../../components/recups/RecupCard'
+import service from "../../services/config" 
 
-import { AuthContext } from '../../context/auth.context';
+import { AuthContext } from '../../context/auth.context'
 
 import { shuffleArray } from "../../utils/shuffleArray"
-// import ScaleLoader from "react-spinners/ScaleLoader";
-import PropagateLoader from "react-spinners/PropagateLoader";
+// import ScaleLoader from "react-spinners/ScaleLoader"
+import PropagateLoader from "react-spinners/PropagateLoader"
 
 
 function RecupList({ setSavedRecs, savedRecs }) {
   const { loggedUserId } = useContext(AuthContext)
-  const { contentId } = useParams();
-  const [recommendations, setRecommendations] = useState([]);
-  const [contentTitle, setContentTitle] = useState("");
-  const [mediaUrl, setMediaUrl] = useState("");
-  const [category, setCategory] = useState("");
-  const [keywords, setKeywords] = useState([]);
-  const [errorMessage, setErrorMessage] = useState("");
+  const { contentId } = useParams()
+  const [recommendations, setRecommendations] = useState([])
+  const [contentTitle, setContentTitle] = useState("")
+  const [mediaUrl, setMediaUrl] = useState("")
+  const [category, setCategory] = useState("")
+  const [keywords, setKeywords] = useState([])
+  const [errorMessage, setErrorMessage] = useState("")
 
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true) 
 
   useEffect(() => {
     const fetchRecommendations = async () => {
 
       try {
 
-        const contentResponse = await service.get(`/contents/${contentId}`);
-        const { title, mediaUrl, category, keywords } = contentResponse.data;
-        setContentTitle(title);
-        setMediaUrl(mediaUrl);
-        setCategory(category);
-        setKeywords(keywords);
+        const contentResponse = await service.get(`/contents/${contentId}`)
+        const { title, mediaUrl, category, keywords } = contentResponse.data
+        setContentTitle(title)
+        setMediaUrl(mediaUrl)
+        setCategory(category)
+        setKeywords(keywords)
 
-        const recommendationsResponse = await service.get(`/recommendations/content/${contentId}`);
-        // setRecommendations(recommendationsResponse.data);
-        const shuffledRecommendations = shuffleArray(recommendationsResponse.data);
-        setRecommendations(shuffledRecommendations);
+        const recommendationsResponse = await service.get(`/recommendations/content/${contentId}`)
+        // setRecommendations(recommendationsResponse.data)
+        const shuffledRecommendations = shuffleArray(recommendationsResponse.data)
+        setRecommendations(shuffledRecommendations)
 
 
-        // setLoading(false);
+        // setLoading(false)
 
         // MAKE SURE YOU WANT TO KEEP THIS BEFORE DEPLOYMENT !!! ADAPT TIME IF NEEDED !!!
         // adding setTimeout to enjoy the spinner xd
@@ -50,19 +50,19 @@ function RecupList({ setSavedRecs, savedRecs }) {
         
       } catch (error) {
         setErrorMessage("unable to load content and recommendations")
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
-    fetchRecommendations();
-  }, [contentId]);
+    fetchRecommendations()
+  }, [contentId])
 
   if (loading) {
     return (
       <div className="loader-container">
         <PropagateLoader height={50} color="grey" />
       </div>
-    );
+    )
   }
 
 
@@ -127,7 +127,7 @@ function RecupList({ setSavedRecs, savedRecs }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default RecupList;
+export default RecupList

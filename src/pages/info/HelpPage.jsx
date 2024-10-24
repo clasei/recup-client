@@ -1,13 +1,18 @@
 import recupLogo from '../../assets/images/recup-logo.png'
+import { useNavigate } from 'react-router-dom'
+
 
 function HelpPage() {
+
+  const navigate = useNavigate()
+
   return (
     <div className="limit-container container">
       <div className="row justify-content-center">
        <div className="col-md-8">
       
 
-        <div className="dash-logo-div d-flex justify-content-center align-items-center">
+        <div className="dash-logo-div d-flex justify-content-center align-items-center mt-4">
           <img src={recupLogo} alt="recup" className="dash-logo img-fluid" />
         </div>
 

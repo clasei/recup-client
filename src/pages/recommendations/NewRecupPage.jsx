@@ -36,11 +36,11 @@ function NewRecupPage() {
         allContent.filter((content) =>
           content.title.toLowerCase().includes(searchTerm.toLowerCase())
         )
-      );
+      )
     } else {
-      setFilteredContent([]);
+      setFilteredContent([])
     }
-  }, [searchTerm, allContent]);
+  }, [searchTerm, allContent])
 
   // const filteredContent = searchTerm.length >= 3 
   //   ? allContent.filter((content) =>

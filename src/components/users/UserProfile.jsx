@@ -29,9 +29,9 @@ function UserProfile({ setSavedRecs, savedRecs }) {
         // console.log(response.data.username)
         // setUserData(response.data)
       } catch (error) {
-        console.error("Error fetching logged user data:", error);
+        console.error("Error fetching logged user data:", error)
       }
-    };
+    }
 
     if (loggedUserId) {
       fetchLoggedUsername()
@@ -61,7 +61,7 @@ function UserProfile({ setSavedRecs, savedRecs }) {
 
       const fetchUserRecups = async () => {
         try {
-          const response = await service.get(`/users/created/${username}`);
+          const response = await service.get(`/users/created/${username}`)
           setUserRecups(response.data.createdRecs)
           setUserProfileName(response.data.name)
           setUserProfileLastName(response.data.lastName)
@@ -74,12 +74,12 @@ function UserProfile({ setSavedRecs, savedRecs }) {
           // })
           // console.log(response.data.name)
         } catch (error) {
-          console.error("Error fetching user recups:", error);
+          console.error("Error fetching user recups:", error)
         } finally {
-          setLoading(false);
+          setLoading(false)
         }
-      };
-      fetchUserRecups();
+      }
+      fetchUserRecups()
     }
   }, [username, loggedUsername, navigate, loggedUserId])
 
@@ -145,7 +145,7 @@ function UserProfile({ setSavedRecs, savedRecs }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 export default UserProfile

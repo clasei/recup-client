@@ -1,5 +1,5 @@
-import ContentListComponent from "../../components/contents/ContentListComponent";
-import PreFooter from "../../components/PreFooter";
+import ContentListComponent from "../../components/contents/ContentListComponent"
+import PreFooter from "../../components/PreFooter"
 
 function ContentListPage({ setSavedRecs, savedRecs }) {
   return (
@@ -9,7 +9,7 @@ function ContentListPage({ setSavedRecs, savedRecs }) {
         <PreFooter />
       </div>
     </div>
-  );
+  )
 }
 
-export default ContentListPage;
+export default ContentListPage

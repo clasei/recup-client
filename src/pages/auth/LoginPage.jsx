@@ -3,7 +3,7 @@ import { useNavigate, NavLink } from "react-router-dom"
 
 import service from "../../services/config"
 // import jwt_decode from "jwt-decode"
-import { AuthContext } from "../../context/auth.context";
+import { AuthContext } from "../../context/auth.context"
 
 import '../../assets/styles/LoginSignup.css'
 

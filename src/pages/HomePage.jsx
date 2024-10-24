@@ -10,15 +10,20 @@ function HomePage() {
       <div className="row justify-content-center">
         <div className="col-md-8">
 
-          <div className="dash-logo-div d-flex justify-content-center align-items-center">
+          <div className="dash-logo-div d-flex justify-content-center align-items-center mt-4">
             <img src={recupLogo} alt="recup" className="dash-logo img-fluid" />
           </div>
           
-          <h1 className="text-center" style={{ textTransform: 'lowercase', fontWeight: 'bold', marginBottom: '3rem' }}>
+          <h1 className="text-center" style={{ textTransform: 'lowercase', 
+            fontWeight: 'bold', marginBottom: '1rem' }}>
             welcome to <span className="recup-word">recup</span>
           </h1>
 
-          <p className="text-center">
+          <p className="lead" style={{ fontWeight: 'bold', marginTop: '0', marginBottom: '3.7rem' }}>
+            where the good stuff lives
+          </p>
+
+          <p className="text-center" style={{ fontStyle: 'italic' }}>
             <strong>let's talk about <span className="recup-word">recup</span></strong>
           </p>
           
@@ -37,12 +42,12 @@ function HomePage() {
             a <span className="recup-word">recup</span> is your personal stamp of worthiness, your way of saying this really matters, this is a life-saver. because some things are just too good not to share.
           </p>
 
-          <p className="text-center">
+          <p className="text-center" style={{ fontStyle: 'italic' }}>
           <strong>and you'll only <span className="recup-word">recup</span> the best</strong>
           </p>
 
-          <p className="lead" style={{ fontWeight: 'bold', marginTop: '3rem', marginBottom: '2.5rem' }}>
-            join the <span className="recup-word">recup</span>, <br></br> where the good stuff lives
+          <p className="lead" style={{ fontWeight: 'bold', marginTop: '3.5rem', marginBottom: '2.5rem' }}>
+            join the <span className="recup-word">recup</span>
           </p>
           
 

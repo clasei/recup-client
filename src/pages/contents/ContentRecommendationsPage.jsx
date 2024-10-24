@@ -1,6 +1,6 @@
 
-import PreFooter from '../../components/PreFooter';
-import RecupList from '../../components/recups/RecupList';
+import PreFooter from '../../components/PreFooter'
+import RecupList from '../../components/recups/RecupList'
 
 
 function ContentRecommendationsPage({ setSavedRecs, savedRecs }) {
@@ -12,7 +12,7 @@ function ContentRecommendationsPage({ setSavedRecs, savedRecs }) {
     <PreFooter />
     
   </div>
-);
+)
 }
 
-export default ContentRecommendationsPage;
+export default ContentRecommendationsPage

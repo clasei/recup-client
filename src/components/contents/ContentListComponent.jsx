@@ -94,7 +94,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
   return (
     <div className="content-list container">
 
-      <h1>find your next recup-worthy content</h1>
+      <h1 className='find-content mb-4'>find your next recup-worthy content</h1>
       <input
         className="form-control mb-4"
         type="text"

@@ -7,7 +7,7 @@ import RecupCard from "../../components/recups/RecupCard"
 
 function DashboardPage({ savedRecs, setSavedRecs }) {
   const { loggedUserId, isLoggedIn } = useContext(AuthContext)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const [userData, setUserData] = useState(null)
   const [errorMessage, setErrorMessage] = useState("")
@@ -32,7 +32,7 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
   }, [loggedUserId, isLoggedIn])
 
   const handleEditProfileClick = () => {
-    navigate("/settings");
+    navigate("/settings")
   }
 
   if (!userData) {

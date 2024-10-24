@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react"
 import service from "../services/config"
 import PropagateLoader from "react-spinners/PropagateLoader"
 
-const AuthContext = createContext();
+const AuthContext = createContext()
 
 function AuthWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -38,11 +38,20 @@ function AuthWrapper(props) {
     }
   }
 
+  const logOutUser = () => {
+    localStorage.removeItem("authToken")
+    setIsLoggedIn(false)
+    setLoggedUserId(null)
+    setIsAdmin(false)
+  }
+
   const passedContext = {
     isLoggedIn,
     isAdmin,
     loggedUserId,
     authenticateUser,
+    logOutUser,
+    
   }
 
   if (loading) {

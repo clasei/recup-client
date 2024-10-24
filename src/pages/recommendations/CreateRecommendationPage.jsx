@@ -10,9 +10,9 @@ function CreateRecommendationPage() {
         <RecommendationForm />
       </div>
     </div>
-  );
+  )
 }
 
-export default CreateRecommendationPage;
+export default CreateRecommendationPage
 
 
