@@ -142,7 +142,6 @@
   .new-content-form {
     max-width: 390px !important;
     width: 100%;
-    
   }
   
   .new-content-form input, 
@@ -151,7 +150,7 @@
   }
 
   .form-control {
-    min-width: 300px !important;
+    min-width: 290px !important;
     /* padding: 0.5rem; */
   }
 

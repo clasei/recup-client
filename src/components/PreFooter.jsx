@@ -6,7 +6,6 @@ function PreFooter() {
 
   return (
     <div className="pre-footer-container">
-
       <div className="buttons-container">
         <button onClick={scrollToTop} className="btn btn-top-again">
           Top Again.. ↑
@@ -14,8 +13,6 @@ function PreFooter() {
         <button onClick={() => navigate(-1)} className="btn btn-back">
           wanna go back? ←
         </button>
-
-        
       </div>
     </div>
   )

@@ -2,8 +2,8 @@ import { useEffect, useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom"
 import service from "../../services/config"
 import { shuffleArray } from "../../utils/shuffleArray"
-import ContentCard from './ContentCard';
-import PropagateLoader from "react-spinners/PropagateLoader";
+import ContentCard from './ContentCard'
+import PropagateLoader from "react-spinners/PropagateLoader"
 import { AuthContext } from "../../context/auth.context" 
 
 
@@ -16,8 +16,10 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
   const [contents, setContents] = useState([])
   // const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("")
   const [filteredContents, setFilteredContents] = useState([])
+
+  const [recommendedContentIds, setRecommendedContentIds] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,14 +28,10 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
         // if (!response.ok) {
         //   throw new Error('error fetching contents')
         // }
-
         // setContents(response.data)
-
-        const shuffledContents= shuffleArray(contentsResponse.data);
-        setContents(shuffledContents);
-
-        // setLoading(false);
-
+        const shuffledContents= shuffleArray(contentsResponse.data)
+        setContents(shuffledContents)
+        // setLoading(false)
         // MAKE SURE YOU WANT TO KEEP THIS BEFORE DEPLOYMENT !!! ADAPT TIME IF NEEDED !!!
         // adding setTimeout to enjoy the spinner xd
         setTimeout(() => {
@@ -42,12 +40,33 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
 
       } catch (error) {
         setErrorMessage("unable to load recommendations by content")
-        setLoading(false);
+        setLoading(false)
       }
     }
 
     fetchData()
   }, [])
+
+
+  // fetch user CREATED RECS to check if content is already recommended..
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await service.get(`/users/user-profile/${loggedUserId}`)
+        const createdRecs = response.data.createdRecs
+        const recommendedIds = createdRecs.map(rec => rec.content._id)
+        setRecommendedContentIds(recommendedIds)
+      } catch (error) {
+        console.error("Error fetching user profile:", error)
+      }
+    }
+
+    if (loggedUserId) {
+      fetchUserProfile()
+    }
+  }, [loggedUserId])
+
+  // --------------------------------------
 
 
   useEffect(() => {
@@ -56,7 +75,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
         contents.filter((content) =>
           content.title.toLowerCase().includes(searchTerm.toLowerCase())
         )
-      );
+      )
     } else {
       setFilteredContents(contents)
     }
@@ -68,7 +87,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
       <div className="loader-container">
         <PropagateLoader height={50} color="grey" />
       </div>
-    );
+    )
   }
 
 
@@ -85,19 +104,26 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
         style={{ marginBottom: "20px", maxWidth: '500px', margin: '0 auto' }}
       />
 
-      <div className="row justify-content-center">
-        {filteredContents.map((content) => (
-          <div key={content._id} className="col-md-6 col-12 d-flex justify-content-center mt-4 mb-4">
-            <ContentCard 
-              loggedUserId={loggedUserId}
-              setSavedRecs={setSavedRecs}
-              savedRecs={savedRecs} 
-              content={content} 
-              style={{ width: '100%' }}
-            />
-          </div>
-        ))}
+<div className="row justify-content-center">
+        {filteredContents.map((content) => {
+          const isCreated = recommendedContentIds.includes(content._id)
+
+          return (
+            <div key={content._id} className="col-md-6 col-12 d-flex justify-content-center mt-4 mb-4">
+              <ContentCard 
+                loggedUserId={loggedUserId}
+                setSavedRecs={setSavedRecs}
+                savedRecs={savedRecs} 
+                content={content} 
+                isCreated={isCreated}
+                style={{ width: '100%' }}
+              />
+            </div>
+          )
+        })}
       </div>
+
+
       <div className="pre-footer-container">
 
       <div className="new-content">
@@ -111,7 +137,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
     </div>
 
     </div>
-  );
+  )
 }
 
 export default ContentListComponent

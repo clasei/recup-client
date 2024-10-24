@@ -17,7 +17,7 @@ function RecupCard({ loggedUserId, recommendation, setSavedRecs, savedRecs, isDe
 
 
   useEffect(() => {
-    console.log('double check if they match:', savedRecs, recommendation._id)
+    // console.log('double check if they match:', savedRecs, recommendation._id)
     if (savedRecs.some(savedRec => savedRec._id === recommendation._id)) {
       setIsSaved(true)
     } else {

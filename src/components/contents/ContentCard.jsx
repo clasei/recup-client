@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../context/auth.context"
 import "../../assets/styles/ContentListDetail.css"
 
-function ContentCard({ content }) {
+function ContentCard({ content, isCreated }) {
 
   const { loggedUserId } = useContext(AuthContext)
   // console.log(loggedUserId)
@@ -15,9 +15,20 @@ function ContentCard({ content }) {
 
   const isContentOwner = loggedUserId === content.firstRecommendationCreator._id
 
+  // const handleAddRecup = () => {
+
+  //   navigate(`/add/new/${content._id}`)
+  // }
+
   const handleAddRecup = () => {
-    navigate(`/add/new/${content._id}`)
+    if (isCreated) {
+      alert("you want to update your previous recup? let's do that")
+      navigate(`/created`)
+    } else {
+      navigate(`/add/new/${content._id}`)
+    }
   }
+  
 
   return (
     <div className="content-card card mb-4">
@@ -27,6 +38,14 @@ function ContentCard({ content }) {
             {content.title}
           </Link>
         </h3>
+
+        {content.author.length > 0 && (
+          <p className="text-muted" style={{ fontWeight: 'bold'}}>
+            {content.author.join(", ")}
+          </p>
+        )}
+
+
         <p className="text-muted">{content.category}</p> {/* // use tags better? */}
         {/* <p className="text-muted"><strong>added by:</strong> {content.creator.username}</p> // check if this makes sense */}
 
@@ -65,18 +84,27 @@ function ContentCard({ content }) {
           </button>
         </div>
 
+        <div className="text-center">
+        <Link to={`/contents/recups/${content._id}`}>
+          <button className="content-btn btn btn-primary">
+            see recups
+          </button>
+         </Link>
+        </div>
+
+        
+
         {/* users to do sth else than this? */}
         {isContentOwner && (
           // <button className="btn btn-warning">
           //   request edit {/* // redirect to contact/email or whatever */}
           // </button>
 
-                  // <a href="mailto:recup@dobeesdream.com" className="request-edit">
+                  // <a href="mailto:just-recup@proton.me" className="request-edit">
                   <a 
-                    href={`mailto:recup@dobeesdream.com?subject=Edit%20Content%20Request&body=hey%20this%20content%20I%20added%20needs%20to%20be%20edited%20ID:%20${content._id}`} 
+                    href={`mailto:just-recup@proton.me?subject=Edit%20Content%20Request&body=hey%20this%20content%20I%20added%20needs%20to%20be%20edited%20ID:%20${content._id}`} 
                     className="request-edit"
                   >
-
                     request edit
                   <svg
                     className="edit-svg mx-1"

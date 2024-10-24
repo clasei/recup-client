@@ -53,12 +53,21 @@ h1 {
   color: #dadada !important;
 }
 
+.dashboard-container h1 {
+  margin-bottom: 3rem;
+}
+
 h2 {
   font-size: 2.2rem;
   padding: 1rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   color: #dbdbdb !important;
+}
+
+.dashboard-container h2 {
+  margin-bottom: 2.5rem;
+  margin-top: 3rem;
 }
 
 h3, h4, p {
@@ -124,11 +133,11 @@ img {
   /* transition: transform 0.3s ease-in-out; */
 }
 
-.username-link {
+.username-link, .social-link {
   font-size: 0.75rem;
 }
 
-.username-link a {
+.username-link a, .social-link a {
   color: #c0c0c0 !important;
   text-decoration: none;
   border-bottom: 1px solid #c0c0c07f;
@@ -144,7 +153,6 @@ img {
   /* display: inline-block; */
   transform: scale(1.05);
 }
-
 
 
 /* BUTTONS  ---------- */
@@ -187,10 +195,28 @@ img {
   /* border: solid 1px rgb(49, 49, 49) !important; */
 }
 
+.edit-btn {
+  margin-top: 1rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.dash-btns-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; 
+}
+
+
 /* ------------------------- */
 
 .save-icon {
   padding: 0.5rem;
+}
+
+.save-recup-on, .save-recup-off {
+  width: 40px;
+  height: 40px;
 }
 
 .save-recup-on:hover, .save-recup-off:hover  {
@@ -279,10 +305,15 @@ textarea:focus {
 
 
 /* SPINNER ------------------------- */
-
-.loader-container {
+/* .loader-container {
   height: 75vh;
   padding-top: 5rem;
+} */
+.loader-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .days-ago {
@@ -304,6 +335,24 @@ textarea:focus {
   margin: 2rem;
   margin-bottom: 0.5rem;
 }
+
+
+/* ------------------------- USER DATA */
+
+.user-profile-name h3 {
+  /* margin-top: 2rem !important; */
+  margin-bottom: 0.5rem;
+  color: #b0b0b0 !important;
+}
+
+.social-link {
+  margin-top: 0 !important;
+}
+
+.total-created {
+  margin-top: 2rem;
+}
+
 
 
 
