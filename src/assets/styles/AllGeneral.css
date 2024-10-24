@@ -35,7 +35,7 @@ html, body {
   /* color: #dadada !important; */
   color: #c0c0c0 !important;
   background-color: #202020;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
   /* height: 100%; */
   /* display: flex;
   flex-direction: column; */
@@ -46,10 +46,10 @@ html, body {
 /* TITLES -------------- */
 
 h1 {
-  font-size: 2.7rem !important;
+  font-size: 3rem !important;
   padding: 1rem;
   margin-top: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   color: #dadada !important;
 }
 
@@ -183,6 +183,7 @@ img {
 
 .mailto:hover, .mailto:active, .social-link a:hover, .social-link a:active {
   color: #4CB1F9 !important;
+  border-bottom-color: #5656567f;
 }
 
 .username-link a:hover, .username-link a:active {
@@ -339,6 +340,12 @@ textarea:focus {
   color: #ff7171;
 }
 
+.text-required-field {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #ff7171;
+}
+
 /* images ------------------------- */
 
 .rounded-img {
@@ -414,9 +421,13 @@ textarea:focus {
 
 @media (max-width: 768px) {
 
+  html, body {
+    padding-top: 3rem;
+  }
+
   h1 {
-    font-size: 2.3rem !important;
-    margin-bottom: 2.4rem;
+    font-size: 2.5rem !important;
+    margin-bottom: 2rem;
   }
 
   h2 {

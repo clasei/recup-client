@@ -56,6 +56,7 @@ function EditRecupPage() {
                 id="recTitle"
                 value={recup.recTitle}
                 onChange={(e) => setRecup({ ...recup, recTitle: e.target.value })}
+                required
               />
             </div>
             <div className="mb-1">
@@ -66,6 +67,7 @@ function EditRecupPage() {
                 id="tagline"
                 value={recup.tagline}
                 onChange={(e) => setRecup({ ...recup, tagline: e.target.value })}
+                required
               />
             </div>
             <div className="mb-1">
@@ -76,6 +78,7 @@ function EditRecupPage() {
                 rows="7"
                 value={recup.recText}
                 onChange={(e) => setRecup({ ...recup, recText: e.target.value })}
+                required
               ></textarea>
             </div>
             <button type="submit" className="btn btn-primary">update your recup</button>

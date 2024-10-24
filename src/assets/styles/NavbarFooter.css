@@ -147,7 +147,7 @@
 
 .navbar-toggler:hover, .navbar-toggler:active {
   transform: scale(0.90);
-  background-color: #2B2B2B;
+  background-color: #5a5a5a;
   border: none; 
 }
 
@@ -167,11 +167,11 @@
 
 .nav-link:hover, .nav-link:active {
   color: #dbdbdb !important;
-  background-color: #2B2B2B;
+  background-color: #5a5a5a;
 }
 
 .nav-link.active {
   color: #dbdbdb !important;
-  background-color: #2B2B2B !important;
+  background-color: #5a5a5a !important;
   font-weight: 600 !important;
 }

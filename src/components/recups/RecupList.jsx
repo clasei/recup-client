@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import RecupCard from '../../components/recups/RecupCard'
 import service from "../../services/config" 
 
@@ -13,12 +13,14 @@ import PropagateLoader from "react-spinners/PropagateLoader"
 function RecupList({ setSavedRecs, savedRecs }) {
   const { loggedUserId } = useContext(AuthContext)
   const { contentId } = useParams()
+  const navigate = useNavigate()
   const [recommendations, setRecommendations] = useState([])
   const [contentTitle, setContentTitle] = useState("")
   const [mediaUrl, setMediaUrl] = useState("")
   const [category, setCategory] = useState("")
   const [keywords, setKeywords] = useState([])
   const [errorMessage, setErrorMessage] = useState("")
+  const [recommendedContentIds, setRecommendedContentIds] = useState([]) 
 
   const [loading, setLoading] = useState(true) 
 
@@ -57,6 +59,29 @@ function RecupList({ setSavedRecs, savedRecs }) {
     fetchRecommendations()
   }, [contentId])
 
+
+    // fetch user CREATED RECS to check if content is already recommended..
+    useEffect(() => {
+      const fetchUserProfile = async () => {
+        try {
+          const response = await service.get(`/users/user-profile/${loggedUserId}`)
+          const createdRecs = response.data.createdRecs
+          const recommendedIds = createdRecs.map(rec => rec.content._id)
+          setRecommendedContentIds(recommendedIds)
+        } catch (error) {
+          console.error("error fetching user profile:", error)
+        }
+      }
+  
+      if (loggedUserId) {
+        fetchUserProfile()
+      }
+    }, [loggedUserId])
+  
+    // --------------------------------------
+
+  const isCreated = recommendedContentIds.includes(contentId)
+
   if (loading) {
     return (
       <div className="loader-container">
@@ -70,9 +95,9 @@ function RecupList({ setSavedRecs, savedRecs }) {
     <div className="container my-5">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <h1>{contentTitle || "Loading..."}</h1>
+      <h1 className='content-title-recups mb-2'>{contentTitle || "Loading..."}</h1>
 
-      <p className="content-category text-center">{category}</p>
+      <p className="content-category text-center mt-2">{category}</p>
 
       {keywords.length > 0 && (
         <div className="content-tags text-center">
@@ -81,6 +106,15 @@ function RecupList({ setSavedRecs, savedRecs }) {
               {keyword}
             </span>
           ))}
+        </div>
+      )}
+
+      {/* CONDITIONAL BUTTON FOR CREATING A NEW RECUP */}
+      {!isCreated && (
+        <div className="text-center mt-4 mb-3">
+          <button className="content-btn btn btn-primary" onClick={() => navigate(`/add/new/${contentId}`)}>
+            do your own recup
+          </button>
         </div>
       )}
 

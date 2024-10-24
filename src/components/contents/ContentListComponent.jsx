@@ -57,7 +57,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
         const recommendedIds = createdRecs.map(rec => rec.content._id)
         setRecommendedContentIds(recommendedIds)
       } catch (error) {
-        console.error("Error fetching user profile:", error)
+        console.error("error fetching user profile:", error)
       }
     }
 

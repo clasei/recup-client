@@ -42,7 +42,7 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
   return (
     <div className="dashboard-container" style={{ width: '100%', padding: '0.5rem' }}>
 
-    <div className="dash-logo-div d-flex justify-content-center align-items-center">
+    <div className="dash-logo-div d-flex justify-content-center align-items-center mt-3">
       <img src={recupLogo} alt="recup" className="dash-logo img-fluid" />
     </div>
 

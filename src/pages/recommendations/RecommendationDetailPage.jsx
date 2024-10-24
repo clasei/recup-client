@@ -60,8 +60,19 @@ function RecommendationDetailPage({ setSavedRecs, savedRecs }) {
         </div>
 
         <div className="card shadow-sm" style={{ maxWidth: "800px", width: "100%" }}>
-          <h2 className="card-title text-center" style={{ fontWeight: "bold" }}>
+          {/* <h2 className="card-title text-center" style={{ fontWeight: "bold" }}>
             {recommendation.content.title}
+          </h2> */}
+
+        <h2 className="card-title text-center" style={{ fontWeight: "bold" }}>
+            <span
+              className="link-hover"
+              onClick={() =>
+                navigate(`/contents/recups/${recommendation.content._id}`)
+              }
+            >
+              {recommendation.content.title}
+            </span>
           </h2>
 
           <p className="text-muted text-center">
