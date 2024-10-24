@@ -101,7 +101,7 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/add/new-content" onClick={handleNavLinkClick}>
-                    add new recup
+                    add new content
                   </NavLink>
                 </li>
                 <li className="nav-item">
