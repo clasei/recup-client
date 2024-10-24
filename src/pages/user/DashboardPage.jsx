@@ -19,9 +19,9 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
         if (isLoggedIn) {
           const response = await service.get(`users/user-profile/${loggedUserId}`)
           setUserData(response.data)
-          console.log(response.data)
+          // console.log(response.data)
           setSavedRecs(response.data.savedRecs)
-          console.log(response.data.savedRecs)
+          // console.log(response.data.savedRecs)
         }
       } catch (error) {
         setErrorMessage("Unable to fetch user data.")
@@ -42,14 +42,33 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
   return (
     <div className="dashboard-container" style={{ width: '100%', padding: '0.5rem' }}>
       <h1>you are finally here, {userData.username}</h1>
-      <div className="paco-div">
+
+      {/* <div className="paco-div">
         <img src={PacoIsSleeping} alt="Paco" className="paco-image img-fluid" />
-      </div>
+      </div> */}
+
+      <h3 className="user-profile-name mb-1">
+        {userData.name || userData.lastName ? (
+          <h3>{userData.name} {userData.lastName}</h3>
+        ) : null}
+      </h3>
+
+      {userData.socialLink && (
+        <p className="social-link text-center">
+          <a 
+            href={userData.socialLink.startsWith("http") ? userData.socialLink : `https://${userData.socialLink}`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            {userData.socialLink}
+          </a>
+        </p>
+      )}
       
       {isLoggedIn ? (
         <>
 
-        <button onClick={handleEditProfileClick} className="btn btn-primary mt-3">
+        <button onClick={handleEditProfileClick} className="edit-btn btn btn-primary">
           edit your info
         </button>
 

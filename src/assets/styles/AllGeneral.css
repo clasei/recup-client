@@ -61,6 +61,10 @@ h2 {
   color: #dbdbdb !important;
 }
 
+.dashboard-container h2 {
+  margin-bottom: 2.5rem;
+}
+
 h3, h4, p {
   color: #dbdbdb !important;
   margin-bottom: 1.5rem;
@@ -146,7 +150,6 @@ img {
 }
 
 
-
 /* BUTTONS  ---------- */
 .btn {
   /* width: 320px !important; */
@@ -185,6 +188,11 @@ img {
 .btn-top-again:hover, .btn-back:hover {
   box-shadow: 3px 3px 10px rgba(254, 254, 254, 0.6);
   /* border: solid 1px rgb(49, 49, 49) !important; */
+}
+
+.edit-btn {
+  margin-top: 1rem !important;
+  margin-bottom: 4rem !important;
 }
 
 /* ------------------------- */
@@ -318,9 +326,10 @@ textarea:focus {
 
 /* ------------------------- USER DATA */
 
-.user-profile-name {
+.user-profile-name h3 {
   /* margin-top: 2rem !important; */
   margin-bottom: 0.5rem;
+  color: #b0b0b0 !important;
 }
 
 .social-link {
