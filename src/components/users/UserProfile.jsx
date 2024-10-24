@@ -22,7 +22,7 @@ function UserProfile({ setSavedRecs, savedRecs }) {
       try {
         const response = await service.get(`/users/user-profile/${loggedUserId}`)
         setLoggedUsername(response.data.username)
-        console.log(response.data.username)
+        // console.log(response.data.username)
         // setUserData(response.data)
       } catch (error) {
         console.error("Error fetching logged user data:", error);
@@ -64,7 +64,7 @@ function UserProfile({ setSavedRecs, savedRecs }) {
           //   name: response.data.name,
           //   lastName: response.data.lastName
           // })
-          console.log(response.data.name)
+          // console.log(response.data.name)
         } catch (error) {
           console.error("Error fetching user recups:", error);
         } finally {
@@ -104,6 +104,7 @@ function UserProfile({ setSavedRecs, savedRecs }) {
           <div key={recommendation._id} className="col-md-6 col-12 d-flex justify-content-center mt-4 mb-4">
             <RecupCard
               // don't add here anythign that u don't need..
+              loggedUserId={loggedUserId}
               recommendation={recommendation}
               username={username} 
               setSavedRecs={setSavedRecs}
