@@ -71,9 +71,9 @@ function ContentCard({ content }) {
           //   request edit {/* // redirect to contact/email or whatever */}
           // </button>
 
-                  // <a href="mailto:recup@dobeesdream.com" className="request-edit">
+                  // <a href="mailto:just-recup@proton.me" className="request-edit">
                   <a 
-                    href={`mailto:recup@dobeesdream.com?subject=Edit%20Content%20Request&body=hey%20this%20content%20I%20added%20needs%20to%20be%20edited%20ID:%20${content._id}`} 
+                    href={`mailto:just-recup@proton.me?subject=Edit%20Content%20Request&body=hey%20this%20content%20I%20added%20needs%20to%20be%20edited%20ID:%20${content._id}`} 
                     className="request-edit"
                   >
 

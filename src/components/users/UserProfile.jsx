@@ -47,7 +47,7 @@ function UserProfile({ setSavedRecs, savedRecs }) {
 
   useEffect(() => {
     if (loggedUsername, loggedUsername === username) {
-      alert("hey you look pretty fine, here you can check your own recups")
+      alert("hey you look pretty fine, let's check your awesome recups")
       navigate(`/created`)
     } else {
 

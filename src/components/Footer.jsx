@@ -17,7 +17,7 @@ function Footer() {
       <span className="footer-text">where the good stuff lives</span>
 
       {/* <span className="footer-contact align-items-center">
-      <a href="mailto:recup@dobeesdream.com">
+      <a href="mailto:just-recup@proton.me">
           <svg className="footer-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="16" fill="grey">
             <path d="M20 4H4C2.89 4 2.01 4.89 2.01 6L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
           </svg>
@@ -33,7 +33,7 @@ function Footer() {
       |
       
       <div className="contact-pack">
-        <a href="mailto:recup@dobeesdream.com" className="d-flex align-items-center">
+        <a href="mailto:just-recup@proton.me" className="d-flex align-items-center">
           {/* contact */}
           <svg className="footer-svg mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="grey">
             <path d="M20 4H4C2.89 4 2.01 4.89 2.01 6L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
