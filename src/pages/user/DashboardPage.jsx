@@ -2,8 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import service from "../../services/config"
-// import PacoIsSleeping from '../../assets/images/PacoIsSleeping.png'
-import recupMiniT from '../../assets/images/recup-mini-transparent.png'
+import recupLogo from '../../assets/images/recup-logo.png'
 import RecupCard from "../../components/recups/RecupCard"
 
 function DashboardPage({ savedRecs, setSavedRecs }) {
@@ -42,15 +41,12 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
 
   return (
     <div className="dashboard-container" style={{ width: '100%', padding: '0.5rem' }}>
-      <h1>you are finally here, {userData.username}</h1>
-
-      {/* <div className="paco-div">
-        <img src={PacoIsSleeping} alt="Paco" className="paco-image img-fluid" />
-      </div> */}
 
     <div className="dash-logo-div d-flex justify-content-center align-items-center">
-      <img src={recupMiniT} alt="recup" className="dash-logo img-fluid" />
+      <img src={recupLogo} alt="recup" className="dash-logo img-fluid" />
     </div>
+
+    <h1>you are finally here, {userData.username}</h1>
 
 
     <h3 className="user-profile-name mb-3">

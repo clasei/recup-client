@@ -76,6 +76,10 @@ h3, h4, p {
   margin-top: 1rem;
 }
 
+.recup-word {
+  text-shadow: #dbdbdb 1px 0 1px;
+}
+
 .life-is-rara {
   margin-top: 4.2rem;
   margin-bottom: 2.7rem;
@@ -85,6 +89,12 @@ h3, h4, p {
 
 .text-muted {
   color: #B3B3B3 !important;
+}
+
+.limit-container {
+  max-width: 800px !important;
+  margin: 0 auto;
+  line-height: 1.7rem;
 }
 
 .card {
@@ -158,13 +168,17 @@ img {
   font-size: 0.75rem;
 }
 
-.username-link a, .social-link a {
+.username-link a, .social-link a, .mailto {
   color: #c0c0c0 !important;
   text-decoration: none;
   border-bottom: 1px solid #c0c0c07f;
   display: inline-block;
   transition: transform 0.3s ease-in-out;
   transition: border-bottom-color 0.3s ease;
+}
+
+.mailto:hover, .mailto:active, .social-link a:hover, .social-link a:active {
+  color: #4CB1F9 !important;
 }
 
 .username-link a:hover, .username-link a:active {
@@ -198,6 +212,21 @@ img {
   /* background-color: #616161 !important; */
   box-shadow: 6px 6px 20px rgba(254, 254, 254, 0.6);
   border: solid 1px #4CB1F9 !important;
+  font-weight: bold;
+}
+
+.home-btn {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, 
+    font-weight 0.3s ease-in-out !important;
+}
+
+.home-btn:hover, .home-btn:active {
+  transform: scale(1.05);
+  /* background-color: #616161 !important; */
+  box-shadow: 6px 6px 20px rgba(254, 254, 254, 0.6);
+  border: solid 1px #fce149 !important;
   font-weight: bold;
 }
 
