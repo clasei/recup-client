@@ -183,6 +183,7 @@ img {
 
 .mailto:hover, .mailto:active, .social-link a:hover, .social-link a:active {
   color: #4CB1F9 !important;
+  border-bottom-color: #5656567f;
 }
 
 .username-link a:hover, .username-link a:active {
@@ -337,6 +338,12 @@ textarea:focus {
 
 .required-field {
   color: #ff7171;
+}
+
+.text-required-field {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #ff7171;
 }
 
 /* images ------------------------- */

@@ -98,11 +98,13 @@ function NewContentRecForm() {
           <form className="new-content-form d-flex justify-content-center" onSubmit={handleSubmit}>
             <h3>add some brand new stuff</h3>
 
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+
             {/* <small className="form-text text-muted" style={{ fontSize: '0.70rem' }}>{'[ '}marked with 
               <span className="required-field">{' * '}</span> means required{' ]'}</small> */}
 
             <small
-              className="form-text text-muted"
+              className="text-required-field form-text text-muted"
               style={{ fontSize: "0.70rem", marginTop: '1rem' }}
             >
               {"[ "}all fields are required
@@ -297,7 +299,7 @@ function NewContentRecForm() {
               </small>
             </div>
 
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            
 
             <small
               className="form-text text-muted"

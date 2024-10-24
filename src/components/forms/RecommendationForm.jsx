@@ -63,6 +63,7 @@ function RecommendationForm({ contentId }) {
                 id="recTitle"
                 value={recTitle}
                 onChange={(e) => setRecTitle(e.target.value)}
+                required
               />
             </div>
             <div className="mb-1">
@@ -75,6 +76,7 @@ function RecommendationForm({ contentId }) {
                 id="tagline"
                 value={tagline}
                 onChange={(e) => setTagline(e.target.value)}
+                required
               />
             </div>
             <div className="mb-1">
@@ -87,6 +89,7 @@ function RecommendationForm({ contentId }) {
                 rows="7"
                 value={recText}
                 onChange={(e) => setRecText(e.target.value)}
+                required
               ></textarea>
             </div>
             <button type="submit" className="btn btn-primary">let's do this</button>
