@@ -47,7 +47,7 @@ function HomePage() {
           </p>
 
           <p className="lead" style={{ fontWeight: 'bold', marginTop: '3.5rem', marginBottom: '2.5rem' }}>
-            join the <span className="recup-word">recup</span>
+            be bold,  <br></br>join the <span className="recup-word">recup</span>
           </p>
           
 

@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { WithContext as ReactTags } from 'react-tag-input'
 import service from "../../services/config"
-
+import recupMiniT from '../../assets/images/recup-mini-transparent.png'
 import "../../assets/styles/RecContentForm.css" 
 
 
@@ -96,7 +96,7 @@ function NewContentRecForm() {
           </h1> */}
 
           <form className="new-content-form d-flex justify-content-center" onSubmit={handleSubmit}>
-            <h3>add some brand new stuff</h3>
+            <h2>let's add some brand new stuff</h2>
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
@@ -201,7 +201,7 @@ function NewContentRecForm() {
                   handleDelete={handleKeywordDelete}
                   handleAddition={handleKeywordAddition}
                   inputFieldPosition="inline"
-                  placeholder="add a keyword"
+                  placeholder="write a keyword"
                   required
                   className="react-tags-input" 
                   id="react-tags-id"
@@ -244,13 +244,18 @@ function NewContentRecForm() {
               />
               {isUploading && <h3>... uploading image</h3>}
               {mediaUrl && <img src={mediaUrl} alt="Preview" width={200} />}
-              <small className="form-text" style={{ marginTop: '0.5rem' }} >
+              <small className="form-text mb-4" style={{ marginTop: '0.5rem' }} >
                 allowed formats: .png, .jpg
               </small>
             </div>
 
-            {/* <hr className="custom-hr" /> */}
-            <p className="custom-emoji"> 🤓 </p>
+            <div className="logo-container">
+              <img src={recupMiniT} alt="recup logo" 
+                className="small-image mt-4" 
+                style={{ height: '37px', marginBottom: '1rem'}} 
+              />
+            </div>
+            {/* <p className="custom-emoji"> 🤓 </p> */}
 
             <h2>now it's recup time</h2>
 

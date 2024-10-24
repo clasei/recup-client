@@ -9,7 +9,7 @@ function Footer() {
   return (
     <footer className="footer d-flex flex-column align-items-center py-1">
       <NavLink to="/" className="footer-logo">
-        <img src={recupMiniT} alt="Recup logo" className="footer-logo-img" />
+        <img src={recupMiniT} alt="recup logo" className="footer-logo-img" />
       </NavLink>
       <span className="footer-recup mt-2">
         <NavLink className="mx-2" to="/">recup</NavLink> 
