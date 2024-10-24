@@ -19,6 +19,8 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
   const [searchTerm, setSearchTerm] = useState("")
   const [filteredContents, setFilteredContents] = useState([])
 
+  const [recommendedContentIds, setRecommendedContentIds] = useState([])
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,14 +28,10 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
         // if (!response.ok) {
         //   throw new Error('error fetching contents')
         // }
-
         // setContents(response.data)
-
         const shuffledContents= shuffleArray(contentsResponse.data)
         setContents(shuffledContents)
-
         // setLoading(false)
-
         // MAKE SURE YOU WANT TO KEEP THIS BEFORE DEPLOYMENT !!! ADAPT TIME IF NEEDED !!!
         // adding setTimeout to enjoy the spinner xd
         setTimeout(() => {
@@ -48,6 +46,27 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
 
     fetchData()
   }, [])
+
+
+  // fetch user CREATED RECS to check if content is already recommended..
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await service.get(`/users/user-profile/${loggedUserId}`)
+        const createdRecs = response.data.createdRecs
+        const recommendedIds = createdRecs.map(rec => rec.content._id)
+        setRecommendedContentIds(recommendedIds)
+      } catch (error) {
+        console.error("Error fetching user profile:", error)
+      }
+    }
+
+    if (loggedUserId) {
+      fetchUserProfile()
+    }
+  }, [loggedUserId])
+
+  // --------------------------------------
 
 
   useEffect(() => {
@@ -85,19 +104,26 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
         style={{ marginBottom: "20px", maxWidth: '500px', margin: '0 auto' }}
       />
 
-      <div className="row justify-content-center">
-        {filteredContents.map((content) => (
-          <div key={content._id} className="col-md-6 col-12 d-flex justify-content-center mt-4 mb-4">
-            <ContentCard 
-              loggedUserId={loggedUserId}
-              setSavedRecs={setSavedRecs}
-              savedRecs={savedRecs} 
-              content={content} 
-              style={{ width: '100%' }}
-            />
-          </div>
-        ))}
+<div className="row justify-content-center">
+        {filteredContents.map((content) => {
+          const isCreated = recommendedContentIds.includes(content._id)
+
+          return (
+            <div key={content._id} className="col-md-6 col-12 d-flex justify-content-center mt-4 mb-4">
+              <ContentCard 
+                loggedUserId={loggedUserId}
+                setSavedRecs={setSavedRecs}
+                savedRecs={savedRecs} 
+                content={content} 
+                isCreated={isCreated}
+                style={{ width: '100%' }}
+              />
+            </div>
+          )
+        })}
       </div>
+
+
       <div className="pre-footer-container">
 
       <div className="new-content">

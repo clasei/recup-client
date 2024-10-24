@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../context/auth.context"
 import "../../assets/styles/ContentListDetail.css"
 
-function ContentCard({ content }) {
+function ContentCard({ content, isCreated }) {
 
   const { loggedUserId } = useContext(AuthContext)
   // console.log(loggedUserId)
@@ -15,9 +15,20 @@ function ContentCard({ content }) {
 
   const isContentOwner = loggedUserId === content.firstRecommendationCreator._id
 
+  // const handleAddRecup = () => {
+
+  //   navigate(`/add/new/${content._id}`)
+  // }
+
   const handleAddRecup = () => {
-    navigate(`/add/new/${content._id}`)
+    if (isCreated) {
+      alert("you want to update your previous recup? let's go to your dashboard")
+      navigate(`/dashboard`)
+    } else {
+      navigate(`/add/new/${content._id}`)
+    }
   }
+  
 
   return (
     <div className="content-card card mb-4">
@@ -94,7 +105,6 @@ function ContentCard({ content }) {
                     href={`mailto:just-recup@proton.me?subject=Edit%20Content%20Request&body=hey%20this%20content%20I%20added%20needs%20to%20be%20edited%20ID:%20${content._id}`} 
                     className="request-edit"
                   >
-
                     request edit
                   <svg
                     className="edit-svg mx-1"
