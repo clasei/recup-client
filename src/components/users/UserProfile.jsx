@@ -9,11 +9,13 @@ import { AuthContext } from "../../context/auth.context"
 function UserProfile({ setSavedRecs, savedRecs }) {
   const { username } = useParams()
   const [userRecups, setUserRecups] = useState([])
+
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
   const { loggedUserId } = useContext(AuthContext)
   const [loggedUsername, setLoggedUsername] = useState("")
-  const [userData, setUserData] = useState({}) // fetch all user data as an object
+
+  // const [userProfileData, setUserProfileData] = useState({})
 
   useEffect(() => {
     const fetchLoggedUsername = async () => {
@@ -21,7 +23,7 @@ function UserProfile({ setSavedRecs, savedRecs }) {
         const response = await service.get(`/users/user-profile/${loggedUserId}`)
         setLoggedUsername(response.data.username)
         console.log(response.data.username)
-        setUserData(response.data)
+        // setUserData(response.data)
       } catch (error) {
         console.error("Error fetching logged user data:", error);
       }
@@ -56,7 +58,13 @@ function UserProfile({ setSavedRecs, savedRecs }) {
       const fetchUserRecups = async () => {
         try {
           const response = await service.get(`/users/created/${username}`);
-          setUserRecups(response.data);
+          setUserRecups(response.data.createdRecs)
+          // console.log(response.data.createdRecs)
+          // setUserProfileData({
+          //   name: response.data.name,
+          //   lastName: response.data.lastName
+          // })
+          console.log(response.data.name)
         } catch (error) {
           console.error("Error fetching user recups:", error);
         } finally {
@@ -79,11 +87,11 @@ function UserProfile({ setSavedRecs, savedRecs }) {
     <div className="user-recups">
       <h1>{username}'s recups</h1>
 
-      {/* // CHECK THIS LATER !!!
+      {/* // CHECK THIS LATER !!! */}
 
-      <h3>
-        {userData.name || userData.lastName
-          ? `${userData.name} ${userData.lastName}`
+      {/* <h3>
+        {userProfileData.name || userProfileData.lastName
+          ? `${userProfileData.name} ${userProfileData.lastName}`
           : ''}
       </h3> */}
 
