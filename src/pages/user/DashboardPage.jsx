@@ -55,8 +55,10 @@ function DashboardPage({ savedRecs, setSavedRecs }) {
 
     <h3 className="user-profile-name mb-3">
       {userData.name || userData.lastName ? (
-        `welcome to ${userData.name} ${userData.lastName} recup safe place`
-      ) : null}
+        `welcome to ${userData.name} ${userData.lastName}'s recup safe place`
+      ) : (
+        `welcome to your recup safe place`
+      )}
     </h3>
 
 

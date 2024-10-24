@@ -63,8 +63,8 @@ function ContentCard({ content, isCreated }) {
         )}
 
         {content.mediaUrl && (
-          // <div className="content-img text-center mb-4">
-          <div className="content-img text-center mb-4 d-flex justify-content-center align-items-center">
+          // <div className="content-img text-center mb-4 justify-content-center align-items-center">
+          <div className="content-img text-center mb-4">
             <Link to={`/contents/recups/${content._id}`}>
             {content.mediaUrl.match(/\.(jpeg|jpg|png)$/) && (
               <img
