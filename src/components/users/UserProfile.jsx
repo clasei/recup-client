@@ -13,6 +13,7 @@ function UserProfile({ setSavedRecs, savedRecs }) {
   const navigate = useNavigate()
   const { loggedUserId } = useContext(AuthContext)
   const [loggedUsername, setLoggedUsername] = useState("")
+  const [userData, setUserData] = useState({}) // fetch all user data as an object
 
   useEffect(() => {
     const fetchLoggedUsername = async () => {
@@ -20,6 +21,7 @@ function UserProfile({ setSavedRecs, savedRecs }) {
         const response = await service.get(`/users/user-profile/${loggedUserId}`)
         setLoggedUsername(response.data.username)
         console.log(response.data.username)
+        setUserData(response.data)
       } catch (error) {
         console.error("Error fetching logged user data:", error);
       }
@@ -76,6 +78,19 @@ function UserProfile({ setSavedRecs, savedRecs }) {
   return (
     <div className="user-recups">
       <h1>{username}'s recups</h1>
+
+      {/* // CHECK THIS LATER !!!
+
+      <h3>
+        {userData.name || userData.lastName
+          ? `${userData.name} ${userData.lastName}`
+          : ''}
+      </h3> */}
+
+      <p className="text-center">
+        {userRecups.length} created recups
+      </p>
+      
       <div className="row justify-content-center">
         {userRecups.map((recommendation) => (
           <div key={recommendation._id} className="col-md-6 col-12 d-flex justify-content-center mt-4 mb-4">
