@@ -2,10 +2,10 @@
 
 <img width="420" alt="image" src="https://github.com/user-attachments/assets/8eda20f4-a204-4f67-accd-b2548849c122">
 
-**recup**
+**Welcome to recup**
 =========
 
-your personal space to find, share, and celebrate content that truly matters.
+Your personal space to find, share, and celebrate content that truly matters.
 
 
 **Overview**
