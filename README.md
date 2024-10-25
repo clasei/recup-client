@@ -1,7 +1,8 @@
 # recup 
 
 *   **check recup app** → [recup - just-recup.netlify.app](https://just-recup.netlify.app/)
-    *where the good stuff lives*
+
+*where the good stuff lives*
 
 <img width="420" alt="image" src="https://github.com/user-attachments/assets/8eda20f4-a204-4f67-accd-b2548849c122">
 
