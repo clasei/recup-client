@@ -1,6 +1,6 @@
 # recup 
 
-<img width="250" alt="image" src="https://github.com/user-attachments/assets/8eda20f4-a204-4f67-accd-b2548849c122">
+<img width="320" alt="image" src="https://github.com/user-attachments/assets/8eda20f4-a204-4f67-accd-b2548849c122">
 
 **recup**
 =========
@@ -60,6 +60,12 @@ recup is fully responsive with a smooth navbar (toggle for mobile) and footer li
 *   **Unlogged** – takes you back to Home
     
 *   **Logged-in** – directs you to the Dashboard
+
+**Extras:**
+
+*   **Loading Spinners** – sleek animations keep you informed while pages load.
+    
+*   **Error Handling** – friendly error messages for seamless experience, with specific pages for **404** (lost page) and **500** (server error). Plus, the **404 page** features a rotating Rubik’s Cube!
     
 
 **Backend Endpoints**
