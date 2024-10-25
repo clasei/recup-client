@@ -1,10 +1,15 @@
-import recupLogo from '../../assets/images/recup-logo.png'
+import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
+import recupLogo from '../../assets/images/recup-logo.png'
 
 
 function HelpPage() {
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="limit-container container">

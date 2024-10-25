@@ -20,11 +20,11 @@ function Error500() {
   }, [isLoggedIn, navigate])
 
   return (
-    <div className="container text-center">
+    <div className="container text-center mt-4">
 
-      <div className="dash-logo-div d-flex justify-content-center align-items-center">
+      {/* <div className="dash-logo-div d-flex justify-content-center align-items-center">
         <img src={PacoSleeping} alt="paco-sleeps" className="dash-logo img-fluid" />
-      </div>
+      </div> */}
 
       <h3>sth weird just happened</h3>
       <p>let's go to a safer place</p>

@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context' 
-import PacoSleeping from '../../assets/images/PacoIsSleeping.png'
+import '../../assets/styles/Loader.css'
 
 
 function Error404() {
@@ -15,20 +15,56 @@ function Error404() {
       } else {
         navigate('/')  
       }
-    }, 3000)  
+    }, 3700)  
 
     return () => clearTimeout(timer)  
   }, [isLoggedIn, navigate])
 
   return (
-    <div className="container text-center">
+    <div className="container text-center mt-4">
 
-      <div className="dash-logo-div d-flex justify-content-center align-items-center">
-        <img src={PacoSleeping} alt="paco-sleeps" className="dash-logo img-fluid" />
+      <div className="my-loader">
+        <div className="rubiks-cube">
+          <div className="face front">
+            {[...Array(9)].map((_, index) => (
+              <div key={index} className="cube"></div>
+            ))}
+          </div>
+          <div className="face back">
+            {[...Array(9)].map((_, index) => (
+              <div key={index} className="cube"></div>
+            ))}
+          </div>
+          <div className="face left">
+            {[...Array(9)].map((_, index) => (
+              <div key={index} className="cube"></div>
+            ))}
+          </div>
+          <div className="face right">
+            {[...Array(9)].map((_, index) => (
+              <div key={index} className="cube"></div>
+            ))}
+          </div>
+          <div className="face top">
+            {[...Array(9)].map((_, index) => (
+              <div key={index} className="cube"></div>
+            ))}
+          </div>
+          <div className="face bottom">
+            {[...Array(9)].map((_, index) => (
+              <div key={index} className="cube"></div>
+            ))}
+          </div>
+        </div>
       </div>
-      <h3>everyone feels a bit lost sometimes</h3>
-      <p>let's find a way</p>
-      <p>redirecting in 3, 2, 1..</p>
+
+
+       <div className='lost-text mt-4'>
+        <h3>everyone feels a bit lost sometimes</h3>
+        <p>let's find a way</p>
+        <p>redirecting in 3, 2, 1..</p>
+      </div>
+
     </div>
   )
 }

@@ -101,6 +101,10 @@ h3, h4, p {
   line-height: 1.7rem;
 }
 
+.created-recups-cards {
+  margin-top: 4rem;
+}
+
 .card {
   max-width: 350px;
   width: 100%;
@@ -115,8 +119,15 @@ h3, h4, p {
   color: #E0E0E0 !important;
   /* background-color: #c5c5c5; */
   background-color: #2B2B2B;
-  padding: 0.5rem;
+  padding: 1rem;
   padding-top: 1.5rem;
+}
+
+.recup-text {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  line-height: 1.7rem;
+  text-align: justify;
 }
 
 img {

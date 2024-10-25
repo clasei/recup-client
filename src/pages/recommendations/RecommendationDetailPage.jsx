@@ -110,7 +110,7 @@ function RecommendationDetailPage({ setSavedRecs, savedRecs }) {
             <em>{recommendation.tagline}</em>
           </p> */}
           <hr />
-          <p>{recommendation.recText}</p>
+          <p className="recup-text">{recommendation.recText}</p>
 
           <div className="d-flex justify-content-center">
             <img className="mini-logo" src={recupMiniT} alt="recup" />

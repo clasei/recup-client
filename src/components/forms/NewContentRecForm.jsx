@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import { useNavigate } from "react-router-dom"
 import { WithContext as ReactTags } from 'react-tag-input'
@@ -22,6 +22,10 @@ function NewContentRecForm() {
   const [tagline, setTagline] = useState("")
   const [recText, setRecText] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
+
+  useEffect(() => {
+    window.scrollTo(0, 0) // make page start at the begginning..
+  }, [])
 
 
   // npm install react-tag-input...
@@ -252,7 +256,7 @@ function NewContentRecForm() {
             <div className="logo-container">
               <img src={recupMiniT} alt="recup logo" 
                 className="small-image mt-4" 
-                style={{ height: '37px', marginBottom: '1rem'}} 
+                style={{ height: '37px', width: '37px', marginBottom: '1rem'}} 
               />
             </div>
             {/* <p className="custom-emoji"> 🤓 </p> */}
@@ -307,12 +311,11 @@ function NewContentRecForm() {
             
 
             <small
-              className="form-text text-muted"
+              className="text-required-field form-text text-muted"
               style={{ fontSize: "0.70rem", marginTop: '1rem' }}
             >
               {"[ "}hey, remember that all data is required
               <span className="required-field">{" * "}</span>
-              to add new content
               {" ]"}
             </small>
 
