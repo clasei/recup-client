@@ -1,6 +1,6 @@
 # recup 
 
-<img width="320" alt="image" src="https://github.com/user-attachments/assets/8eda20f4-a204-4f67-accd-b2548849c122">
+<img width="420" alt="image" src="https://github.com/user-attachments/assets/8eda20f4-a204-4f67-accd-b2548849c122">
 
 **recup**
 =========
@@ -96,10 +96,6 @@ recup is fully responsive with a smooth navbar (toggle for mobile) and footer li
 
 
 ---------------------
----------------------
 
 
 That's it. Now go recup the world.
-
-
-
