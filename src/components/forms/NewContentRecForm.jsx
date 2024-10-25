@@ -256,7 +256,7 @@ function NewContentRecForm() {
             <div className="logo-container">
               <img src={recupMiniT} alt="recup logo" 
                 className="small-image mt-4" 
-                style={{ height: '37px', marginBottom: '1rem'}} 
+                style={{ height: '37px', width: '37px', marginBottom: '1rem'}} 
               />
             </div>
             {/* <p className="custom-emoji"> 🤓 </p> */}
@@ -311,12 +311,11 @@ function NewContentRecForm() {
             
 
             <small
-              className="form-text text-muted"
+              className="text-required-field form-text text-muted"
               style={{ fontSize: "0.70rem", marginTop: '1rem' }}
             >
               {"[ "}hey, remember that all data is required
               <span className="required-field">{" * "}</span>
-              to add new content
               {" ]"}
             </small>
 
