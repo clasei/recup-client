@@ -27,9 +27,9 @@ function Footer() {
     <span className="footer-links d-flex align-items-center">
       <NavLink className="mx-2" to="/">home</NavLink>
       |
-      <NavLink className="mx-2" to="/help">help</NavLink>
-      |
       <NavLink className="mx-2" to="/about">about</NavLink> 
+      |
+      <NavLink className="mx-2" to="/help">help</NavLink>
       |
       
       <div className="contact-pack">

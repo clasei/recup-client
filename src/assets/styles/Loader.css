@@ -45,7 +45,7 @@
   width: calc(100% / 3);
   height: calc(100% / 3);
   box-sizing: border-box;
-  border: 1px solid #000;
+  border: 1px solid #c0c0c0;
 }
 
 @keyframes my-rotateCube {

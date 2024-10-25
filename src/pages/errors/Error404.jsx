@@ -15,7 +15,7 @@ function Error404() {
       } else {
         navigate('/')  
       }
-    }, 3700)  
+    }, 4200)  
 
     return () => clearTimeout(timer)  
   }, [isLoggedIn, navigate])
