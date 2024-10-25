@@ -43,7 +43,7 @@ function HomePage() {
             so, from now on, when you find something truly great, you share a <span className="recup-word">recup</span> — <strong>it's your way of passing along the good stuff</strong>.
           </p>
           <p className="text-center">
-            a <span className="recup-word">recup</span> is your personal stamp of worthiness, your way of saying this really matters, this is a life-saver. <strong>because some things are just too good not to shared</strong>.
+            a <span className="recup-word">recup</span> is your personal stamp of worthiness, your way of saying this really matters, this is a life-saver. <strong>because some things are just too good not to share</strong>.
           </p>
 
           <p className="text-center" style={{ fontStyle: 'italic' }}>
