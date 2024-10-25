@@ -21,11 +21,12 @@ function Error404() {
   }, [isLoggedIn, navigate])
 
   return (
-    <div className="container text-center">
+    <div className="container text-center mt-4">
 
-      <div className="dash-logo-div d-flex justify-content-center align-items-center">
+      {/* <div className="dash-logo-div d-flex justify-content-center align-items-center">
         <img src={PacoSleeping} alt="paco-sleeps" className="dash-logo img-fluid" />
-      </div>
+      </div> */}
+
       <h3>everyone feels a bit lost sometimes</h3>
       <p>let's find a way</p>
       <p>redirecting in 3, 2, 1..</p>

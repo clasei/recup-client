@@ -1,11 +1,9 @@
-import { useState, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 import { useNavigate, NavLink } from "react-router-dom"
-
 import service from "../../services/config"
-// import jwt_decode from "jwt-decode"
 import { AuthContext } from "../../context/auth.context"
-
 import '../../assets/styles/LoginSignup.css'
+
 
 function LoginPage() {
   const [email, setEmail] = useState("")
@@ -15,6 +13,10 @@ function LoginPage() {
   const navigate = useNavigate()
   const { authenticateUser } = useContext(AuthContext)
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -23,12 +25,9 @@ function LoginPage() {
       const response = await service.post("/auth/login", { email, password })
 
       const token = response.data.authToken
-      localStorage.setItem("authToken", token) // save token in localStorage
+      localStorage.setItem("authToken", token)
 
-      // const decodedToken = jwt_decode(token)
-      // const userId = decodedToken._id
-
-      await authenticateUser() // validate token
+      await authenticateUser()
 
       navigate(`/dashboard`)
     } catch (error) {

@@ -26,10 +26,10 @@ function CreatedRecupsPage() {
 
     <>
       <div className="created-recups container">
-        <h1>enjoy yourself</h1>
+        <h1>enjoy yourself and your shared recups</h1>
         
         {createdRecups.length > 0 ? (
-          <div className="row justify-content-center">
+          <div className="created-recups-cards row justify-content-center">
             {createdRecups.map(recup => (
               <div key={recup._id} className="col-md-6 col-12 d-flex justify-content-center mb-4">
                 <OwnCreatedRecup recommendation={recup} style={{ width: '100%' }} />

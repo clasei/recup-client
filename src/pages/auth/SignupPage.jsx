@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 
 import service from "../../services/config"
@@ -13,8 +13,13 @@ function SignupPage() {
   const [username, setUsername] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
   
-  const navigate = useNavigate()
   const { authenticateUser } = useContext(AuthContext)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

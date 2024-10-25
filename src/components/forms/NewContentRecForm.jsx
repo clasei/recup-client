@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import { useNavigate } from "react-router-dom"
 import { WithContext as ReactTags } from 'react-tag-input'
@@ -22,6 +22,10 @@ function NewContentRecForm() {
   const [tagline, setTagline] = useState("")
   const [recText, setRecText] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
+
+  useEffect(() => {
+    window.scrollTo(0, 0) // make page start at the begginning..
+  }, [])
 
 
   // npm install react-tag-input...
