@@ -70,7 +70,7 @@ function ContentListComponent({ setSavedRecs, savedRecs }) {
 
 
   useEffect(() => {
-    if (searchTerm.length >= 3) {
+    if (searchTerm.length > 0) {
       setFilteredContents(
         contents.filter((content) =>
           content.title.toLowerCase().includes(searchTerm.toLowerCase())
