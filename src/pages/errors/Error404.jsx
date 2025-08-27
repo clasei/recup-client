@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context' 
-import '../../assets/styles/Loader.css'
+import '../../assets/styles/RubiksCubeLoader.css'
 
 
 function Error404() {
@@ -15,7 +15,7 @@ function Error404() {
       } else {
         navigate('/')  
       }
-    }, 4200)  
+    }, 42000)  
 
     return () => clearTimeout(timer)  
   }, [isLoggedIn, navigate])
